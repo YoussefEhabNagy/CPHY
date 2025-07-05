@@ -1,4 +1,4 @@
-# MIPI C-PHY Encoder Project
+# MIPI C-PHY Project
 
 ## Overview
 
@@ -24,9 +24,7 @@ Master/
 │   ├── Esc_Sequencer.v
 │   └── ...
 ├── Sim/                  # Testbenches and assertions (SystemVerilog)
-│   ├── tb_Encoder.sv
-│   ├── tb_HS_Sequencer.sv
-│   ├── tb_Esc_Sequencer.sv
+│   ├── Master_tb.sv
 │   └── ...
 ├── Synth/                # Synthesis scripts/reports
 │   └── ...
