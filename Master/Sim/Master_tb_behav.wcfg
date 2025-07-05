@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Master_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Master_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="16385005837fs"></ZoomStartTime>
+      <ZoomEndTime time="16684505838fs"></ZoomEndTime>
+      <Cursor1Time time="16954556000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="157"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="137" />
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">High Speed</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxSymbolClkHS" type="logic">
+      <obj_property name="ElementShortName">TxSymbolClkHS</obj_property>
+      <obj_property name="ObjectShortName">TxSymbolClkHS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/cphy_tx_fsm_U0/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Inputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxDataHS" type="array">
+      <obj_property name="ElementShortName">TxDataHS[15:0]</obj_property>
+      <obj_property name="ObjectShortName">TxDataHS[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxSendSyncHS" type="logic">
+      <obj_property name="ElementShortName">TxSendSyncHS</obj_property>
+      <obj_property name="ObjectShortName">TxSendSyncHS</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReqHS" type="logic">
+      <obj_property name="ElementShortName">TxReqHS</obj_property>
+      <obj_property name="ObjectShortName">TxReqHS</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Outputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReadyHS" type="logic">
+      <obj_property name="ElementShortName">TxReadyHS</obj_property>
+      <obj_property name="ObjectShortName">TxReadyHS</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/C" type="array">
+      <obj_property name="ElementShortName">C[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Sym" type="array">
+      <obj_property name="ElementShortName">Sym[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Sym[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">LPDT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/cphy_tx_fsm_U0/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxClkEsc" type="logic">
+      <obj_property name="ElementShortName">TxClkEsc</obj_property>
+      <obj_property name="ObjectShortName">TxClkEsc</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Outputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Inputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxDataEsc" type="array">
+      <obj_property name="ElementShortName">TxDataEsc[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TxDataEsc[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReqEsc" type="logic">
+      <obj_property name="ElementShortName">TxReqEsc</obj_property>
+      <obj_property name="ObjectShortName">TxReqEsc</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxLpdtEsc" type="logic">
+      <obj_property name="ElementShortName">TxLpdtEsc</obj_property>
+      <obj_property name="ObjectShortName">TxLpdtEsc</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxValidEsc" type="logic">
+      <obj_property name="ElementShortName">TxValidEsc</obj_property>
+      <obj_property name="ObjectShortName">TxValidEsc</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReadyEsc" type="logic">
+      <obj_property name="ElementShortName">TxReadyEsc</obj_property>
+      <obj_property name="ObjectShortName">TxReadyEsc</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/C" type="array">
+      <obj_property name="ElementShortName">C[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/TxDataEsc" type="array">
+      <obj_property name="ElementShortName">TxDataEsc[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TxDataEsc[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/EscSerEn" type="logic">
+      <obj_property name="ElementShortName">EscSerEn</obj_property>
+      <obj_property name="ObjectShortName">EscSerEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/TxReadyEsc" type="logic">
+      <obj_property name="ElementShortName">TxReadyEsc</obj_property>
+      <obj_property name="ObjectShortName">TxReadyEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/LastBit" type="logic">
+      <obj_property name="ElementShortName">LastBit</obj_property>
+      <obj_property name="ObjectShortName">LastBit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/SerBit" type="logic">
+      <obj_property name="ElementShortName">SerBit</obj_property>
+      <obj_property name="ObjectShortName">SerBit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/Pause_Ready" type="logic">
+      <obj_property name="ElementShortName">Pause_Ready</obj_property>
+      <obj_property name="ObjectShortName">Pause_Ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/counter" type="array">
+      <obj_property name="ElementShortName">counter[2:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/TxDataEsc_reg" type="array">
+      <obj_property name="ElementShortName">TxDataEsc_reg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">TxDataEsc_reg[0:7]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Triggers</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxClkEsc" type="logic">
+      <obj_property name="ElementShortName">TxClkEsc</obj_property>
+      <obj_property name="ObjectShortName">TxClkEsc</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/cphy_tx_fsm_U0/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Inputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReqEsc" type="logic">
+      <obj_property name="ElementShortName">TxReqEsc</obj_property>
+      <obj_property name="ObjectShortName">TxReqEsc</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxTriggerEsc" type="array">
+      <obj_property name="ElementShortName">TxTriggerEsc[3:0]</obj_property>
+      <obj_property name="ObjectShortName">TxTriggerEsc[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Outputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/C" type="array">
+      <obj_property name="ElementShortName">C[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">TA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/cphy_tx_fsm_U0/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[5:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Inputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TurnRequest" type="logic">
+      <obj_property name="ElementShortName">TurnRequest</obj_property>
+      <obj_property name="ObjectShortName">TurnRequest</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Outputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Direction" type="logic">
+      <obj_property name="ElementShortName">Direction</obj_property>
+      <obj_property name="ObjectShortName">Direction</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/C" type="array">
+      <obj_property name="ElementShortName">C[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C[7:0]</obj_property>
+      <obj_property name="CellHeight">70</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxClkEsc" type="logic">
+      <obj_property name="ElementShortName">TxClkEsc</obj_property>
+      <obj_property name="ObjectShortName">TxClkEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReqEsc" type="logic">
+      <obj_property name="ElementShortName">TxReqEsc</obj_property>
+      <obj_property name="ObjectShortName">TxReqEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxLpdtEsc" type="logic">
+      <obj_property name="ElementShortName">TxLpdtEsc</obj_property>
+      <obj_property name="ObjectShortName">TxLpdtEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RstN" type="logic">
+      <obj_property name="ElementShortName">RstN</obj_property>
+      <obj_property name="ObjectShortName">RstN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxUlpsEsc" type="logic">
+      <obj_property name="ElementShortName">TxUlpsEsc</obj_property>
+      <obj_property name="ObjectShortName">TxUlpsEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxUlpsExit" type="logic">
+      <obj_property name="ElementShortName">TxUlpsExit</obj_property>
+      <obj_property name="ObjectShortName">TxUlpsExit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxDataEsc" type="array">
+      <obj_property name="ElementShortName">TxDataEsc[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TxDataEsc[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxValidEsc" type="logic">
+      <obj_property name="ElementShortName">TxValidEsc</obj_property>
+      <obj_property name="ObjectShortName">TxValidEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxReadyEsc" type="logic">
+      <obj_property name="ElementShortName">TxReadyEsc</obj_property>
+      <obj_property name="ObjectShortName">TxReadyEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TxWordClkHs" type="logic">
+      <obj_property name="ElementShortName">TxWordClkHs</obj_property>
+      <obj_property name="ObjectShortName">TxWordClkHs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/LpRx" type="array">
+      <obj_property name="ElementShortName">LpRx[2:0]</obj_property>
+      <obj_property name="ObjectShortName">LpRx[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TurnDisable" type="logic">
+      <obj_property name="ElementShortName">TurnDisable</obj_property>
+      <obj_property name="ObjectShortName">TurnDisable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ForceRxmode" type="logic">
+      <obj_property name="ElementShortName">ForceRxmode</obj_property>
+      <obj_property name="ObjectShortName">ForceRxmode</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ForceTxStopmode" type="logic">
+      <obj_property name="ElementShortName">ForceTxStopmode</obj_property>
+      <obj_property name="ObjectShortName">ForceTxStopmode</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Enable" type="logic">
+      <obj_property name="ElementShortName">Enable</obj_property>
+      <obj_property name="ObjectShortName">Enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/LP_CD_A" type="logic">
+      <obj_property name="ElementShortName">LP_CD_A</obj_property>
+      <obj_property name="ObjectShortName">LP_CD_A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/LP_CD_B" type="logic">
+      <obj_property name="ElementShortName">LP_CD_B</obj_property>
+      <obj_property name="ObjectShortName">LP_CD_B</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/LP_CD_C" type="logic">
+      <obj_property name="ElementShortName">LP_CD_C</obj_property>
+      <obj_property name="ObjectShortName">LP_CD_C</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/LpRxEn" type="logic">
+      <obj_property name="ElementShortName">LpRxEn</obj_property>
+      <obj_property name="ObjectShortName">LpRxEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RxClkEscOut" type="logic">
+      <obj_property name="ElementShortName">RxClkEscOut</obj_property>
+      <obj_property name="ObjectShortName">RxClkEscOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RxLpdtEsc" type="logic">
+      <obj_property name="ElementShortName">RxLpdtEsc</obj_property>
+      <obj_property name="ObjectShortName">RxLpdtEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RxUlpsEsc" type="logic">
+      <obj_property name="ElementShortName">RxUlpsEsc</obj_property>
+      <obj_property name="ObjectShortName">RxUlpsEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RxTriggerEsc" type="array">
+      <obj_property name="ElementShortName">RxTriggerEsc[3:0]</obj_property>
+      <obj_property name="ObjectShortName">RxTriggerEsc[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RxEscData" type="array">
+      <obj_property name="ElementShortName">RxEscData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RxEscData[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Stopstate" type="logic">
+      <obj_property name="ElementShortName">Stopstate</obj_property>
+      <obj_property name="ObjectShortName">Stopstate</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/UlpsActiveNot" type="logic">
+      <obj_property name="ElementShortName">UlpsActiveNot</obj_property>
+      <obj_property name="ObjectShortName">UlpsActiveNot</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RxValidEsc" type="logic">
+      <obj_property name="ElementShortName">RxValidEsc</obj_property>
+      <obj_property name="ObjectShortName">RxValidEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrEsc" type="logic">
+      <obj_property name="ElementShortName">ErrEsc</obj_property>
+      <obj_property name="ObjectShortName">ErrEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrSyncEsc" type="logic">
+      <obj_property name="ElementShortName">ErrSyncEsc</obj_property>
+      <obj_property name="ObjectShortName">ErrSyncEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrControl" type="logic">
+      <obj_property name="ElementShortName">ErrControl</obj_property>
+      <obj_property name="ObjectShortName">ErrControl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrContentionLP0" type="logic">
+      <obj_property name="ElementShortName">ErrContentionLP0</obj_property>
+      <obj_property name="ObjectShortName">ErrContentionLP0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrContentionLP1" type="logic">
+      <obj_property name="ElementShortName">ErrContentionLP1</obj_property>
+      <obj_property name="ObjectShortName">ErrContentionLP1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrSotHS" type="logic">
+      <obj_property name="ElementShortName">ErrSotHS</obj_property>
+      <obj_property name="ObjectShortName">ErrSotHS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/ErrSotSyncHS" type="logic">
+      <obj_property name="ElementShortName">ErrSotSyncHS</obj_property>
+      <obj_property name="ObjectShortName">ErrSotSyncHS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/WaitHs" type="logic">
+      <obj_property name="ElementShortName">WaitHs</obj_property>
+      <obj_property name="ObjectShortName">WaitHs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/WaitEsc" type="logic">
+      <obj_property name="ElementShortName">WaitEsc</obj_property>
+      <obj_property name="ObjectShortName">WaitEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/WaitNotEsc" type="logic">
+      <obj_property name="ElementShortName">WaitNotEsc</obj_property>
+      <obj_property name="ObjectShortName">WaitNotEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Not_A_Prev" type="array">
+      <obj_property name="ElementShortName">Not_A_Prev[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Not_A_Prev[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Not_B_Prev" type="array">
+      <obj_property name="ElementShortName">Not_B_Prev[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Not_B_Prev[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/Not_C_Prev" type="array">
+      <obj_property name="ElementShortName">Not_C_Prev[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Not_C_Prev[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/comma" type="array">
+      <obj_property name="ElementShortName">comma[7:0]</obj_property>
+      <obj_property name="ObjectShortName">comma[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/LP_TX_TIME" type="array">
+      <obj_property name="ElementShortName">LP_TX_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LP_TX_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TERMEN_TIME" type="array">
+      <obj_property name="ElementShortName">TERMEN_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERMEN_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/SETTLE_TIME" type="array">
+      <obj_property name="ElementShortName">SETTLE_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SETTLE_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TA_SURE_TIME" type="array">
+      <obj_property name="ElementShortName">TA_SURE_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TA_SURE_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TA_GET_TIME" type="array">
+      <obj_property name="ElementShortName">TA_GET_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TA_GET_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/WAKE_UP_TIME" type="array">
+      <obj_property name="ElementShortName">WAKE_UP_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WAKE_UP_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_HS_REQUEST" type="array">
+      <obj_property name="ElementShortName">TX_HS_REQUEST[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_HS_REQUEST[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_LP_RQST" type="array">
+      <obj_property name="ElementShortName">TX_LP_RQST[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_LP_RQST[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_HS_PREPARE" type="array">
+      <obj_property name="ElementShortName">TX_HS_PREPARE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_HS_PREPARE[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_LP_YIELD" type="array">
+      <obj_property name="ElementShortName">TX_LP_YIELD[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_LP_YIELD[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_HS_PREAMBLE" type="array">
+      <obj_property name="ElementShortName">TX_HS_PREAMBLE[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_HS_PREAMBLE[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_TA_REQUEST" type="array">
+      <obj_property name="ElementShortName">TX_TA_REQUEST[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_TA_REQUEST[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_ESC_RQST" type="array">
+      <obj_property name="ElementShortName">TX_ESC_RQST[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_ESC_RQST[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_HS_SYNC_WORD" type="array">
+      <obj_property name="ElementShortName">TX_HS_SYNC_WORD[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_HS_SYNC_WORD[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_TA_GO" type="array">
+      <obj_property name="ElementShortName">TX_TA_GO[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_TA_GO[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_HS_SEND_DATA" type="array">
+      <obj_property name="ElementShortName">TX_HS_SEND_DATA[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_HS_SEND_DATA[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_HS_POST" type="array">
+      <obj_property name="ElementShortName">TX_HS_POST[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_HS_POST[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RX_TA_LOOK" type="array">
+      <obj_property name="ElementShortName">RX_TA_LOOK[5:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_TA_LOOK[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/RX_TA_ACK" type="array">
+      <obj_property name="ElementShortName">RX_TA_ACK[5:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_TA_ACK[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/FORCE_RX" type="array">
+      <obj_property name="ElementShortName">FORCE_RX[5:0]</obj_property>
+      <obj_property name="ObjectShortName">FORCE_RX[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_ESC_GO" type="array">
+      <obj_property name="ElementShortName">TX_ESC_GO[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_ESC_GO[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_ESC_CMD" type="array">
+      <obj_property name="ElementShortName">TX_ESC_CMD[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_ESC_CMD[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_LPDT" type="array">
+      <obj_property name="ElementShortName">TX_LPDT[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_LPDT[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_TRIGGERS" type="array">
+      <obj_property name="ElementShortName">TX_TRIGGERS[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_TRIGGERS[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_ULPS" type="array">
+      <obj_property name="ElementShortName">TX_ULPS[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_ULPS[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/TX_LPDT_Pause" type="array">
+      <obj_property name="ElementShortName">TX_LPDT_Pause[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_LPDT_Pause[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/RstN" type="logic">
+      <obj_property name="ElementShortName">RstN</obj_property>
+      <obj_property name="ObjectShortName">RstN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/TxSymbolClkHS" type="logic">
+      <obj_property name="ElementShortName">TxSymbolClkHS</obj_property>
+      <obj_property name="ObjectShortName">TxSymbolClkHS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/TxReqHS" type="logic">
+      <obj_property name="ElementShortName">TxReqHS</obj_property>
+      <obj_property name="ObjectShortName">TxReqHS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/HsSeqCtr" type="array">
+      <obj_property name="ElementShortName">HsSeqCtr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">HsSeqCtr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/SeqDone" type="logic">
+      <obj_property name="ElementShortName">SeqDone</obj_property>
+      <obj_property name="ObjectShortName">SeqDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/SeqSym" type="array">
+      <obj_property name="ElementShortName">SeqSym[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SeqSym[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/Sync" type="logic">
+      <obj_property name="ElementShortName">Sync</obj_property>
+      <obj_property name="ObjectShortName">Sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/Post" type="logic">
+      <obj_property name="ElementShortName">Post</obj_property>
+      <obj_property name="ObjectShortName">Post</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/Preamble" type="logic">
+      <obj_property name="ElementShortName">Preamble</obj_property>
+      <obj_property name="ObjectShortName">Preamble</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/Sym4" type="logic">
+      <obj_property name="ElementShortName">Sym4</obj_property>
+      <obj_property name="ObjectShortName">Sym4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/SeqSymIntermidiate" type="array">
+      <obj_property name="ElementShortName">SeqSymIntermidiate[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SeqSymIntermidiate[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/HS_Sequencer_U0/Count" type="array">
+      <obj_property name="ElementShortName">Count[6:0]</obj_property>
+      <obj_property name="ObjectShortName">Count[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/TxClkEsc" type="logic">
+      <obj_property name="ElementShortName">TxClkEsc</obj_property>
+      <obj_property name="ObjectShortName">TxClkEsc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Master_tb/DUT/ESC_Serializerr_U0/RstN" type="logic">
+      <obj_property name="ElementShortName">RstN</obj_property>
+      <obj_property name="ObjectShortName">RstN</obj_property>
+   </wvobject>
+</wave_config>

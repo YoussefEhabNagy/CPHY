@@ -1,0 +1,8 @@
+The scope of this document is to describe the lowest layers of the high-speed interfaces to be applied by MIPI
+Alliance application or protocol level specifications. This includes the physical interface, electrical interface,
+low-level timing and the PHY-level protocol. The goal has been to define a C-PHY high-speed interface that
+can coexist on the same pins as the MIPI D-PHY interface. These functional areas taken together are known
+as C-PHY.
+The C-PHY specification shall always be used in combination with a higher layer MIPI specification that
+references this specification. Any other use of the C-PHY specification is strictly prohibited, unless approved
+in advance by the MIPI Board of Directors.

@@ -1,0 +1,111 @@
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : Master
+Version: V-2023.12-SP5-1
+Date   : Mon Jun  2 22:08:30 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed32lvt_ff1p16v25c (File: /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db)
+
+
+Operating Conditions: ff1p16v25c   Library: saed32lvt_ff1p16v25c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+Master                 8000              saed32lvt_ff1p16v25c
+mapper                 8000              saed32lvt_ff1p16v25c
+HS_Serializer          8000              saed32lvt_ff1p16v25c
+HS_Sequencer           ForQA             saed32lvt_ff1p16v25c
+Mux_3Bit               ForQA             saed32lvt_ff1p16v25c
+Esc_Sequencer          ForQA             saed32lvt_ff1p16v25c
+ESC_Serializer         ForQA             saed32lvt_ff1p16v25c
+Mux_1Bit_3             ForQA             saed32lvt_ff1p16v25c
+Esc_Encoder            ForQA             saed32lvt_ff1p16v25c
+Encoder                ForQA             saed32lvt_ff1p16v25c
+TX_Ctrl_Logic          ForQA             saed32lvt_ff1p16v25c
+Mux_1Bit_1             ForQA             saed32lvt_ff1p16v25c
+ContentionDetection    ForQA             saed32lvt_ff1p16v25c
+cphy_tx_fsm            8000              saed32lvt_ff1p16v25c
+Clock_Recovery_LP      ForQA             saed32lvt_ff1p16v25c
+Esc_Decoder            ForQA             saed32lvt_ff1p16v25c
+ESC_Deserializer       8000              saed32lvt_ff1p16v25c
+Rx_Ctrl_Decoder        ForQA             saed32lvt_ff1p16v25c
+sync_level_12          ForQA             saed32lvt_ff1p16v25c
+sync_level_WIDTH2      ForQA             saed32lvt_ff1p16v25c
+sync_level_WIDTH3      ForQA             saed32lvt_ff1p16v25c
+TxTimer                ForQA             saed32lvt_ff1p16v25c
+RxTimer                ForQA             saed32lvt_ff1p16v25c
+Mux_1Bit_0             ForQA             saed32lvt_ff1p16v25c
+Mux_1Bit_2             ForQA             saed32lvt_ff1p16v25c
+sync_level_0           ForQA             saed32lvt_ff1p16v25c
+sync_level_1           ForQA             saed32lvt_ff1p16v25c
+sync_level_3           ForQA             saed32lvt_ff1p16v25c
+sync_level_4           ForQA             saed32lvt_ff1p16v25c
+sync_level_5           ForQA             saed32lvt_ff1p16v25c
+sync_level_6           ForQA             saed32lvt_ff1p16v25c
+sync_level_7           ForQA             saed32lvt_ff1p16v25c
+sync_level_8           ForQA             saed32lvt_ff1p16v25c
+sync_level_9           ForQA             saed32lvt_ff1p16v25c
+sync_level_10          ForQA             saed32lvt_ff1p16v25c
+sync_level_11          ForQA             saed32lvt_ff1p16v25c
+
+
+Global Operating Voltage = 1.16 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+Master                                   28.666    0.000 8.27e+07  111.394 100.0
+  sync_level_U14 (sync_level_WIDTH3)   2.54e-03    0.000 9.89e+05    0.991   0.9
+  sync_level_U13 (sync_level_WIDTH2)   4.22e-04    0.000 6.59e+05    0.660   0.6
+  sync_level_U12 (sync_level_0)        3.44e-04    0.000 3.30e+05    0.330   0.3
+  sync_level_U11 (sync_level_1)        7.70e-04    0.000 3.30e+05    0.330   0.3
+  sync_level_U9 (sync_level_3)            0.000    0.000 3.30e+05    0.330   0.3
+  sync_level_U8 (sync_level_4)            0.000    0.000 3.30e+05    0.330   0.3
+  sync_level_U7 (sync_level_5)            0.000    0.000 3.30e+05    0.330   0.3
+  sync_level_U6 (sync_level_6)         1.68e-03    0.000 3.30e+05    0.331   0.3
+  sync_level_U5 (sync_level_7)         6.52e-04    0.000 3.30e+05    0.330   0.3
+  sync_level_U4 (sync_level_8)            0.000    0.000 3.30e+05    0.330   0.3
+  sync_level_U3 (sync_level_9)            0.000    0.000 3.30e+05    0.330   0.3
+  sync_level_U2 (sync_level_10)           0.000    0.000 3.30e+05    0.330   0.3
+  sync_level_U1 (sync_level_11)        5.56e-04    0.000 3.30e+05    0.330   0.3
+  sync_level_U0 (sync_level_12)           0.000    0.000 3.30e+05    0.330   0.3
+  RXCtrl_Decoder_U0 (Rx_Ctrl_Decoder)     0.214    0.000 3.57e+05    0.570   0.5
+  Esc_Deserializer_U0 (ESC_Deserializer)
+                                          1.359    0.000 5.56e+06    6.921   6.2
+  EscDecoder_U0 (Esc_Decoder)             1.519    0.000 5.42e+06    6.939   6.2
+  clk_recovery_lp (Clock_Recovery_LP)     0.415    0.000 1.76e+05    0.592   0.5
+  cphy_tx_fsm_U0 (cphy_tx_fsm)            6.060    0.000 3.07e+07   36.713  33.0
+    Rx_timer (RxTimer)                 7.89e-03    0.000 5.04e+06    5.047   4.5
+    timer_inst (TxTimer)                  0.173    0.000 2.37e+06    2.545   2.3
+  contention_detection_U0 (ContentionDetection)
+                                          0.675    0.000 6.50e+05    1.325   1.2
+  Mux_C_LP_TX (Mux_1Bit_0)                0.164    0.000 1.16e+05    0.280   0.3
+  Mux_B_LP_TX (Mux_1Bit_1)                0.216    0.000 1.09e+05    0.325   0.3
+  Mux_A_LP_TX (Mux_1Bit_2)             4.93e-02    0.000 1.16e+05    0.165   0.1
+  TX_Ctrl_Logic_U0 (TX_Ctrl_Logic)     2.25e-02    0.000 1.61e+05    0.184   0.2
+  HS_Encoder_U0 (Encoder)                 0.879    0.000 2.91e+06    3.793   3.4
+  EscEncoder_U0 (Esc_Encoder)          8.00e-04    0.000 1.16e+06    1.158   1.0
+  EscSerSeqMux (Mux_1Bit_3)               0.000    0.000 1.16e+05    0.116   0.1
+  ESC_Serializerr_U0 (ESC_Serializer)     1.245    0.000 3.68e+06    4.927   4.4
+  Esc_Sequencer_U0 (Esc_Sequencer)     6.14e-03    0.000 2.77e+06    2.781   2.5
+  SerSeqMux (Mux_3Bit)                 9.51e-04    0.000 2.42e+05    0.243   0.2
+  HS_Sequencer_U0 (HS_Sequencer)       7.15e-03    0.000 4.47e+06    4.476   4.0
+  HS_Serializer_U0 (HS_Serializer)        0.772    0.000 9.45e+06   10.220   9.2
+  mapper_U0 (mapper)                     12.090    0.000 8.93e+06   21.022  18.9
+1

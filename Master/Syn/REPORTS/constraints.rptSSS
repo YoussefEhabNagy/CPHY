@@ -1,0 +1,102 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : Master
+Version: V-2023.12-SP5-1
+Date   : Mon Jun  2 22:08:30 2025
+****************************************
+
+
+   min_delay/hold ('ESC_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   EscEncoder_U0/Enable0_reg/D     1.80        1.54 r        -0.25  (VIOLATED)
+   sync_level_U2/sync_ff2_reg[0]/D     1.62     1.52 f       -0.10  (VIOLATED)
+   sync_level_U7/sync_ff2_reg[0]/D     1.62     1.52 f       -0.10  (VIOLATED)
+   sync_level_U8/sync_ff2_reg[0]/D     1.62     1.52 f       -0.10  (VIOLATED)
+   sync_level_U9/sync_ff2_reg[0]/D     1.62     1.52 f       -0.10  (VIOLATED)
+   sync_level_U12/sync_ff2_reg[0]/D     1.62     1.52 f      -0.10  (VIOLATED)
+   EscEncoder_U0/Enable1_reg/D     1.62        1.52 r        -0.10  (VIOLATED)
+   Esc_Sequencer_U0/Count_reg[0]/D     1.62     1.52 r       -0.10  (VIOLATED)
+   ESC_Serializerr_U0/counter_reg[0]/D     1.62     1.53 r    -0.09 (VIOLATED)
+   sync_level_U12/sync_ff1_reg[0]/D     1.62     1.53 f      -0.09  (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[2]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[7]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[3]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[5]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[1]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[6]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/TxDataEsc_reg_reg[4]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   ESC_Serializerr_U0/counter_reg[1]/D     1.62     1.54 r    -0.08 (VIOLATED)
+   Esc_Sequencer_U0/SeqBit_reg/D     1.62      1.54 f        -0.08  (VIOLATED)
+   EscEncoder_U0/data_C_reg/D     1.62         1.54 f        -0.08  (VIOLATED)
+   EscEncoder_U0/data_A_reg/D     1.62         1.54 f        -0.08  (VIOLATED)
+   Esc_Sequencer_U0/Count_reg[2]/D     1.62     1.54 r       -0.08  (VIOLATED)
+   ESC_Serializerr_U0/counter_reg[2]/D     1.62     1.54 f    -0.07 (VIOLATED)
+   Esc_Sequencer_U0/CmdDone_reg/D     1.62     1.54 f        -0.07  (VIOLATED)
+   ESC_Serializerr_U0/LastBit_reg/D     1.62     1.55 f      -0.07  (VIOLATED)
+   ESC_Serializerr_U0/SerBit_reg/D     1.62     1.55 r       -0.07  (VIOLATED)
+   Esc_Sequencer_U0/Count_reg[1]/D     1.62     1.56 f       -0.06  (VIOLATED)
+   ESC_Serializerr_U0/TxReadyEsc_reg/D     1.61     1.59 r    -0.02 (VIOLATED)
+
+
+   min_delay/hold ('RX_ESC_CLK' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   Esc_Deserializer_U0/bit_count_reg[0]/D     1.80     1.55 r    -0.25 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[5]/D     1.80     1.58 r    -0.22 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[4]/D     1.80     1.58 r    -0.22 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[1]/D     1.80     1.58 r    -0.22 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[0]/D     1.80     1.58 r    -0.22 (VIOLATED)
+   Esc_Deserializer_U0/bit_count_reg[2]/D     1.79     1.58 r    -0.22 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[6]/D     1.80     1.58 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[2]/D     1.80     1.58 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[0]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[1]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[2]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[3]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[4]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[5]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[6]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/RxEscData_reg[7]/D     1.80     1.59 r    -0.21 (VIOLATED)
+   Esc_Deserializer_U0/shift_reg_reg[3]/D     1.80     1.61 r    -0.19 (VIOLATED)
+   Esc_Deserializer_U0/bit_count_reg[1]/D     1.80     1.61 r    -0.19 (VIOLATED)
+   Esc_Deserializer_U0/RxValidEsc_reg/D     1.80     1.64 r    -0.15 (VIOLATED)
+   EscDecoder_U0/Counter_reg[0]/D     1.62     1.53 r        -0.09  (VIOLATED)
+   EscDecoder_U0/Counter_reg[2]/D     1.62     1.53 r        -0.08  (VIOLATED)
+   EscDecoder_U0/Command_reg[1]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/Command_reg[6]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/Command_reg[2]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/CurrentState_reg[0]/D     1.62     1.54 r    -0.08 (VIOLATED)
+   EscDecoder_U0/Command_reg[4]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/Command_reg[3]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/Command_reg[5]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/Command_reg[7]/D     1.62     1.54 f        -0.08  (VIOLATED)
+   EscDecoder_U0/CurrentState_reg[1]/D     1.62     1.54 f    -0.08 (VIOLATED)
+   EscDecoder_U0/Counter_reg[1]/D     1.62     1.55 f        -0.07  (VIOLATED)
+   EscDecoder_U0/Command_reg[0]/D     1.62     1.55 r        -0.06  (VIOLATED)
+   EscDecoder_U0/EscBit_reg/D     1.62         1.56 f        -0.06  (VIOLATED)
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   EscDecoder_U0/N31            1.02           8.05          -7.03  (VIOLATED)
+       PIN :   EscDecoder_U0/Command_reg[0]/D     1.02     8.05    -7.03 (VIOLATED)
+   EscDecoder_U0/N39            1.02           8.05          -7.03  (VIOLATED)
+       PIN :   EscDecoder_U0/EscBit_reg/D     1.02     8.05    -7.03 (VIOLATED)
+   HS_Serializer_U0/n32         1.02           1.04          -0.02  (VIOLATED)
+       PIN :   HS_Serializer_U0/TxFlip_reg_reg[3]/D     1.02     1.04    -0.02 (VIOLATED)
+   HS_Serializer_U0/n33         1.02           1.03           0.00  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      4                 -14.08  
+
+1

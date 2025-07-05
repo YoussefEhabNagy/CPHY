@@ -1,0 +1,78 @@
+ 
+****************************************
+Report : area
+Design : Master
+Version: V-2023.12-SP5-1
+Date   : Mon Jun  2 22:08:30 2025
+****************************************
+
+Library(s) Used:
+
+    saed32lvt_ff1p16v25c (File: /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db)
+
+Number of ports:                          440
+Number of nets:                          1388
+Number of cells:                          987
+Number of combinational cells:            789
+Number of sequential cells:               162
+Number of macros/black boxes:               0
+Number of buf/inv:                        173
+Number of references:                      34
+
+Combinational area:               1615.847569
+Buf/Inv area:                      228.475457
+Noncombinational area:            1163.979527
+Macro/Black Box area:                0.000000
+Net Interconnect area:             582.438514
+
+Total cell area:                  2779.827096
+Total area:                       3362.265610
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  -------------------
+Master                            2779.8271    100.0     2.0332     0.0000  0.0000  Master
+ESC_Serializerr_U0                 149.9450      5.4    57.4365    92.5084  0.0000  ESC_Serializer
+EscDecoder_U0                      187.0500      6.7    87.4255    99.6244  0.0000  Esc_Decoder
+EscEncoder_U0                       46.0001      1.7    17.2818    28.7183  0.0000  Esc_Encoder
+EscSerSeqMux                         3.8122      0.1     3.8122     0.0000  0.0000  Mux_1Bit_3
+Esc_Deserializer_U0                224.6633      8.1    84.6300   140.0333  0.0000  ESC_Deserializer
+Esc_Sequencer_U0                    96.8289      3.5    61.2487    35.5802  0.0000  Esc_Sequencer
+HS_Encoder_U0                      114.3648      4.1    50.3205    64.0443  0.0000  Encoder
+HS_Sequencer_U0                    152.4864      5.5    81.3261    71.1603  0.0000  HS_Sequencer
+HS_Serializer_U0                   364.1883     13.1   187.3041   176.8842  0.0000  HS_Serializer
+Mux_A_LP_TX                          3.8122      0.1     3.8122     0.0000  0.0000  Mux_1Bit_2
+Mux_B_LP_TX                          3.3039      0.1     3.3039     0.0000  0.0000  Mux_1Bit_1
+Mux_C_LP_TX                          3.8122      0.1     3.8122     0.0000  0.0000  Mux_1Bit_0
+RXCtrl_Decoder_U0                   10.9282      0.4    10.9282     0.0000  0.0000  Rx_Ctrl_Decoder
+SerSeqMux                            8.8950      0.3     8.8950     0.0000  0.0000  Mux_3Bit
+TX_Ctrl_Logic_U0                     6.3536      0.2     6.3536     0.0000  0.0000  TX_Ctrl_Logic
+clk_recovery_lp                      5.5912      0.2     5.5912     0.0000  0.0000  Clock_Recovery_LP
+contention_detection_U0             20.3315      0.7    20.3315     0.0000  0.0000  ContentionDetection
+cphy_tx_fsm_U0                     872.4764     31.4   512.3543    99.6244  0.0000  cphy_tx_fsm
+cphy_tx_fsm_U0/Rx_timer            174.3428      6.3   103.1825    71.1603  0.0000  RxTimer
+cphy_tx_fsm_U0/timer_inst           86.1548      3.1    43.4586    42.6962  0.0000  TxTimer
+mapper_U0                          261.0059      9.4   261.0059     0.0000  0.0000  mapper
+sync_level_U0                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_12
+sync_level_U1                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_11
+sync_level_U11                      14.2321      0.5     0.0000    14.2321  0.0000  sync_level_1
+sync_level_U12                      14.2321      0.5     0.0000    14.2321  0.0000  sync_level_0
+sync_level_U13                      28.4641      1.0     0.0000    28.4641  0.0000  sync_level_WIDTH2
+sync_level_U14                      42.6962      1.5     0.0000    42.6962  0.0000  sync_level_WIDTH3
+sync_level_U2                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_10
+sync_level_U3                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_9
+sync_level_U4                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_8
+sync_level_U5                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_7
+sync_level_U6                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_6
+sync_level_U7                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_5
+sync_level_U8                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_4
+sync_level_U9                       14.2321      0.5     0.0000    14.2321  0.0000  sync_level_3
+--------------------------------  ---------  -------  ---------  ---------  ------  -------------------
+Total                                                 1615.8476  1163.9795  0.0000
+
+1

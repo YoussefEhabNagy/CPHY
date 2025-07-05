@@ -1,0 +1,2777 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+              Version V-2023.12-SP5-1 for linux64 - Sep 03, 2024 
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Initializing gui preferences from file  /home/svgpdditi25mowaleed/.synopsys_dc_gui/preferences.tcl
+Current time:       Mon Jun  2 22:08:20 2025
+Hostname:           academysvr02
+CPU Model:          Intel(R) Xeon(R) CPU E5-2643 v3 @ 3.40GHz
+CPU Details:        Cores = 12 : Sockets = 6 : Cache Size = 20480 KB : Freq = 3.40 GHz
+OS:                 Linux 3.10.0-1160.119.1.el7.x86_64
+RAM:                 78 GB (Free   6 GB)
+Swap:                 9 GB (Free   9 GB)
+Work Filesystem:    /home mounted to /dev/mapper/centos-home
+Tmp Filesystem:     / mounted to /dev/mapper/centos-root
+Work Disk:          1687 GB (Free 1101 GB)
+Tmp Disk:           348 GB (Free  62 GB)
+
+CPU Load: 26%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+########################### Define Top Module ############################
+set top_module Master
+Master
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+############################# Formality Setup File ##########################
+set_svf $top_module.svf
+1
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries          #"
+#      #setting Design Libraries          #
+puts "###########################################"
+###########################################
+#Add the path of the libraries and RTL files to the search_path variable
+set_app_var search_path "/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs" 
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs
+set_app_var link_library   "* saed32lvt_ff1p16v25c.db"
+* saed32lvt_ff1p16v25c.db
+set_app_var target_library "saed32lvt_ff1p16v25c.db"
+saed32lvt_ff1p16v25c.db
+set PROJECT_PATH /home/svgpdditi25mowaleed/CPHY
+/home/svgpdditi25mowaleed/CPHY
+lappend search_path $PROJECT_PATH/RTL/sync_level
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level
+lappend search_path $PROJECT_PATH/RTL/Esc_Encoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder
+lappend search_path $PROJECT_PATH/RTL/mapper
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper
+lappend search_path $PROJECT_PATH/RTL/HS_Serializer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer
+lappend search_path $PROJECT_PATH/RTL/HS_Sequencer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer
+lappend search_path $PROJECT_PATH/RTL/Mux_3Bit
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit
+lappend search_path $PROJECT_PATH/RTL/Esc_Sequencer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer
+lappend search_path $PROJECT_PATH/RTL/ESC_Serializer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer
+lappend search_path $PROJECT_PATH/RTL/Mux_1Bit
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit
+lappend search_path $PROJECT_PATH/RTL/Esc_Encoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder
+lappend search_path $PROJECT_PATH/RTL/Encoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder
+lappend search_path $PROJECT_PATH/RTL/TX_Ctrl_Logic
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic
+lappend search_path $PROJECT_PATH/RTL/Esc_Decoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder
+lappend search_path $PROJECT_PATH/RTL/ESC_Deserializer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer
+lappend search_path $PROJECT_PATH/RTL/Rx_Ctrl_Decoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder
+lappend search_path $PROJECT_PATH/RTL/TxTimer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer
+lappend search_path $PROJECT_PATH/RTL/RxTimer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer
+lappend search_path $PROJECT_PATH/RTL/cphy_tx_fsm
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm
+lappend search_path $PROJECT_PATH/RTL/ContentionDetection
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection
+lappend search_path $PROJECT_PATH/RTL/Clock_Recovery_LP
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP
+lappend search_path $PROJECT_PATH/RTL/Master
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP /home/svgpdditi25mowaleed/CPHY/RTL/Master
+## Standard Cell libraries 
+#set target_library "saed32hvt_dlvl_ff0p85v25c_i0p85v.db"
+## Standard Cell & Hard Macros libraries 
+#set link_library "saed32hvt_dlvl_ff0p85v25c_i0p85v.db" 
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+analyze   -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v
+Presto compilation completed successfully.
+Loading db file '/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db'
+Information: Using CCS timing libraries. (TIM-024)
+Warning: Error occured in ccs delay calculation, results may not be accurate.
+1
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/gtech.db'
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/standard.sldb'
+  Loading link library 'saed32lvt_ff1p16v25c'
+  Loading link library 'gtech'
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v
+
+Inferred memory devices in process
+	in routine HS_Sequencer line 47 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Count_reg      | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      Count_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|     SeqDone_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     SeqSym_reg      | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.db:HS_Sequencer'
+Error: This site is not licensed for 'Design-Compiler-NXT-FuSa'. (SEC-51)
+Loaded 1 design.
+Current design is 'HS_Sequencer'.
+HS_Sequencer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v
+
+Inferred memory devices in process
+	in routine Esc_Encoder line 48 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Enable1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_C_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_A_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Encoder line 70 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Enable0_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.db:Esc_Encoder'
+Loaded 1 design.
+Current design is 'Esc_Encoder'.
+Esc_Encoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/mapper.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:207: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:229: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:251: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:273: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:295: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 38 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/mapper.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            75            |    auto/auto     |
+|           171            |    auto/auto     |
+|           189            |    auto/auto     |
+|           211            |    auto/auto     |
+|           233            |    auto/auto     |
+|           255            |    auto/auto     |
+|           277            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/mapper.db:mapper'
+Loaded 1 design.
+Current design is 'mapper'.
+mapper
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v
+
+Inferred memory devices in process
+	in routine HS_Serializer line 41 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     SerSym_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   TxFlip_reg_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+| TxRotation_reg_reg  | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+| TxPolarity_reg_reg  | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.db:HS_Serializer'
+Loaded 1 design.
+Current design is 'HS_Serializer'.
+HS_Serializer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.db:Mux_3Bit'
+Loaded 1 design.
+Current design is 'Mux_3Bit'.
+Mux_3Bit
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v
+
+Inferred memory devices in process
+	in routine Esc_Sequencer line 51 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Count_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     SeqBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     CmdDone_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| Esc_Sequencer/60 |   8    |    8    |      3       |
+| Esc_Sequencer/60 |   8    |    1    |      3       |
+======================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.db:Esc_Sequencer'
+Loaded 1 design.
+Current design is 'Esc_Sequencer'.
+Esc_Sequencer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v
+
+Inferred memory devices in process
+	in routine ESC_Serializer line 44 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     LastBit_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  TxDataEsc_reg_reg  | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   TxReadyEsc_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     SerBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=======================================================
+| block name/line   | Inputs | Outputs | # sel inputs |
+=======================================================
+| ESC_Serializer/60 |   8    |    1    |      3       |
+=======================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.db:ESC_Serializer'
+Loaded 1 design.
+Current design is 'ESC_Serializer'.
+ESC_Serializer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.db:Mux_1Bit'
+Loaded 1 design.
+Current design is 'Mux_1Bit'.
+Mux_1Bit
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v:35: delays for continuous assignment are ignored. (VER-173)
+
+Statistics for case statements in always block at line 72 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            73            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 123 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           124            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 39 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  CurrentState_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 47 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     EscBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     Command_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     Counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.db:Esc_Decoder'
+Loaded 1 design.
+Current design is 'Esc_Decoder'.
+Esc_Decoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v:167: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 97 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            99            |    auto/auto     |
+|           158            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Encoder line 55 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      PD_B_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      PU_C_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      PD_C_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      State_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      State_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      PU_A_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      PD_A_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      PU_B_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.db:Encoder'
+Loaded 1 design.
+Current design is 'Encoder'.
+Encoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v:31: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 8 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            9             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.db:TX_Ctrl_Logic'
+Loaded 1 design.
+Current design is 'TX_Ctrl_Logic'.
+TX_Ctrl_Logic
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Warning: Overwriting design file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder'. (DDB-24)
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v:35: delays for continuous assignment are ignored. (VER-173)
+
+Statistics for case statements in always block at line 72 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            73            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 123 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           124            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 39 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  CurrentState_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 47 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     EscBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     Command_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     Counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.db:Esc_Decoder'
+Loaded 1 design.
+Current design is 'Esc_Decoder'.
+Esc_Decoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v
+
+Inferred memory devices in process
+	in routine ESC_Deserializer line 39 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    shift_reg_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   RxValidEsc_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    bit_count_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    RxEscData_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.db:ESC_Deserializer'
+Loaded 1 design.
+Current design is 'ESC_Deserializer'.
+ESC_Deserializer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v
+
+Statistics for case statements in always block at line 28 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            32            |     no/auto      |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.db:Rx_Ctrl_Decoder'
+Loaded 1 design.
+Current design is 'Rx_Ctrl_Decoder'.
+Rx_Ctrl_Decoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv:22: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 18 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine TxTimer line 26 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Timeout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/TxTimer.db:TxTimer'
+Loaded 1 design.
+Current design is 'TxTimer'.
+TxTimer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv:857: The value 89 is too large for the numeric data type being used (VER-1)
+
+Statistics for case statements in always block at line 187 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           188            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 412 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           458            |     no/auto      |
+|           605            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 831 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           838            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine cphy_tx_fsm line 165 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine cphy_tx_fsm line 831 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| LPDT_Count_Done_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   Pause_Count_reg   | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm.db:cphy_tx_fsm'
+Loaded 1 design.
+Current design is 'cphy_tx_fsm'.
+cphy_tx_fsm
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.db:ContentionDetection'
+Loaded 1 design.
+Current design is 'ContentionDetection'.
+ContentionDetection
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v
+
+Statistics for case statements in always block at line 54 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            55            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine RxTimer line 67 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine RxTimer line 80 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Timeout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.db:RxTimer'
+Loaded 1 design.
+Current design is 'RxTimer'.
+RxTimer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.db:Clock_Recovery_LP'
+Loaded 1 design.
+Current design is 'Clock_Recovery_LP'.
+Clock_Recovery_LP
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Master.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Master.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Master.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Master.db:Master'
+Loaded 1 design.
+Current design is 'Master'.
+Master
+###################### Defining toplevel ###################################
+current_design $top_module
+Current design is 'Master'.
+{Master}
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'Master'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (19 designs)              /home/svgpdditi25mowaleed/CPHY/RTL/Master.db, etc
+  saed32lvt_ff1p16v25c (library) /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db
+
+Information: Building the design 'sync_level'. (HDL-193)
+
+Inferred memory devices in process
+	in routine sync_level line 11 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_ff1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    sync_ff2_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sync_level)
+Information: Building the design 'sync_level' instantiated from design 'Master' with
+	the parameters "2". (HDL-193)
+
+Inferred memory devices in process
+	in routine sync_level_WIDTH2 line 11 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_ff1_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_ff2_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sync_level_WIDTH2)
+Information: Building the design 'sync_level' instantiated from design 'Master' with
+	the parameters "3". (HDL-193)
+
+Inferred memory devices in process
+	in routine sync_level_WIDTH3 line 11 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_ff1_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_ff2_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sync_level_WIDTH3)
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design >> reports/check_design.rpt
+#################### Define Design Constraints #########################
+puts "###############################################"
+###############################################
+puts "############ Design Constraints #### ##########"
+############ Design Constraints #### ##########
+puts "###############################################"
+###############################################
+source -echo ./cons.tcl
+####################################################################################
+# Constraints
+# ----------------------------------------------------------------------------
+#
+# 1. Generated Clock Definitions
+#
+# 2. Clock Uncertainties
+#
+# 3. set input/output delay on ports
+#
+# 4. Driving cells
+#
+# 5. Output load
+####################################################################################
+#########################################################
+#### Section 1 : Clock Definition ####
+#########################################################
+#################################################################################### 
+# 1. Master Clock Definitions 
+# 2. Clock Uncertainties 
+# 3. Clock Transitions
+# 4. Clock Latencies
+# 5. Clock groups
+####################################################################################
+# TX_Escape Clock (10 MHz)
+set TX_ESC_CLK_NAME ESC_CLK
+set TX_ESC_CLK_PER 100.0
+set TX_CLK_ESC_SETUP_SKEW 0.2
+set TX_CLK_ESC_HOLD_SKEW 0.1
+set TX_CLK_ESC_RISE 0.8
+set TX_CLK_ESC_FALL 0.8
+set TX_CLK_ESC_LAT  1.5
+# Symbol Clock (2.1 GHz)
+set SYM_CLK_NAME SYM_CLK
+#set SYM_CLK_PER [expr 1000.0 / 2100.0] ;# ≈ 0.4762 ns
+set SYM_CLK_PER 1
+set CLK_SYM_SETUP_SKEW 0.05
+set CLK_SYM_HOLD_SKEW 0.025
+set CLK_SYM_RISE 0.05
+set CLK_SYM_FALL 0.05
+set CLK_SYM_LAT  0.05
+# Word Clock (300 MHz)
+set WORD_CLK_NAME WORD_CLK
+#set WORD_CLK_PER [expr 1000.0 / 300.0] ;# ≈ 3.333 ns
+set WORD_CLK_PER 7
+set CLK_WORD_SETUP_SKEW 0.2
+set CLK_WORD_HOLD_SKEW 0.05
+set CLK_WORD_RISE 0.15
+set CLK_WORD_FALL 0.15
+set CLK_WORD_LAT  0.8
+# RX_Escape Clock (10 MHz)
+set RX_ESC_CLK_NAME RX_ESC_CLK
+set RX_ESC_CLK_PER 100.0
+set RX_CLK_ESC_SETUP_SKEW 0.2
+set RX_CLK_ESC_HOLD_SKEW 0.1
+set RX_CLK_ESC_RISE 0.8
+set RX_CLK_ESC_FALL 0.8
+set RX_CLK_ESC_LAT  1.5
+# 1. Master Clocks Definitions 
+create_clock -name $TX_ESC_CLK_NAME -period $TX_ESC_CLK_PER [get_ports TxClkEsc]
+create_clock -name $SYM_CLK_NAME    -period $SYM_CLK_PER [get_ports TxSymbolClkHS]
+create_clock -name $WORD_CLK_NAME   -period $WORD_CLK_PER [get_ports TxWordClkHs]
+create_clock -name $RX_ESC_CLK_NAME -period $RX_ESC_CLK_PER   [get_pins clk_recovery_lp/RxClkEsc]
+# 2. Clock Uncertainties
+set_clock_uncertainty -setup $TX_CLK_ESC_SETUP_SKEW [get_clocks $TX_ESC_CLK_NAME]
+set_clock_uncertainty -hold  $TX_CLK_ESC_HOLD_SKEW  [get_clocks $TX_ESC_CLK_NAME]
+set_clock_uncertainty -setup $CLK_SYM_SETUP_SKEW [get_clocks $SYM_CLK_NAME]
+set_clock_uncertainty -hold  $CLK_SYM_HOLD_SKEW  [get_clocks $SYM_CLK_NAME]
+set_clock_uncertainty -setup $CLK_WORD_SETUP_SKEW [get_clocks $WORD_CLK_NAME]
+set_clock_uncertainty -hold  $CLK_WORD_HOLD_SKEW  [get_clocks $WORD_CLK_NAME]
+set_clock_uncertainty -setup $RX_CLK_ESC_SETUP_SKEW [get_clocks $RX_ESC_CLK_NAME]
+set_clock_uncertainty -hold  $RX_CLK_ESC_HOLD_SKEW  [get_clocks $RX_ESC_CLK_NAME]
+# 3. Clock Transitions
+set_clock_transition -rise $TX_CLK_ESC_RISE  [get_clocks $TX_ESC_CLK_NAME]
+set_clock_transition -fall $TX_CLK_ESC_FALL  [get_clocks $TX_ESC_CLK_NAME]
+set_clock_transition -rise $CLK_SYM_RISE  [get_clocks $SYM_CLK_NAME]
+set_clock_transition -fall $CLK_SYM_FALL  [get_clocks $SYM_CLK_NAME]
+set_clock_transition -rise $CLK_WORD_RISE  [get_clocks $WORD_CLK_NAME]
+set_clock_transition -fall $CLK_WORD_FALL  [get_clocks $WORD_CLK_NAME]
+set_clock_transition -rise $RX_CLK_ESC_RISE  [get_clocks $RX_ESC_CLK_NAME]
+set_clock_transition -fall $RX_CLK_ESC_FALL  [get_clocks $RX_ESC_CLK_NAME]
+# 4. Clock Latencies
+set_clock_latency $TX_CLK_ESC_LAT [get_clocks $TX_ESC_CLK_NAME]
+set_clock_latency $CLK_SYM_LAT [get_clocks $SYM_CLK_NAME]
+set_clock_latency $CLK_WORD_LAT [get_clocks $WORD_CLK_NAME]
+set_clock_latency $RX_CLK_ESC_LAT [get_clocks $RX_ESC_CLK_NAME]
+# 5. Clock groups
+set_clock_groups -asynchronous -group [get_clocks RX_ESC_CLK] -group [get_clocks WORD_CLK]
+set_clock_groups -asynchronous -group [get_clocks ESC_CLK] -group [get_clocks WORD_CLK]
+set_clock_groups -asynchronous -group [get_clocks ESC_CLK] -group [get_clocks SYM_CLK]
+set_clock_groups -asynchronous -group [get_clocks WORD_CLK] -group [get_clocks SYM_CLK]
+set_clock_groups -asynchronous -group [get_clocks WORD_CLK] -group [get_clocks ESC_CLK]
+set_clock_groups -asynchronous -group [get_clocks WORD_CLK] -group [get_clocks RX_ESC_CLK]
+####################################################################################
+#########################################################
+#### Section 3 : set input/output delay on ports ####
+#########################################################
+####################################################################################
+set in1_delay  [expr 0.2*$WORD_CLK_PER]
+set out1_delay [expr 0.2*$WORD_CLK_PER]
+set in2_delay  [expr 0.2*$TX_ESC_CLK_PER]
+set out2_delay [expr 0.2*$TX_ESC_CLK_PER]
+set in3_delay  [expr 0.2*$SYM_CLK_PER]
+set out3_delay [expr 0.2*$SYM_CLK_PER]
+set in4_delay  [expr 0.2*$RX_ESC_CLK_PER]
+set out4_delay  [expr 0.2*$RX_ESC_CLK_PER]
+#Constrain Input Paths
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxDataHS]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxSendSyncHS]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxReqHS]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxReqEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxLpdtEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxUlpsEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxUlpsExit]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxTriggerEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxDataEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxValidEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TurnRequest]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TurnDisable]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port ForceRxmode]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port ForceTxStopmode]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port Enable]
+set_input_delay $in2_delay -clock $TX_ESC_CLK_NAME [get_port LP_CD_A]
+set_input_delay $in2_delay -clock $TX_ESC_CLK_NAME [get_port LP_CD_B]
+set_input_delay $in2_delay -clock $TX_ESC_CLK_NAME [get_port LP_CD_C]
+set_input_delay $in4_delay -clock $RX_ESC_CLK_NAME [get_port LpRx]
+#Constrain Output Paths
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port TxReadyHS]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port LpTxEn]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port HsTxEn]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port TxReadyEsc]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port Direction]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port Stopstate]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrContentionLP0]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrContentionLP1]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port UlpsActiveNot]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrEsc]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrSyncEsc]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrControl]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port LpRxEn]
+set_output_delay $out2_delay -clock $TX_ESC_CLK_NAME [get_port LpTx]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxEscData]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxValidEsc]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxTriggerEsc]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxUlpsEsc]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxLpdtEsc]
+####################################################################################
+#########################################################
+#### Section 4 : Driving cells ####
+#########################################################
+####################################################################################
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxDataHS]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[15]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[14]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[13]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[12]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[11]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[10]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[9]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[8]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxSendSyncHS]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxSendSyncHS'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxReqHS]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxReqHS'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxReqEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxReqEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxLpdtEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxLpdtEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxUlpsEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxUlpsEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxUlpsExit]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxUlpsExit'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxTriggerEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxDataEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxValidEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxValidEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LpRx]
+Warning: Design rule attributes from the driving cell will be set on the port 'LpRx[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LpRx[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LpRx[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TurnRequest]
+Warning: Design rule attributes from the driving cell will be set on the port 'TurnRequest'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TurnDisable]
+Warning: Design rule attributes from the driving cell will be set on the port 'TurnDisable'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port ForceRxmode]
+Warning: Design rule attributes from the driving cell will be set on the port 'ForceRxmode'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port ForceTxStopmode]
+Warning: Design rule attributes from the driving cell will be set on the port 'ForceTxStopmode'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port Enable]
+Warning: Design rule attributes from the driving cell will be set on the port 'Enable'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LP_CD_A]
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_A'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LP_CD_B]
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_B'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LP_CD_C]
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_C'. (UID-401)
+####################################################################################
+#########################################################
+#### Section 5 : Output load ####
+#########################################################
+####################################################################################
+# WORD_CLK domain
+set_load 15 [get_ports TxReadyHS]
+set_load 15 [get_ports LpTxEn]
+set_load 15 [get_ports HsTxEn]
+set_load 15 [get_ports TxReadyEsc]
+set_load 15 [get_ports Direction]
+set_load 15 [get_ports Stopstate]
+set_load 15 [get_ports ErrContentionLP0]
+set_load 15 [get_ports ErrContentionLP1]
+set_load 15 [get_ports UlpsActiveNot]
+set_load 15 [get_ports ErrEsc]
+set_load 15 [get_ports ErrSyncEsc]
+set_load 15 [get_ports ErrControl]
+set_load 15 [get_ports LpRxEn]
+# TX_ESC_CLK domain
+set_load 15 [get_ports LpTx]
+# SYM_CLK domain
+set_load 15 [get_ports A]
+set_load 15 [get_ports B]
+set_load 15 [get_ports C]
+# RX_ESC_CLK domain
+set_load 15 [get_ports RxEscData]
+set_load 15 [get_ports RxValidEsc]
+set_load 15 [get_ports RxTriggerEsc]
+set_load 15 [get_ports RxUlpsEsc]
+set_load 15 [get_ports RxLpdtEsc]
+##########
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+#compile 
+# Set higher effort on optimization
+compile_ultra -no_autoungroup
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/dw_foundation.sldb'
+Information: Failed to find dw_foundation.sldb in the user defined search_path, load it from 'Synopsys Root'. (UISN-70)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | V-2023.12-DWBB_202312.5 |     *     |
+| Licensed DW Building Blocks        | V-2023.12-DWBB_202312.5 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Command Line | compile_ultra -no_autoungroup                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 2023                                   |
+| Number of User Hierarchies                              | 36                                     |
+| Sequential Cell Count                                   | 188                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 5                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 4                                      |
+| Number of Dont Touch Cells                              | 701                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 48 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 4 instances of design 'Mux_1Bit'. (OPT-1056)
+Information: Uniquified 13 instances of design 'sync_level'. (OPT-1056)
+  Simplifying Design 'Master'
+Information: The register 'sync_level_U10/sync_ff2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_level_U10/sync_ff1_reg[0]' will be removed. (OPT-1207)
+Information: Removing unused design 'sync_level_2'. (OPT-1055)
+
+Loaded alib file './alib-52/saed32lvt_ff1p16v25c.db.alib'
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mapper'
+Information: Added key list 'DesignWare' to design 'mapper'. (DDB-72)
+  Processing 'HS_Serializer'
+Information: Added key list 'DesignWare' to design 'HS_Serializer'. (DDB-72)
+  Processing 'HS_Sequencer'
+ Implement Synthetic for 'HS_Sequencer'.
+  Processing 'Master'
+  Processing 'Esc_Decoder'
+Information: Added key list 'DesignWare' to design 'Esc_Decoder'. (DDB-72)
+  Processing 'RxTimer'
+ Implement Synthetic for 'RxTimer'.
+Information: Added key list 'DesignWare' to design 'RxTimer'. (DDB-72)
+  Processing 'ESC_Deserializer'
+Information: Added key list 'DesignWare' to design 'ESC_Deserializer'. (DDB-72)
+  Processing 'TxTimer'
+ Implement Synthetic for 'TxTimer'.
+Information: Added key list 'DesignWare' to design 'TxTimer'. (DDB-72)
+  Processing 'ESC_Serializer'
+Information: Added key list 'DesignWare' to design 'ESC_Serializer'. (DDB-72)
+  Processing 'sync_level_WIDTH3'
+  Processing 'Rx_Ctrl_Decoder'
+  Processing 'TX_Ctrl_Logic'
+  Processing 'Mux_3Bit'
+  Processing 'Mux_1Bit_0'
+  Processing 'Mux_1Bit_1'
+  Processing 'cphy_tx_fsm'
+ Implement Synthetic for 'cphy_tx_fsm'.
+  Processing 'Encoder'
+  Processing 'Esc_Sequencer'
+Information: Added key list 'DesignWare' to design 'Esc_Sequencer'. (DDB-72)
+  Processing 'Esc_Encoder'
+  Processing 'ContentionDetection'
+  Processing 'sync_level_WIDTH2'
+  Processing 'sync_level_0'
+  Processing 'Clock_Recovery_LP'
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+
+  Updating timing information
+Information: The register 'HS_Serializer_U0/TxPolarity_reg_reg[0]' will be removed. (OPT-1207)
+Information: The register 'HS_Serializer_U0/TxRotation_reg_reg[0]' will be removed. (OPT-1207)
+Information: The register 'HS_Serializer_U0/TxFlip_reg_reg[0]' will be removed. (OPT-1207)
+Information: The register 'ESC_Serializerr_U0/TxDataEsc_reg_reg[0]' will be removed. (OPT-1207)
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: The register 'Esc_Deserializer_U0/bit_count_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: In design 'Master', the register 'HS_Sequencer_U0/SeqSym_reg[1]' is removed because it is merged to 'HS_Sequencer_U0/SeqSym_reg[0]'. (OPT-1215)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'HS_Sequencer'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'cphy_tx_fsm'. (DDB-72)
+  Mapping Optimization (Phase 1)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[15]' is a constant and will be removed. (OPT-1206)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    3150.6      3.53      39.1   70565.3                           88352680.0000
+    0:00:04    3133.6      3.53      39.1   70565.3                           87904760.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:05    3018.2      0.11       0.1   70652.1                           83165520.0000
+    0:00:05    3018.0      0.00       0.0   70592.1                           83244432.0000
+    0:00:05    3018.0      0.00       0.0   70592.1                           83244432.0000
+    0:00:05    3016.7      0.00       0.0   70592.1                           83192088.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+    0:00:05    3009.6      0.00       0.0   70243.7                           82928080.0000
+    0:00:05    3009.6      0.00       0.0   70243.7                           82928080.0000
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2739.2      0.01       0.0    1105.9                           81444856.0000
+    0:00:05    2739.2      0.01       0.0    1105.9                           81444856.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.1      1.90       3.7    3508.9                           81720520.0000
+    0:00:05    2753.1      1.90       3.7    3508.9                           81720520.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:06    2755.9      0.26       0.3    1567.4                           81596280.0000
+    0:00:06    2783.1      0.01       0.0    1571.3                           82021584.0000
+    0:00:06    2783.1      0.01       0.0    1571.3                           82021584.0000
+    0:00:06    2778.8      0.02       0.1    1452.6                           82021584.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2779.8      0.00       0.0    1067.8                           82728136.0000
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+##################### Close Formality Setup file ###########################
+set_svf -off
+1
+#############################################################################
+# Write out files
+#############################################################################
+write_file -format verilog -hierarchy -output netlists/$top_module.ddc
+Writing verilog file '/home/svgpdditi25mowaleed/CPHY/synthesis/SCRIPTS/netlists/Master.ddc'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 7 nets to module Master using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_file -format verilog -hierarchy -output netlists/$top_module.v
+Writing verilog file '/home/svgpdditi25mowaleed/CPHY/synthesis/SCRIPTS/netlists/Master.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 7 nets to module Master using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_sdf  sdf/$top_module.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/svgpdditi25mowaleed/CPHY/synthesis/SCRIPTS/sdf/Master.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc  -nosplit sdc/$top_module.sdc
+1
+####################### reporting ##########################################
+report_area -hierarchy > reports/area.rpt
+report_power -hierarchy > reports/power.rpt
+report_timing -delay_type min -max_paths 100 > reports/hold.rpt
+report_timing -delay_type max -max_paths 100 > reports/setup.rpt
+report_clock -attributes > reports/clocks.rpt
+report_constraint -all_violators -nosplit > reports/constraints.rptSSS
+set tns 0.0
+0.0
+set wns 0.0
+0.0
+set lps 1.0e9  ;# Large positive number to find minimum
+1.0e9
+foreach_in_collection path [get_timing_paths -max_paths 10000] {
+    set slack [get_attribute $path slack]
+
+    if {$slack < 0} {
+        set tns [expr {$tns + $slack}]
+        if {$slack < $wns} {
+            set wns $slack
+        }
+    } else {
+        if {$slack < $lps} {
+            set lps $slack
+        }
+    }
+}
+puts "Total Negative Slack (TNS): $tns"
+Total Negative Slack (TNS): 0.0
+puts "Worst Negative Slack (WNS): $wns"
+Worst Negative Slack (WNS): 0.0
+puts "Least Positive Slack: $lps"
+Least Positive Slack: 0.0530549
+################# starting graphical user interface #######################
+#gui_start
+#exit
+dc_shell> Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+              Version V-2023.12-SP5-1 for linux64 - Sep 03, 2024 
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Initializing gui preferences from file  /home/svgpdditi25mowaleed/.synopsys_dc_gui/preferences.tcl
+Current time:       Mon Jun  2 22:08:20 2025
+Hostname:           academysvr02
+CPU Model:          Intel(R) Xeon(R) CPU E5-2643 v3 @ 3.40GHz
+CPU Details:        Cores = 12 : Sockets = 6 : Cache Size = 20480 KB : Freq = 3.40 GHz
+OS:                 Linux 3.10.0-1160.119.1.el7.x86_64
+RAM:                 78 GB (Free   6 GB)
+Swap:                 9 GB (Free   9 GB)
+Work Filesystem:    /home mounted to /dev/mapper/centos-home
+Tmp Filesystem:     / mounted to /dev/mapper/centos-root
+Work Disk:          1687 GB (Free 1101 GB)
+Tmp Disk:           348 GB (Free  62 GB)
+
+CPU Load: 26%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+########################### Define Top Module ############################
+set top_module Master
+Master
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+############################# Formality Setup File ##########################
+set_svf $top_module.svf
+1
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries          #"
+#      #setting Design Libraries          #
+puts "###########################################"
+###########################################
+#Add the path of the libraries and RTL files to the search_path variable
+set_app_var search_path "/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs" 
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs
+set_app_var link_library   "* saed32lvt_ff1p16v25c.db"
+* saed32lvt_ff1p16v25c.db
+set_app_var target_library "saed32lvt_ff1p16v25c.db"
+saed32lvt_ff1p16v25c.db
+set PROJECT_PATH /home/svgpdditi25mowaleed/CPHY
+/home/svgpdditi25mowaleed/CPHY
+lappend search_path $PROJECT_PATH/RTL/sync_level
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level
+lappend search_path $PROJECT_PATH/RTL/Esc_Encoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder
+lappend search_path $PROJECT_PATH/RTL/mapper
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper
+lappend search_path $PROJECT_PATH/RTL/HS_Serializer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer
+lappend search_path $PROJECT_PATH/RTL/HS_Sequencer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer
+lappend search_path $PROJECT_PATH/RTL/Mux_3Bit
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit
+lappend search_path $PROJECT_PATH/RTL/Esc_Sequencer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer
+lappend search_path $PROJECT_PATH/RTL/ESC_Serializer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer
+lappend search_path $PROJECT_PATH/RTL/Mux_1Bit
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit
+lappend search_path $PROJECT_PATH/RTL/Esc_Encoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder
+lappend search_path $PROJECT_PATH/RTL/Encoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder
+lappend search_path $PROJECT_PATH/RTL/TX_Ctrl_Logic
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic
+lappend search_path $PROJECT_PATH/RTL/Esc_Decoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder
+lappend search_path $PROJECT_PATH/RTL/ESC_Deserializer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer
+lappend search_path $PROJECT_PATH/RTL/Rx_Ctrl_Decoder
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder
+lappend search_path $PROJECT_PATH/RTL/TxTimer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer
+lappend search_path $PROJECT_PATH/RTL/RxTimer
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer
+lappend search_path $PROJECT_PATH/RTL/cphy_tx_fsm
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm
+lappend search_path $PROJECT_PATH/RTL/ContentionDetection
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection
+lappend search_path $PROJECT_PATH/RTL/Clock_Recovery_LP
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP
+lappend search_path $PROJECT_PATH/RTL/Master
+/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs /home/svgpdditi25mowaleed/CPHY/RTL/sync_level /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/mapper /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder /home/svgpdditi25mowaleed/CPHY/RTL/Encoder /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder /home/svgpdditi25mowaleed/CPHY/RTL/TxTimer /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer /home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP /home/svgpdditi25mowaleed/CPHY/RTL/Master
+## Standard Cell libraries 
+#set target_library "saed32hvt_dlvl_ff0p85v25c_i0p85v.db"
+## Standard Cell & Hard Macros libraries 
+#set link_library "saed32hvt_dlvl_ff0p85v25c_i0p85v.db" 
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+analyze   -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v
+Presto compilation completed successfully.
+Loading db file '/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db'
+Information: Using CCS timing libraries. (TIM-024)
+Warning: Error occured in ccs delay calculation, results may not be accurate.
+1
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/gtech.db'
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/standard.sldb'
+  Loading link library 'saed32lvt_ff1p16v25c'
+  Loading link library 'gtech'
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v
+
+Inferred memory devices in process
+	in routine HS_Sequencer line 47 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Count_reg      | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      Count_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|     SeqDone_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     SeqSym_reg      | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Sequencer.db:HS_Sequencer'
+Error: This site is not licensed for 'Design-Compiler-NXT-FuSa'. (SEC-51)
+Loaded 1 design.
+Current design is 'HS_Sequencer'.
+HS_Sequencer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v
+
+Inferred memory devices in process
+	in routine Esc_Encoder line 48 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Enable1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_C_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_A_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Encoder line 70 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Enable0_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Encoder.db:Esc_Encoder'
+Loaded 1 design.
+Current design is 'Esc_Encoder'.
+Esc_Encoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/mapper.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:207: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:229: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:251: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:273: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/mapper.v:295: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 38 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/mapper.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            75            |    auto/auto     |
+|           171            |    auto/auto     |
+|           189            |    auto/auto     |
+|           211            |    auto/auto     |
+|           233            |    auto/auto     |
+|           255            |    auto/auto     |
+|           277            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/mapper.db:mapper'
+Loaded 1 design.
+Current design is 'mapper'.
+mapper
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v
+
+Inferred memory devices in process
+	in routine HS_Serializer line 41 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     SerSym_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   TxFlip_reg_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+| TxRotation_reg_reg  | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+| TxPolarity_reg_reg  | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/HS_Serializer.db:HS_Serializer'
+Loaded 1 design.
+Current design is 'HS_Serializer'.
+HS_Serializer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_3Bit.db:Mux_3Bit'
+Loaded 1 design.
+Current design is 'Mux_3Bit'.
+Mux_3Bit
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v
+
+Inferred memory devices in process
+	in routine Esc_Sequencer line 51 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Count_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     SeqBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     CmdDone_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| Esc_Sequencer/60 |   8    |    8    |      3       |
+| Esc_Sequencer/60 |   8    |    1    |      3       |
+======================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Sequencer.db:Esc_Sequencer'
+Loaded 1 design.
+Current design is 'Esc_Sequencer'.
+Esc_Sequencer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v
+
+Inferred memory devices in process
+	in routine ESC_Serializer line 44 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     LastBit_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  TxDataEsc_reg_reg  | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   TxReadyEsc_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     SerBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=======================================================
+| block name/line   | Inputs | Outputs | # sel inputs |
+=======================================================
+| ESC_Serializer/60 |   8    |    1    |      3       |
+=======================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Serializer.db:ESC_Serializer'
+Loaded 1 design.
+Current design is 'ESC_Serializer'.
+ESC_Serializer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Mux_1Bit.db:Mux_1Bit'
+Loaded 1 design.
+Current design is 'Mux_1Bit'.
+Mux_1Bit
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v:35: delays for continuous assignment are ignored. (VER-173)
+
+Statistics for case statements in always block at line 72 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            73            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 123 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           124            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 39 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  CurrentState_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 47 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     EscBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     Command_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     Counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.db:Esc_Decoder'
+Loaded 1 design.
+Current design is 'Esc_Decoder'.
+Esc_Decoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v:167: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 97 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            99            |    auto/auto     |
+|           158            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Encoder line 55 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      PD_B_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      PU_C_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      PD_C_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      State_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      State_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      PU_A_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      PD_A_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      PU_B_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Encoder.db:Encoder'
+Loaded 1 design.
+Current design is 'Encoder'.
+Encoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v:31: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 8 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            9             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/TX_Ctrl_Logic.db:TX_Ctrl_Logic'
+Loaded 1 design.
+Current design is 'TX_Ctrl_Logic'.
+TX_Ctrl_Logic
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Warning: Overwriting design file '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder'. (DDB-24)
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v:35: delays for continuous assignment are ignored. (VER-173)
+
+Statistics for case statements in always block at line 72 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            73            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 123 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           124            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 39 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  CurrentState_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 47 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     EscBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     Command_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     Counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Esc_Decoder.db:Esc_Decoder'
+Loaded 1 design.
+Current design is 'Esc_Decoder'.
+Esc_Decoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v
+
+Inferred memory devices in process
+	in routine ESC_Deserializer line 39 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    shift_reg_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   RxValidEsc_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    bit_count_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    RxEscData_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/ESC_Deserializer.db:ESC_Deserializer'
+Loaded 1 design.
+Current design is 'ESC_Deserializer'.
+ESC_Deserializer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v
+
+Statistics for case statements in always block at line 28 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            32            |     no/auto      |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Rx_Ctrl_Decoder.db:Rx_Ctrl_Decoder'
+Loaded 1 design.
+Current design is 'Rx_Ctrl_Decoder'.
+Rx_Ctrl_Decoder
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv:22: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 18 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine TxTimer line 26 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/TX_Timer.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Timeout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/TxTimer.db:TxTimer'
+Loaded 1 design.
+Current design is 'TxTimer'.
+TxTimer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv
+Warning:  /home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv:857: The value 89 is too large for the numeric data type being used (VER-1)
+
+Statistics for case statements in always block at line 187 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           188            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 412 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           458            |     no/auto      |
+|           605            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 831 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           838            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine cphy_tx_fsm line 165 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  current_state_reg  | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine cphy_tx_fsm line 831 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/FSM_TX.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| LPDT_Count_Done_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   Pause_Count_reg   | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/cphy_tx_fsm.db:cphy_tx_fsm'
+Loaded 1 design.
+Current design is 'cphy_tx_fsm'.
+cphy_tx_fsm
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/ContentionDetection.db:ContentionDetection'
+Loaded 1 design.
+Current design is 'ContentionDetection'.
+ContentionDetection
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v
+
+Statistics for case statements in always block at line 54 in file
+	'/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            55            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine RxTimer line 67 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine RxTimer line 80 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Timeout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/RxTimer.db:RxTimer'
+Loaded 1 design.
+Current design is 'RxTimer'.
+RxTimer
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Clock_Recovery_LP.db:Clock_Recovery_LP'
+Loaded 1 design.
+Current design is 'Clock_Recovery_LP'.
+Clock_Recovery_LP
+read_file -format verilog /home/svgpdditi25mowaleed/CPHY/RTL/Master.v
+Loading verilog file '/home/svgpdditi25mowaleed/CPHY/RTL/Master.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/svgpdditi25mowaleed/CPHY/RTL/Master.v
+Presto compilation completed successfully.
+Current design is now '/home/svgpdditi25mowaleed/CPHY/RTL/Master.db:Master'
+Loaded 1 design.
+Current design is 'Master'.
+Master
+###################### Defining toplevel ###################################
+current_design $top_module
+Current design is 'Master'.
+{Master}
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'Master'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (19 designs)              /home/svgpdditi25mowaleed/CPHY/RTL/Master.db, etc
+  saed32lvt_ff1p16v25c (library) /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db
+
+Information: Building the design 'sync_level'. (HDL-193)
+
+Inferred memory devices in process
+	in routine sync_level line 11 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_ff1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    sync_ff2_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sync_level)
+Information: Building the design 'sync_level' instantiated from design 'Master' with
+	the parameters "2". (HDL-193)
+
+Inferred memory devices in process
+	in routine sync_level_WIDTH2 line 11 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_ff1_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_ff2_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sync_level_WIDTH2)
+Information: Building the design 'sync_level' instantiated from design 'Master' with
+	the parameters "3". (HDL-193)
+
+Inferred memory devices in process
+	in routine sync_level_WIDTH3 line 11 in file
+		'/home/svgpdditi25mowaleed/CPHY/RTL/sync_level.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_ff1_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_ff2_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (sync_level_WIDTH3)
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design >> reports/check_design.rpt
+#################### Define Design Constraints #########################
+puts "###############################################"
+###############################################
+puts "############ Design Constraints #### ##########"
+############ Design Constraints #### ##########
+puts "###############################################"
+###############################################
+source -echo ./cons.tcl
+####################################################################################
+# Constraints
+# ----------------------------------------------------------------------------
+#
+# 1. Generated Clock Definitions
+#
+# 2. Clock Uncertainties
+#
+# 3. set input/output delay on ports
+#
+# 4. Driving cells
+#
+# 5. Output load
+####################################################################################
+#########################################################
+#### Section 1 : Clock Definition ####
+#########################################################
+#################################################################################### 
+# 1. Master Clock Definitions 
+# 2. Clock Uncertainties 
+# 3. Clock Transitions
+# 4. Clock Latencies
+# 5. Clock groups
+####################################################################################
+# TX_Escape Clock (10 MHz)
+set TX_ESC_CLK_NAME ESC_CLK
+set TX_ESC_CLK_PER 100.0
+set TX_CLK_ESC_SETUP_SKEW 0.2
+set TX_CLK_ESC_HOLD_SKEW 0.1
+set TX_CLK_ESC_RISE 0.8
+set TX_CLK_ESC_FALL 0.8
+set TX_CLK_ESC_LAT  1.5
+# Symbol Clock (2.1 GHz)
+set SYM_CLK_NAME SYM_CLK
+#set SYM_CLK_PER [expr 1000.0 / 2100.0] ;# ≈ 0.4762 ns
+set SYM_CLK_PER 1
+set CLK_SYM_SETUP_SKEW 0.05
+set CLK_SYM_HOLD_SKEW 0.025
+set CLK_SYM_RISE 0.05
+set CLK_SYM_FALL 0.05
+set CLK_SYM_LAT  0.05
+# Word Clock (300 MHz)
+set WORD_CLK_NAME WORD_CLK
+#set WORD_CLK_PER [expr 1000.0 / 300.0] ;# ≈ 3.333 ns
+set WORD_CLK_PER 7
+set CLK_WORD_SETUP_SKEW 0.2
+set CLK_WORD_HOLD_SKEW 0.05
+set CLK_WORD_RISE 0.15
+set CLK_WORD_FALL 0.15
+set CLK_WORD_LAT  0.8
+# RX_Escape Clock (10 MHz)
+set RX_ESC_CLK_NAME RX_ESC_CLK
+set RX_ESC_CLK_PER 100.0
+set RX_CLK_ESC_SETUP_SKEW 0.2
+set RX_CLK_ESC_HOLD_SKEW 0.1
+set RX_CLK_ESC_RISE 0.8
+set RX_CLK_ESC_FALL 0.8
+set RX_CLK_ESC_LAT  1.5
+# 1. Master Clocks Definitions 
+create_clock -name $TX_ESC_CLK_NAME -period $TX_ESC_CLK_PER [get_ports TxClkEsc]
+create_clock -name $SYM_CLK_NAME    -period $SYM_CLK_PER [get_ports TxSymbolClkHS]
+create_clock -name $WORD_CLK_NAME   -period $WORD_CLK_PER [get_ports TxWordClkHs]
+create_clock -name $RX_ESC_CLK_NAME -period $RX_ESC_CLK_PER   [get_pins clk_recovery_lp/RxClkEsc]
+# 2. Clock Uncertainties
+set_clock_uncertainty -setup $TX_CLK_ESC_SETUP_SKEW [get_clocks $TX_ESC_CLK_NAME]
+set_clock_uncertainty -hold  $TX_CLK_ESC_HOLD_SKEW  [get_clocks $TX_ESC_CLK_NAME]
+set_clock_uncertainty -setup $CLK_SYM_SETUP_SKEW [get_clocks $SYM_CLK_NAME]
+set_clock_uncertainty -hold  $CLK_SYM_HOLD_SKEW  [get_clocks $SYM_CLK_NAME]
+set_clock_uncertainty -setup $CLK_WORD_SETUP_SKEW [get_clocks $WORD_CLK_NAME]
+set_clock_uncertainty -hold  $CLK_WORD_HOLD_SKEW  [get_clocks $WORD_CLK_NAME]
+set_clock_uncertainty -setup $RX_CLK_ESC_SETUP_SKEW [get_clocks $RX_ESC_CLK_NAME]
+set_clock_uncertainty -hold  $RX_CLK_ESC_HOLD_SKEW  [get_clocks $RX_ESC_CLK_NAME]
+# 3. Clock Transitions
+set_clock_transition -rise $TX_CLK_ESC_RISE  [get_clocks $TX_ESC_CLK_NAME]
+set_clock_transition -fall $TX_CLK_ESC_FALL  [get_clocks $TX_ESC_CLK_NAME]
+set_clock_transition -rise $CLK_SYM_RISE  [get_clocks $SYM_CLK_NAME]
+set_clock_transition -fall $CLK_SYM_FALL  [get_clocks $SYM_CLK_NAME]
+set_clock_transition -rise $CLK_WORD_RISE  [get_clocks $WORD_CLK_NAME]
+set_clock_transition -fall $CLK_WORD_FALL  [get_clocks $WORD_CLK_NAME]
+set_clock_transition -rise $RX_CLK_ESC_RISE  [get_clocks $RX_ESC_CLK_NAME]
+set_clock_transition -fall $RX_CLK_ESC_FALL  [get_clocks $RX_ESC_CLK_NAME]
+# 4. Clock Latencies
+set_clock_latency $TX_CLK_ESC_LAT [get_clocks $TX_ESC_CLK_NAME]
+set_clock_latency $CLK_SYM_LAT [get_clocks $SYM_CLK_NAME]
+set_clock_latency $CLK_WORD_LAT [get_clocks $WORD_CLK_NAME]
+set_clock_latency $RX_CLK_ESC_LAT [get_clocks $RX_ESC_CLK_NAME]
+# 5. Clock groups
+set_clock_groups -asynchronous -group [get_clocks RX_ESC_CLK] -group [get_clocks WORD_CLK]
+set_clock_groups -asynchronous -group [get_clocks ESC_CLK] -group [get_clocks WORD_CLK]
+set_clock_groups -asynchronous -group [get_clocks ESC_CLK] -group [get_clocks SYM_CLK]
+set_clock_groups -asynchronous -group [get_clocks WORD_CLK] -group [get_clocks SYM_CLK]
+set_clock_groups -asynchronous -group [get_clocks WORD_CLK] -group [get_clocks ESC_CLK]
+set_clock_groups -asynchronous -group [get_clocks WORD_CLK] -group [get_clocks RX_ESC_CLK]
+####################################################################################
+#########################################################
+#### Section 3 : set input/output delay on ports ####
+#########################################################
+####################################################################################
+set in1_delay  [expr 0.2*$WORD_CLK_PER]
+set out1_delay [expr 0.2*$WORD_CLK_PER]
+set in2_delay  [expr 0.2*$TX_ESC_CLK_PER]
+set out2_delay [expr 0.2*$TX_ESC_CLK_PER]
+set in3_delay  [expr 0.2*$SYM_CLK_PER]
+set out3_delay [expr 0.2*$SYM_CLK_PER]
+set in4_delay  [expr 0.2*$RX_ESC_CLK_PER]
+set out4_delay  [expr 0.2*$RX_ESC_CLK_PER]
+#Constrain Input Paths
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxDataHS]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxSendSyncHS]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxReqHS]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxReqEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxLpdtEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxUlpsEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxUlpsExit]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxTriggerEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxDataEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TxValidEsc]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TurnRequest]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port TurnDisable]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port ForceRxmode]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port ForceTxStopmode]
+set_input_delay $in1_delay -clock $WORD_CLK_NAME [get_port Enable]
+set_input_delay $in2_delay -clock $TX_ESC_CLK_NAME [get_port LP_CD_A]
+set_input_delay $in2_delay -clock $TX_ESC_CLK_NAME [get_port LP_CD_B]
+set_input_delay $in2_delay -clock $TX_ESC_CLK_NAME [get_port LP_CD_C]
+set_input_delay $in4_delay -clock $RX_ESC_CLK_NAME [get_port LpRx]
+#Constrain Output Paths
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port TxReadyHS]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port LpTxEn]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port HsTxEn]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port TxReadyEsc]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port Direction]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port Stopstate]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrContentionLP0]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrContentionLP1]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port UlpsActiveNot]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrEsc]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrSyncEsc]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port ErrControl]
+set_output_delay $out1_delay -clock $WORD_CLK_NAME [get_port LpRxEn]
+set_output_delay $out2_delay -clock $TX_ESC_CLK_NAME [get_port LpTx]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxEscData]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxValidEsc]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxTriggerEsc]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxUlpsEsc]
+set_output_delay $out4_delay -clock $RX_ESC_CLK_NAME [get_port RxLpdtEsc]
+####################################################################################
+#########################################################
+#### Section 4 : Driving cells ####
+#########################################################
+####################################################################################
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxDataHS]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[15]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[14]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[13]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[12]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[11]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[10]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[9]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[8]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataHS[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxSendSyncHS]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxSendSyncHS'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxReqHS]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxReqHS'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxReqEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxReqEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxLpdtEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxLpdtEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxUlpsEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxUlpsEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxUlpsExit]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxUlpsExit'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxTriggerEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxDataEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TxValidEsc]
+Warning: Design rule attributes from the driving cell will be set on the port 'TxValidEsc'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LpRx]
+Warning: Design rule attributes from the driving cell will be set on the port 'LpRx[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LpRx[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LpRx[0]'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TurnRequest]
+Warning: Design rule attributes from the driving cell will be set on the port 'TurnRequest'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port TurnDisable]
+Warning: Design rule attributes from the driving cell will be set on the port 'TurnDisable'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port ForceRxmode]
+Warning: Design rule attributes from the driving cell will be set on the port 'ForceRxmode'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port ForceTxStopmode]
+Warning: Design rule attributes from the driving cell will be set on the port 'ForceTxStopmode'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port Enable]
+Warning: Design rule attributes from the driving cell will be set on the port 'Enable'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LP_CD_A]
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_A'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LP_CD_B]
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_B'. (UID-401)
+set_driving_cell -library saed32lvt_ff1p16v25c -lib_cell IBUFFX4_LVT -pin Y [get_port LP_CD_C]
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_C'. (UID-401)
+####################################################################################
+#########################################################
+#### Section 5 : Output load ####
+#########################################################
+####################################################################################
+# WORD_CLK domain
+set_load 15 [get_ports TxReadyHS]
+set_load 15 [get_ports LpTxEn]
+set_load 15 [get_ports HsTxEn]
+set_load 15 [get_ports TxReadyEsc]
+set_load 15 [get_ports Direction]
+set_load 15 [get_ports Stopstate]
+set_load 15 [get_ports ErrContentionLP0]
+set_load 15 [get_ports ErrContentionLP1]
+set_load 15 [get_ports UlpsActiveNot]
+set_load 15 [get_ports ErrEsc]
+set_load 15 [get_ports ErrSyncEsc]
+set_load 15 [get_ports ErrControl]
+set_load 15 [get_ports LpRxEn]
+# TX_ESC_CLK domain
+set_load 15 [get_ports LpTx]
+# SYM_CLK domain
+set_load 15 [get_ports A]
+set_load 15 [get_ports B]
+set_load 15 [get_ports C]
+# RX_ESC_CLK domain
+set_load 15 [get_ports RxEscData]
+set_load 15 [get_ports RxValidEsc]
+set_load 15 [get_ports RxTriggerEsc]
+set_load 15 [get_ports RxUlpsEsc]
+set_load 15 [get_ports RxLpdtEsc]
+##########
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+#compile 
+# Set higher effort on optimization
+compile_ultra -no_autoungroup
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/dw_foundation.sldb'
+Information: Failed to find dw_foundation.sldb in the user defined search_path, load it from 'Synopsys Root'. (UISN-70)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | V-2023.12-DWBB_202312.5 |     *     |
+| Licensed DW Building Blocks        | V-2023.12-DWBB_202312.5 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Command Line | compile_ultra -no_autoungroup                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 2023                                   |
+| Number of User Hierarchies                              | 36                                     |
+| Sequential Cell Count                                   | 188                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 5                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 4                                      |
+| Number of Dont Touch Cells                              | 701                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 48 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 4 instances of design 'Mux_1Bit'. (OPT-1056)
+Information: Uniquified 13 instances of design 'sync_level'. (OPT-1056)
+  Simplifying Design 'Master'
+Information: The register 'sync_level_U10/sync_ff2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_level_U10/sync_ff1_reg[0]' will be removed. (OPT-1207)
+Information: Removing unused design 'sync_level_2'. (OPT-1055)
+
+Loaded alib file './alib-52/saed32lvt_ff1p16v25c.db.alib'
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mapper'
+Information: Added key list 'DesignWare' to design 'mapper'. (DDB-72)
+  Processing 'HS_Serializer'
+Information: Added key list 'DesignWare' to design 'HS_Serializer'. (DDB-72)
+  Processing 'HS_Sequencer'
+ Implement Synthetic for 'HS_Sequencer'.
+  Processing 'Master'
+  Processing 'Esc_Decoder'
+Information: Added key list 'DesignWare' to design 'Esc_Decoder'. (DDB-72)
+  Processing 'RxTimer'
+ Implement Synthetic for 'RxTimer'.
+Information: Added key list 'DesignWare' to design 'RxTimer'. (DDB-72)
+  Processing 'ESC_Deserializer'
+Information: Added key list 'DesignWare' to design 'ESC_Deserializer'. (DDB-72)
+  Processing 'TxTimer'
+ Implement Synthetic for 'TxTimer'.
+Information: Added key list 'DesignWare' to design 'TxTimer'. (DDB-72)
+  Processing 'ESC_Serializer'
+Information: Added key list 'DesignWare' to design 'ESC_Serializer'. (DDB-72)
+  Processing 'sync_level_WIDTH3'
+  Processing 'Rx_Ctrl_Decoder'
+  Processing 'TX_Ctrl_Logic'
+  Processing 'Mux_3Bit'
+  Processing 'Mux_1Bit_0'
+  Processing 'Mux_1Bit_1'
+  Processing 'cphy_tx_fsm'
+ Implement Synthetic for 'cphy_tx_fsm'.
+  Processing 'Encoder'
+  Processing 'Esc_Sequencer'
+Information: Added key list 'DesignWare' to design 'Esc_Sequencer'. (DDB-72)
+  Processing 'Esc_Encoder'
+  Processing 'ContentionDetection'
+  Processing 'sync_level_WIDTH2'
+  Processing 'sync_level_0'
+  Processing 'Clock_Recovery_LP'
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+
+  Updating timing information
+Information: The register 'HS_Serializer_U0/TxPolarity_reg_reg[0]' will be removed. (OPT-1207)
+Information: The register 'HS_Serializer_U0/TxRotation_reg_reg[0]' will be removed. (OPT-1207)
+Information: The register 'HS_Serializer_U0/TxFlip_reg_reg[0]' will be removed. (OPT-1207)
+Information: The register 'ESC_Serializerr_U0/TxDataEsc_reg_reg[0]' will be removed. (OPT-1207)
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: The register 'Esc_Deserializer_U0/bit_count_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: In design 'Master', the register 'HS_Sequencer_U0/SeqSym_reg[1]' is removed because it is merged to 'HS_Sequencer_U0/SeqSym_reg[0]'. (OPT-1215)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'HS_Sequencer'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'cphy_tx_fsm'. (DDB-72)
+  Mapping Optimization (Phase 1)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/Rx_timer/counter_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cphy_tx_fsm_U0/timer_inst/counter_reg[15]' is a constant and will be removed. (OPT-1206)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    3150.6      3.53      39.1   70565.3                           88352680.0000
+    0:00:04    3133.6      3.53      39.1   70565.3                           87904760.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:05    3018.2      0.11       0.1   70652.1                           83165520.0000
+    0:00:05    3018.0      0.00       0.0   70592.1                           83244432.0000
+    0:00:05    3018.0      0.00       0.0   70592.1                           83244432.0000
+    0:00:05    3016.7      0.00       0.0   70592.1                           83192088.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+    0:00:05    3009.6      0.00       0.0   70243.7                           82928080.0000
+    0:00:05    3009.6      0.00       0.0   70243.7                           82928080.0000
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2810.6      0.00       0.0    1084.5                           81704472.0000
+    0:00:05    2739.2      0.01       0.0    1105.9                           81444856.0000
+    0:00:05    2739.2      0.01       0.0    1105.9                           81444856.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    2752.1      0.00       0.0    1099.9                           81641616.0000
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.9      0.00       0.0    1088.0                           81720520.0000
+    0:00:05    2753.1      1.90       3.7    3508.9                           81720520.0000
+    0:00:05    2753.1      1.90       3.7    3508.9                           81720520.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    2784.9      0.00       0.0    1213.3                           82297448.0000
+    0:00:06    2755.9      0.26       0.3    1567.4                           81596280.0000
+    0:00:06    2783.1      0.01       0.0    1571.3                           82021584.0000
+    0:00:06    2783.1      0.01       0.0    1571.3                           82021584.0000
+    0:00:06    2778.8      0.02       0.1    1452.6                           82021584.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2801.9      0.00       0.0    1067.8                           82913576.0000
+    0:00:06    2779.8      0.00       0.0    1067.8                           82728136.0000
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 62 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+##################### Close Formality Setup file ###########################
+set_svf -off
+1
+#############################################################################
+# Write out files
+#############################################################################
+write_file -format verilog -hierarchy -output netlists/$top_module.ddc
+Writing verilog file '/home/svgpdditi25mowaleed/CPHY/synthesis/SCRIPTS/netlists/Master.ddc'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 7 nets to module Master using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_file -format verilog -hierarchy -output netlists/$top_module.v
+Writing verilog file '/home/svgpdditi25mowaleed/CPHY/synthesis/SCRIPTS/netlists/Master.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 7 nets to module Master using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_sdf  sdf/$top_module.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/svgpdditi25mowaleed/CPHY/synthesis/SCRIPTS/sdf/Master.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc  -nosplit sdc/$top_module.sdc
+1
+####################### reporting ##########################################
+report_area -hierarchy > reports/area.rpt
+report_power -hierarchy > reports/power.rpt
+report_timing -delay_type min -max_paths 100 > reports/hold.rpt
+report_timing -delay_type max -max_paths 100 > reports/setup.rpt
+report_clock -attributes > reports/clocks.rpt
+report_constraint -all_violators -nosplit > reports/constraints.rptSSS
+set tns 0.0
+0.0
+set wns 0.0
+0.0
+set lps 1.0e9  ;# Large positive number to find minimum
+1.0e9
+foreach_in_collection path [get_timing_paths -max_paths 10000] {
+    set slack [get_attribute $path slack]
+
+    if {$slack < 0} {
+        set tns [expr {$tns + $slack}]
+        if {$slack < $wns} {
+            set wns $slack
+        }
+    } else {
+        if {$slack < $lps} {
+            set lps $slack
+        }
+    }
+}
+puts "Total Negative Slack (TNS): $tns"
+Total Negative Slack (TNS): 0.0
+puts "Worst Negative Slack (WNS): $wns"
+Worst Negative Slack (WNS): 0.0
+puts "Least Positive Slack: $lps"
+Least Positive Slack: 0.05
+################# starting graphical user interface #######################
+#gui_start
+#exit
+dc_shell> 

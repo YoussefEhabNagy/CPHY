@@ -1,0 +1,804 @@
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 17:34:04 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 17:47:58 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 17:53:26 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 17:58:07 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 18:07:19 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 20:59:03 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 21:08:10 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 21:25:18 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 21:44:54 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 21:52:35 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2222' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2229' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2235' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'HsSerializerEn' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 22:08:21 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     25
+    Unconnected ports (LINT-28)                                     3
+    Feedthrough (LINT-29)                                          12
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    17
+    Leaf pins connected to undriven nets (LINT-58)                  2
+    Cells have undriven hier pins (LINT-59)                         1
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          2
+    Undriven nets (LINT-3)                                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'HS_Serializer', cell 'C400' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C204' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C205' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C209' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C215' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Sequencer', cell 'C216' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2217' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2224' does not drive any nets. (LINT-1)
+Warning: In design 'cphy_tx_fsm', cell 'C2230' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'Master', net 'SeqDoneSync' driven by pin 'sync_level_U10/sync_out[0]' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQ' driven by pin 'cphy_tx_fsm_U0/TxRequestHSSEQ' has no loads. (LINT-2)
+Warning: In design 'Master', net 'TxRequestHSSEQSync' has no drivers.  Logic 0 assumed. (LINT-3)
+Warning: In design 'Master', port 'ErrSotHS' is not connected to any nets. (LINT-28)
+Warning: In design 'Master', port 'ErrSotSyncHS' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', port 'Enable' is not connected to any nets. (LINT-28)
+Warning: In design 'cphy_tx_fsm', input port 'TxReqHS' is connected directly to output port 'TxRequestHSSEQ'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'cphy_tx_fsm', output port 'TxReadyHS' is connected directly to output port 'SerSeqSel'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'TxReadyHS' is connected directly to output port 'HsSerializerEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EncoderEn' is connected directly to output port 'HsTxEn'. (LINT-31)
+Warning: In design 'cphy_tx_fsm', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'I_19' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'HS_Sequencer', input pin 'A' of leaf cell 'B_11' is connected to undriven net 'TxReqHS'.  (LINT-58)
+Warning: In design 'Master', input pin 'TxReqHS' of hierarchical cell 'HS_Sequencer_U0' has one or more internal loads, but is not connected to any nets. 'Logic 0' is assumed. (LINT-59)
+1
