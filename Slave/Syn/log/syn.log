@@ -1,0 +1,1262 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+              Version V-2023.12-SP5-1 for linux64 - Sep 03, 2024 
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Tue Jun  3 02:24:49 2025
+Hostname:           academysvr02
+CPU Model:          Intel(R) Xeon(R) CPU E5-2643 v3 @ 3.40GHz
+CPU Details:        Cores = 12 : Sockets = 6 : Cache Size = 20480 KB : Freq = 3.40 GHz
+OS:                 Linux 3.10.0-1160.119.1.el7.x86_64
+RAM:                 78 GB (Free   7 GB)
+Swap:                 9 GB (Free   9 GB)
+Work Filesystem:    /home mounted to /dev/mapper/centos-home
+Tmp Filesystem:     / mounted to /dev/mapper/centos-root
+Work Disk:          1687 GB (Free 1101 GB)
+Tmp Disk:           348 GB (Free  61 GB)
+
+CPU Load: 27%, Ram Free: 7 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 61 GB
+set Top_module  slave
+slave
+# put the path and libs
+# --- Define Search path & Libraries ---- # 
+#set_app_var search_path "/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs"
+lappend search_path  "/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs"
+. /home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn /home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/dw/syn_ver /home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/dw/sim_ver /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs
+set_app_var target_library     "saed32lvt_ff1p16v25c.db"  	
+saed32lvt_ff1p16v25c.db
+set_app_var link_library "* $target_library"
+* saed32lvt_ff1p16v25c.db
+# --- Remove any work --- #
+# Repitive operations 
+sh rm -rf work
+sh mkdir -p work
+# For define enviroment files for reduced run time of tools to store intermideate files 
+define_design_lib work -path ./work
+1
+# read all files and the top must be  the last file
+#analyze -format verilog ../rtl/Clock_Gating.v
+analyze -format verilog ../rtl/Clock_Recovery_LP.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Clock_Recovery_LP.v
+Presto compilation completed successfully.
+Loading db file '/home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db'
+Information: Using CCS timing libraries. (TIM-024)
+Warning: Error occured in ccs delay calculation, results may not be accurate.
+1
+analyze -format verilog ../rtl/ContentionDetection.v
+Running PRESTO HDLC
+Compiling source file ../rtl/ContentionDetection.v
+Presto compilation completed successfully.
+1
+analyze -format sverilog ../rtl/Decoder.sv
+Running PRESTO HDLC
+Compiling source file ../rtl/Decoder.sv
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/demapper.v
+Running PRESTO HDLC
+Compiling source file ../rtl/demapper.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Esc_Decoder.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Esc_Decoder.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/ESC_Deserializer.v
+Running PRESTO HDLC
+Compiling source file ../rtl/ESC_Deserializer.v
+Warning:  ../rtl/ESC_Deserializer.v:91: Overwriting existing design element 'ESC_Deserializer' with newer version. (VER-64)
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Esc_Encoder.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Esc_Encoder.v
+Presto compilation completed successfully.
+1
+analyze -format sverilog ../rtl/Esc_Sequencer.sv
+Running PRESTO HDLC
+Compiling source file ../rtl/Esc_Sequencer.sv
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/ESC_Serializer.v
+Running PRESTO HDLC
+Compiling source file ../rtl/ESC_Serializer.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/HS_Deserializer.v
+Running PRESTO HDLC
+Compiling source file ../rtl/HS_Deserializer.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Mux_1Bit.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Mux_1Bit.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Rx_Ctrl_Decoder.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Rx_Ctrl_Decoder.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/RxTimer.v
+Running PRESTO HDLC
+Compiling source file ../rtl/RxTimer.v
+Presto compilation completed successfully.
+1
+#read_file -format verilog ../rtl/reg_file.v
+analyze   -format verilog ../rtl/reg_file.v
+Running PRESTO HDLC
+Compiling source file ../rtl/reg_file.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Sequence_Detector.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Sequence_Detector.v
+Presto compilation completed successfully.
+1
+analyze -format sverilog ../rtl/SlaveFSM.sv
+Running PRESTO HDLC
+Compiling source file ../rtl/SlaveFSM.sv
+Presto compilation completed successfully.
+1
+#read_file -format verilog ../rtl/synchronizer.v
+analyze   -format verilog ../rtl/synchronizer.v
+Running PRESTO HDLC
+Compiling source file ../rtl/synchronizer.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/TX_Ctrl_Logic.v
+Running PRESTO HDLC
+Compiling source file ../rtl/TX_Ctrl_Logic.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/TxTimer.v
+Running PRESTO HDLC
+Compiling source file ../rtl/TxTimer.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Word_Clock_Gen.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Word_Clock_Gen.v
+Presto compilation completed successfully.
+1
+analyze -format verilog ../rtl/Slave.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Slave.v
+Presto compilation completed successfully.
+1
+elaborate slave
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/gtech.db'
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/standard.sldb'
+  Loading link library 'saed32lvt_ff1p16v25c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine slave line 391 in file
+		'../rtl/Slave.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| DetectedSeq_REG_reg | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+| DetectedSeqREG_reg  | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (slave)
+Error: This site is not licensed for 'Design-Compiler-NXT-FuSa'. (SEC-51)
+Elaborated 1 design.
+Current design is now 'slave'.
+Information: Building the design 'synchronizer' instantiated from design 'slave' with
+	the parameters "1". (HDL-193)
+
+Inferred memory devices in process
+	in routine synchronizer_WIDTH1 line 11 in file
+		'../rtl/synchronizer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_reg1_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    sync_reg2_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (synchronizer_WIDTH1)
+Information: Building the design 'Word_Clock_Gen'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Word_Clock_Gen line 13 in file
+		'../rtl/Word_Clock_Gen.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    pos_count_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Word_Clock_Gen line 26 in file
+		'../rtl/Word_Clock_Gen.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    neg_count_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Word_Clock_Gen)
+Information: Building the design 'Clock_Recovery_LP'. (HDL-193)
+Presto compilation completed successfully. (Clock_Recovery_LP)
+Information: Building the design 'Decoder'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Decoder line 38 in file
+		'../rtl/Decoder.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       PS_reg        | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       CS_reg        | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Decoder)
+Information: Building the design 'reg_file' instantiated from design 'slave' with
+	the parameters "width=3". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_file_width3 line 9 in file
+		'../rtl/reg_file.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    data_out_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (reg_file_width3)
+Information: Building the design 'HS_Deserializer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine HS_Deserializer line 46 in file
+		'../rtl/HS_Deserializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    temp_flip_reg    | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   RxRotation_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  temp_polarity_reg  | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   RxPolarity_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  temp_rotation_reg  | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     RxFlip_reg      | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (HS_Deserializer)
+Information: Building the design 'reg_file'. (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_file line 9 in file
+		'../rtl/reg_file.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    data_out_reg     | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (reg_file)
+Information: Building the design 'demapper'. (HDL-193)
+
+Statistics for case statements in always block at line 54 in file
+	'../rtl/demapper.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            67            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 133 in file
+	'../rtl/demapper.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           144            |    auto/auto     |
+|           232            |    auto/auto     |
+|           281            |    auto/auto     |
+|           336            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 400 in file
+	'../rtl/demapper.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           410            |    auto/auto     |
+|           428            |    auto/auto     |
+|           446            |    auto/auto     |
+|           464            |    auto/auto     |
+|           482            |    auto/auto     |
+|           500            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine demapper line 54 in file
+		'../rtl/demapper.v'.
+=======================================================================================
+|        Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=======================================================================================
+|       most_three_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|        most_four_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|        most_five_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| temp_invalidcode_stage1_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|        most_zero_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|        most_one_reg         | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|        most_two_reg         | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+=======================================================================================
+
+Inferred memory devices in process
+	in routine demapper line 133 in file
+		'../rtl/demapper.v'.
+=======================================================================================
+|        Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=======================================================================================
+|       mux_values_reg        | Flip-flop |  13   |  Y  | N  | Y  | N  | N  | N  | N  |
+| temp_invalidcode_stage2_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       temp_signal_reg       | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+=======================================================================================
+
+Inferred memory devices in process
+	in routine demapper line 400 in file
+		'../rtl/demapper.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    RxDataHS_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+| RxInvalidCodeHS_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (demapper)
+Information: Building the design 'ESC_Deserializer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ESC_Deserializer line 103 in file
+		'../rtl/ESC_Deserializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    shift_reg_reg    | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   RxValidEsc_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    bit_count_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    RxEscData_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (ESC_Deserializer)
+Information: Building the design 'Esc_Decoder'. (HDL-193)
+
+Statistics for case statements in always block at line 70 in file
+	'../rtl/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            71            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 121 in file
+	'../rtl/Esc_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           122            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 37 in file
+		'../rtl/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  CurrentState_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Decoder line 45 in file
+		'../rtl/Esc_Decoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     EscBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     Command_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     Counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Esc_Decoder)
+Information: Building the design 'Sequence_Detector'. (HDL-193)
+
+Statistics for case statements in always block at line 107 in file
+	'../rtl/Sequence_Detector.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           113            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Sequence_Detector line 85 in file
+		'../rtl/Sequence_Detector.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   saved_four_reg    | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|   saved_four_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   saved_five_reg    | Flip-flop |   2   |  Y  | N  | N  | Y  | N  | N  | N  |
+|   saved_five_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    saved_six_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    saved_six_reg    | Flip-flop |   2   |  Y  | N  | N  | Y  | N  | N  | N  |
+|      state_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  symbol_count_reg   | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   saved_three_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   saved_three_reg   | Flip-flop |   2   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Sequence_Detector)
+Information: Building the design 'Rx_Ctrl_Decoder'. (HDL-193)
+
+Statistics for case statements in always block at line 29 in file
+	'../rtl/Rx_Ctrl_Decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            31            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (Rx_Ctrl_Decoder)
+Information: Building the design 'synchronizer' instantiated from design 'slave' with
+	the parameters "3". (HDL-193)
+
+Inferred memory devices in process
+	in routine synchronizer_WIDTH3 line 11 in file
+		'../rtl/synchronizer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_reg1_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_reg2_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (synchronizer_WIDTH3)
+Information: Building the design 'synchronizer' instantiated from design 'slave' with
+	the parameters "2". (HDL-193)
+
+Inferred memory devices in process
+	in routine synchronizer_WIDTH2 line 11 in file
+		'../rtl/synchronizer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_reg1_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_reg2_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (synchronizer_WIDTH2)
+Information: Building the design 'Esc_Sequencer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Esc_Sequencer line 25 in file
+		'../rtl/Esc_Sequencer.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Count_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     SeqBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     CmdDone_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| Esc_Sequencer/34 |   8    |    8    |      3       |
+| Esc_Sequencer/34 |   8    |    1    |      3       |
+======================================================
+Presto compilation completed successfully. (Esc_Sequencer)
+Information: Building the design 'ESC_Serializer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ESC_Serializer line 14 in file
+		'../rtl/ESC_Serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     LastBit_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  TxDataEsc_reg_reg  | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   TxReadyEsc_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     SerBit_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=======================================================
+| block name/line   | Inputs | Outputs | # sel inputs |
+=======================================================
+| ESC_Serializer/30 |   8    |    1    |      3       |
+=======================================================
+Presto compilation completed successfully. (ESC_Serializer)
+Information: Building the design 'Mux_1Bit'. (HDL-193)
+Presto compilation completed successfully. (Mux_1Bit)
+Information: Building the design 'Esc_Encoder'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Esc_Encoder line 18 in file
+		'../rtl/Esc_Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Enable1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_C_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_A_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Esc_Encoder line 40 in file
+		'../rtl/Esc_Encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Enable0_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Esc_Encoder)
+Information: Building the design 'TX_Ctrl_Logic'. (HDL-193)
+Warning:  ../rtl/TX_Ctrl_Logic.v:31: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 8 in file
+	'../rtl/TX_Ctrl_Logic.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            9             |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (TX_Ctrl_Logic)
+Information: Building the design 'ContentionDetection'. (HDL-193)
+Presto compilation completed successfully. (ContentionDetection)
+Information: Building the design 'synchronizer' instantiated from design 'slave' with
+	the parameters "4". (HDL-193)
+
+Inferred memory devices in process
+	in routine synchronizer_WIDTH4 line 11 in file
+		'../rtl/synchronizer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sync_reg1_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    sync_reg2_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (synchronizer_WIDTH4)
+Information: Building the design 'SlaveFSM'. (HDL-193)
+
+Statistics for case statements in always block at line 234 in file
+	'../rtl/SlaveFSM.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           239            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 447 in file
+	'../rtl/SlaveFSM.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           502            |     no/auto      |
+|           731            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 804 in file
+	'../rtl/SlaveFSM.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           815            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine SlaveFSM line 228 in file
+		'../rtl/SlaveFSM.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  currentState_reg   | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SlaveFSM line 804 in file
+		'../rtl/SlaveFSM.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| LPDT_Count_Done_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   Pause_Count_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (SlaveFSM)
+Information: Building the design 'RxTimer'. (HDL-193)
+
+Statistics for case statements in always block at line 56 in file
+	'../rtl/RxTimer.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            57            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine RxTimer line 69 in file
+		'../rtl/RxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine RxTimer line 83 in file
+		'../rtl/RxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Timeout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (RxTimer)
+Information: Building the design 'TxTimer'. (HDL-193)
+Warning:  ../rtl/TxTimer.v:22: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 18 in file
+	'../rtl/TxTimer.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine TxTimer line 26 in file
+		'../rtl/TxTimer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     Timeout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |  15   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     counter_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (TxTimer)
+1
+# - Return name of current design  
+current_design slave
+Current design is 'slave'.
+{slave}
+# - locate all of the designs and library components referenced in the current design and connect them to the current design.
+link 
+
+  Linking design 'slave'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (25 designs)              /home/svgpdditi25ahthabit/cphy/slave/syn/slave.db, etc
+  saed32lvt_ff1p16v25c (library) /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db
+
+1
+# - Checks for detects any errors in design 
+check_design >> ../reports/check_design.rpt
+# -- Apply Constraints on Design 
+source -echo ../cons/Slave_cons.tcl
+# ---- Budget Clock --- # 
+set Clk_Esc  100;    # 10Mhz
+set Clk_Symbol  1;       # 1.05 Ghz
+set Clk_word 7 ;    # 150Mhz
+# -------the timing in ns
+#  input clocks
+create_clock -name RxClkFsm -period $Clk_word  [get_ports RxClkFsm]
+create_clock -name TxClkEsc -period $Clk_Esc   [get_ports TxClkEsc]
+#  generated clock in our modules
+# HS clk
+create_clock -name RxSymClkHS -period $Clk_Symbol   [get_pins clk_gating/GCLK] ;#  lp_out_Clk ----> esc_DecoderClk   ESc_DesClk
+create_generated_clock -name RxWordClkHS -source [get_pins clk_gating/GCLK] -divide_by 7  [get_pins wordclk/RxWordClkHs]  ; # note that there a relation between sym &word clocks
+# lp clk
+create_clock -name RxClkEsc -period $Clk_Esc   [get_pins clk_recovery_lp/RxClkEsc]
+set_clock_groups -asynchronous -group {RxClkFsm} -group {TxClkEsc} -group {RxSymClkHS RxWordClkHS} -group {RxClkEsc}
+# --------jitter and skew
+set  delay1  [expr 0.05*$Clk_Esc]
+set  delay2  [expr 0.1*$Clk_Symbol]
+set  delay3  [expr 0.1*$Clk_word]
+set_clock_uncertainty  $delay1 [get_ports  TxClkEsc]
+set_clock_uncertainty  $delay1 [get_pins  clk_recovery_lp/RxClkEsc]
+set_clock_uncertainty  $delay2  [get_pins clk_gating/GCLK]
+set_clock_uncertainty  $delay3 [get_ports { RxClkFsm}]
+set_clock_uncertainty  $delay3 [get_pins wordclk/RxWordClkHs]
+# ---- Model external ---- #
+set in1_delay  [expr 0.1*$Clk_Esc]
+set out1_delay [expr 0.1*$Clk_Esc]
+set in2_delay  [expr 0.15*$Clk_Symbol]
+set out2_delay [expr 0.15*$Clk_Symbol]
+set in3_delay  [expr 0.15*$Clk_word]
+set out3_delay [expr 0.15*$Clk_word]
+#----------TA input ports
+set TA_in [list TxReqEsc TxLpdtEsc TxUlpsEsc TxUlpsExit TxTriggerEsc* TxValidEsc]
+# ---------TA output ports
+set TA_out [list TxReadyEsc LpTx* LpTxEn ErrContentionLP0 ErrContentionLP1]
+# ---- delay for FsmSlave Signals ---#
+set_input_delay -max $in3_delay -clock [get_clocks RxClkFsm] [get_ports {ForceRxmode TurnDisable ForceTxStopmode Enable }]
+set_output_delay -max $out3_delay -clock [get_clocks RxClkFsm] [remove_from_collection [all_outputs] [get_ports {RxWordClkHS_out RxClkEsc  RxEscData* RxDataHS*  TxReadyEsc LpTx* LpTxEn ErrContentionLP0 ErrContentionLP1}]]
+# ----- delay for TurnAround Signals
+set_input_delay -max $in1_delay -clock [get_clocks TxClkEsc] [get_ports $TA_in]
+set_output_delay -max $out1_delay -clock [get_clocks TxClkEsc] [get_ports $TA_out]
+#---delay for HS
+set_input_delay -max $in2_delay -clock [get_clocks RxSymClkHS] [get_ports {A B}] ; #  A B must delayed with the fastest clk to avoid violates
+set_output_delay -max $out2_delay -clock [get_clocks RxSymClkHS] [get_ports {RxDataHS*}]
+# ---- delay for lp
+set_output_delay -max $out1_delay -clock [get_clocks RxClkEsc] [get_ports {RxEscData*}]
+# ----or we can use this-------
+# --- input constrain
+set_driving_cell -lib_cell IBUFFX4_LVT -pin Y [get_ports [remove_from_collection [all_inputs] [get_ports {RxClkFsm TxClkEsc}]]];  # To determined input transition   Err: Cannot find the specified driving cell in memory.   (UID-993)
+Warning: Design rule attributes from the driving cell will be set on the port 'A'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'B'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'C'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'RstN'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'ForceRxmode'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TurnDisable'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TurnRequest'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'ForceTxStopmode'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'Enable'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxReqEsc'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxLpdtEsc'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxUlpsEsc'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxUlpsExit'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxTriggerEsc[0]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxDataEsc[0]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'TxValidEsc'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_A'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_B'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'LP_CD_C'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'RecoveredClk'. (UID-401)
+# --- output constrain
+set_load 0.2 [remove_from_collection [all_outputs] [get_ports {RxWordClkHS_out RxClkEsc }]]
+# ---- Optimizations  ---- #
+# Input to register
+#set_max_delay 10 -from [all_inputs] -to [all_registers]
+#set_min_delay 0.5  -from [all_inputs] -to [all_registers]
+# Register to output
+#set_max_delay 13 -from [all_registers] -to [all_outputs]
+#set_min_delay 0.5 -from [all_registers] -to [all_outputs]
+# Register to register
+#set_max_delay 10 -from [all_registers] -to [all_registers]
+#set_min_delay 0.5 -from [all_registers] -to [all_registers]
+# ---- Constraints 
+#set_max_transition 0.5 [all_outputs -of [all_registers -clock [get_clocks RxSymClkHS]]]
+#set_max_transition .4 [get_clocks]
+#set_max_capcitance .08
+#set_min_capcitance .08
+#set_max_fanout 4 ; # Err: Required argument 'object_list' was not found (CMD-007)
+#set_max_fanout 4 [get_cells -hierarchical *]
+# Area max  
+set_max_area  0
+# --- power
+#set_max_dynamic_power 10   
+#set_max_static_power  0
+#set_optimize_registers true
+# ---- Exceptions --- #
+#set_false_path -hold -from [remove_from_collection [all_inputs] [get_ports RxClkFsm]]
+#set_false_path -hold -to [all_outputs]
+# ----- to prevent tool to optimize this path
+# Protect all clocks
+set_dont_touch_network [get_clocks]    ;    # overriding warning
+# Protect reset network
+set_dont_touch_network [get_ports RstN] ; # overriding warning
+# ---- Load Model ---- #
+#set_wire_load_model -name  8000  -library  saed32lvt_dlvl_ff1p16v25c_ip16v
+group_path -name INOUT -from [all_inputs] -to [all_outputs]
+1
+# -- to remove assign statement
+set verilogout_no_tri	 true
+true
+set verilogout_equation  false
+false
+set_fix_multiple_port_nets -all -buffer_constants 
+1
+# -- Optimize and mapping 
+#compile -map_effort high	
+compile_ultra -retime
+Loading db file '/home/tools/Synopsys/install/DesignCompiler/syn/V-2023.12-SP5-1/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 61 GB
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | V-2023.12-DWBB_202312.5 |     *     |
+| Licensed DW Building Blocks        | V-2023.12-DWBB_202312.5 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Command Line | compile_ultra -retime                                                             |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 2090                                   |
+| Number of User Hierarchies                              | 61                                     |
+| Sequential Cell Count                                   | 351                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 7                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 5                                      |
+| Number of Dont Touch Cells                              | 651                                    |
+| Number of Dont Touch Nets                               | 115                                    |
+| Number of Size Only Cells                               | 1                                      |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+Information: Retiming is enabled. SVF file must be used for formal verification. (OPT-1210)
+
+Information: There are 61 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 30 instances of design 'synchronizer_WIDTH1'. (OPT-1056)
+Information: Uniquified 3 instances of design 'reg_file'. (OPT-1056)
+Information: Uniquified 2 instances of design 'synchronizer_WIDTH2'. (OPT-1056)
+Information: Uniquified 4 instances of design 'Mux_1Bit'. (OPT-1056)
+Information: Uniquified 3 instances of design 'synchronizer_WIDTH4'. (OPT-1056)
+  Simplifying Design 'slave'
+Information: The register 'sync_RequestDetection/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_RequestDetection/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqEn/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqEn/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSerEn/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSerEn/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSerSeqEn/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSerSeqEn/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscEncoderEn/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscEncoderEn/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscEncoderDataValid/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscEncoderDataValid/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_TxCtrlOut/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_TxCtrlOut/sync_reg2_reg[1]' will be removed. (OPT-1207)
+Information: The register 'sync_TxCtrlOut/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_TxCtrlOut/sync_reg1_reg[1]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqCtr/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqCtr/sync_reg2_reg[1]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqCtr/sync_reg2_reg[2]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqCtr/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqCtr/sync_reg1_reg[1]' will be removed. (OPT-1207)
+Information: The register 'sync_EscSeqCtr/sync_reg1_reg[2]' will be removed. (OPT-1207)
+Information: The register 'sync_HsSettleExp/sync_reg2_reg[0]' will be removed. (OPT-1207)
+Information: The register 'sync_HsSettleExp/sync_reg1_reg[0]' will be removed. (OPT-1207)
+Information: Removing unused design 'synchronizer_WIDTH1_29'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH3'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH2_1'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH1_18'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH1_19'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH1_20'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH1_21'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH1_22'. (OPT-1055)
+Information: Removing unused design 'synchronizer_WIDTH1_23'. (OPT-1055)
+
+Loaded alib file './alib-52/saed32lvt_ff1p16v25c.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy decoder before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy SymbolReg before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hs_deserializer before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy PReg before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy demapper_inst before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy esc_deserializer before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy esc_decoder before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sequence_detector before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy rx_ctrl_decoder before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy Esc_Sequencer_U0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy ESC_Serializerr_U0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy EscSerSeqMux before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy EscEncoder_U0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy TX_Ctrl_Logic_U0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy contention_detection_U0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_DetectedSeq before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy slave_fsm_inst before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_SerLastBit before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_SerReadyEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_CmdDone before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_TxUlpsExit before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_TxLpdtEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_TxUlpsEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_TxValidEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_TxReqEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InErrControl before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InErrSyncEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InErrEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InErrSotSyncHS before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InErrSotHS before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InRxInvalidCodeHS before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InRxLpdtEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InRxUlpsEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InRxValidEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_LpFsmStop before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_EscDeserEn before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_EscDecoderEn before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_HsSeqDetectorEn before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_HSDeserEn before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_HsDecoderEn before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy FReg before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy RReg before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_CtrlDecoderOut before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy Mux_C_LP_TX before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy Mux_B_LP_TX before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy Mux_A_LP_TX before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_TxTriggerEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sync_InRxTriggerEsc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy slave_fsm_inst/Rx_timer before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy slave_fsm_inst/Tx_timer before Pass 1 (OPT-776)
+Information: Ungrouping 50 of 53 hierarchies before Pass 1 (OPT-775)
+CPU Load: 27%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 61 GB
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'slave'
+Information: Added key list 'DesignWare' to design 'slave'. (DDB-72)
+Information: The register 'sync_InRxTriggerEsc/sync_reg1_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_InRxTriggerEsc/sync_reg1_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_InRxTriggerEsc/sync_reg1_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_InRxTriggerEsc/sync_reg2_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_InRxTriggerEsc/sync_reg2_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_InRxTriggerEsc/sync_reg2_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'DetectedSeq_REG_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'DetectedSeqREG_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_DetectedSeq/sync_reg1_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sync_DetectedSeq/sync_reg2_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_six_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_six_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_six_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_six_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_five_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_five_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_five_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_four_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_four_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_four_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_three_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_three_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sequence_detector/saved_three_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'Esc_Sequencer_U0/SeqBit_reg' will be removed. (OPT-1207)
+ Implement Synthetic for 'slave'.
+Information: The register 'ESC_Serializerr_U0/TxDataEsc_reg_reg[0]' will be removed. (OPT-1207)
+  Processing 'Word_Clock_Gen'
+Information: Added key list 'DesignWare' to design 'Word_Clock_Gen'. (DDB-72)
+  Processing 'Clock_Recovery_LP'
+CPU Load: 28%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 61 GB
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_ff1p16v25c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Complementing port 'C' in design 'Clock_Recovery_LP'.
+	 The new name of the port is 'C_BAR'. (OPT-319)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: There is no timing violation in design slave. Delay-based auto_ungroup will not be performed. (OPT-780)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Rx_timer/counter_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'slave_fsm_inst/Tx_timer/counter_reg[5]' is a constant and will be removed. (OPT-1206)
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    3676.4      0.00       0.0    5108.0                           103683640.0000
+    0:00:04    3673.1      0.00       0.0    5108.0                           103502504.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+    0:00:04    3673.1      0.00       0.0    5108.0                           103502504.0000
+    0:00:04    3673.1      0.00       0.0    5108.0                           103502504.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:05    3515.6     12.82      13.7    8086.5                           97843280.0000
+    0:00:05    3518.1      0.00       0.0    5233.3                           97915984.0000
+    0:00:05    3518.1      0.00       0.0    5233.3                           97915984.0000
+    0:00:05    3516.8      0.00       0.0    5233.3                           97863648.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_lvt 100.00%
+    0:00:05    3515.8      0.00       0.0    5233.3                           97802368.0000
+    0:00:05    3514.3      0.00       0.0    5233.3                           97723776.0000
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:05    3503.1      0.00       0.0    5233.3                           97640560.0000
+    0:00:05    3503.1      0.00       0.0    5233.3                           97640560.0000
+    0:00:05    3503.1      0.00       0.0    5233.3                           97640560.0000
+    0:00:05    3503.1      0.00       0.0    5233.3                           97640560.0000
+    0:00:05    3503.1      0.00       0.0    5233.3                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+    0:00:05    3491.7      0.00       0.0    5110.9                           97640560.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    3495.5      0.00       0.0    5110.9                           97797584.0000
+    0:00:05    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:05    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:05    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:05    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:06    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:06    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:06    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:06    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:06    3492.7      0.00       0.0    5110.9                           97797584.0000
+    0:00:06    3492.7      0.00       0.0    5110.9                           97797584.0000
+CPU Load: 28%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 61 GB
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+CPU Load: 28%, Ram Free: 6 GB, Swap Free: 9 GB, Work Disk Free: 1101 GB, Tmp Disk Free: 61 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+#--- check design post compile
+check_design >> ../reports/check_design_post_compile.rpt
+#--- change names
+define_name_rules no_case -case_insensitive
+1
+change_names -rule no_case -hierarchy
+1
+change_names -rule verilog -hierarchy
+1
+# Save Results output 
+write_file -format verilog -hierarchy -output ../synout/Slave_Netlist.v
+Writing verilog file '/home/svgpdditi25ahthabit/cphy/slave/synout/Slave_Netlist.v'.
+1
+# DDC Gate Level Netlist
+write_file -format ddc -hierarchy -output ../synout/Slave.ddc
+Writing ddc file '../synout/Slave.ddc'.
+1
+# SDC(Synopsys Design Constraints) File
+write_sdc -nosplit ../synout/Slave.sdc
+1
+# SDF(Standard Delay Format) File
+write_sdf ../synout/Slave.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/svgpdditi25ahthabit/cphy/slave/synout/Slave.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+# reports
+report_area -hierarchy > ../reports/area.rpt
+report_power -hierarchy > ../reports/power.rpt
+report_timing -max_paths 10 -delay_type min > ../reports/hold.rpt
+report_timing -max_paths 10 -delay_type max > ../reports/setup.rpt
+report_constraint -all_violators > ../reports/constraints.rpt
+report_qor > ../reports/qor.rpt
+# Open the input file for reading
+set in_file [open "syn.log" r]
+file15
+# Open the output file for writing
+set out_file [open "warning.txt" w]
+file16
+# Read lines one by one
+while {[gets $in_file line] >= 0} {
+    if {[string match -nocase *warn* $line]} {
+        puts $out_file $line
+    }
+}
+while {[gets $in_file line] >= 0} {
+    if {[string match -nocase *error* $line]} {
+        puts $out_file $line
+    }
+}
+# Close the files
+close $in_file
+close $out_file
+#gui_start
+exit
+
+Memory usage for this session 244 Mbytes.
+Memory usage for this session including child processes 244 Mbytes.
+CPU usage for this session 11 seconds ( 0.00 hours ).
+Elapsed time for this session 13 seconds ( 0.00 hours ).
+
+Thank you...

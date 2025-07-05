@@ -1,0 +1,1491 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 10
+Design : slave
+Version: V-2023.12-SP5-1
+Date   : Tue Jun  3 02:24:58 2025
+****************************************
+
+Operating Conditions: ff1p16v25c   Library: saed32lvt_ff1p16v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: esc_deserializer_RxEscData_reg_7_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[7]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_7_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_7_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[7] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_6_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[6]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_6_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_6_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[6] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_5_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[5]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_5_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_5_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[5] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_4_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[4]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_4_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_4_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[4] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_3_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[3]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_3_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_3_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[3] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_2_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[2]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_2_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_2_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[2] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_1_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[1]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_1_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_1_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[1] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: esc_deserializer_RxEscData_reg_0_
+              (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: RxEscData[0]
+            (output port clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  esc_deserializer_RxEscData_reg_0_/CLK (DFFNARX1_LVT)
+                                                          0.00      50.00 f
+  esc_deserializer_RxEscData_reg_0_/Q (DFFNARX1_LVT)      0.05      50.05 f
+  RxEscData[0] (out)                                      0.00      50.05 f
+  data arrival time                                                 50.05
+
+  clock RxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.05
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.95
+
+
+  Startpoint: sync_EscDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: esc_deserializer_shift_reg_reg_5_
+            (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_EscDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)      0.00       0.00 r
+  sync_EscDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)        0.06       0.06 f
+  U872/Y (NAND2X0_LVT)                                    0.01       0.07 r
+  U873/Y (NAND2X0_LVT)                                    0.06       0.13 f
+  U874/Y (AND2X1_LVT)                                     0.04       0.17 f
+  U1224/Y (AND3X1_LVT)                                    0.03       0.19 f
+  U1225/Y (AO221X1_LVT)                                   0.02       0.21 f
+  esc_deserializer_shift_reg_reg_5_/D (DFFNARX1_LVT)      0.00       0.21 f
+  data arrival time                                                  0.21
+
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  clock uncertainty                                      -5.00      45.00
+  esc_deserializer_shift_reg_reg_5_/CLK (DFFNARX1_LVT)
+                                                          0.00      45.00 f
+  library setup time                                     -0.03      44.97
+  data required time                                                44.97
+  --------------------------------------------------------------------------
+  data required time                                                44.97
+  data arrival time                                                 -0.21
+  --------------------------------------------------------------------------
+  slack (MET)                                                       44.76
+
+
+  Startpoint: sync_EscDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxClkEsc)
+  Endpoint: esc_deserializer_shift_reg_reg_2_
+            (falling edge-triggered flip-flop clocked by RxClkEsc)
+  Path Group: RxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_EscDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)      0.00       0.00 r
+  sync_EscDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)        0.06       0.06 f
+  U872/Y (NAND2X0_LVT)                                    0.01       0.07 r
+  U873/Y (NAND2X0_LVT)                                    0.06       0.13 f
+  U874/Y (AND2X1_LVT)                                     0.04       0.17 f
+  U878/Y (MUX21X1_LVT)                                    0.03       0.19 f
+  esc_deserializer_shift_reg_reg_2_/D (DFFNARX1_LVT)      0.00       0.19 f
+  data arrival time                                                  0.19
+
+  clock RxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  clock uncertainty                                      -5.00      45.00
+  esc_deserializer_shift_reg_reg_2_/CLK (DFFNARX1_LVT)
+                                                          0.00      45.00 f
+  library setup time                                     -0.03      44.97
+  data required time                                                44.97
+  --------------------------------------------------------------------------
+  data required time                                                44.97
+  data arrival time                                                 -0.19
+  --------------------------------------------------------------------------
+  slack (MET)                                                       44.78
+
+
+  Startpoint: TurnDisable
+              (input port clocked by RxClkFsm)
+  Endpoint: slave_fsm_inst_currentState_reg_0_
+            (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.05       1.05 r
+  TurnDisable (in)                                        0.00       1.05 r
+  U1310/Y (AO21X1_LVT)                                    0.02       1.07 r
+  U767/Y (INVX1_LVT)                                      0.01       1.08 f
+  U1311/Y (OA22X1_LVT)                                    0.02       1.10 f
+  U1321/Y (AND4X1_LVT)                                    0.03       1.13 f
+  U1329/Y (NAND4X0_LVT)                                   0.01       1.14 r
+  U1330/Y (OR2X1_LVT)                                     0.02       1.16 r
+  U1331/Y (AO21X1_LVT)                                    0.02       1.18 r
+  U1332/Y (AO22X1_LVT)                                    0.02       1.20 r
+  slave_fsm_inst_currentState_reg_0_/D (DFFARX1_LVT)      0.00       1.20 r
+  data arrival time                                                  1.20
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  clock uncertainty                                      -0.70       6.30
+  slave_fsm_inst_currentState_reg_0_/CLK (DFFARX1_LVT)
+                                                          0.00       6.30 r
+  library setup time                                     -0.02       6.28
+  data required time                                                 6.28
+  --------------------------------------------------------------------------
+  data required time                                                 6.28
+  data arrival time                                                 -1.20
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.08
+
+
+  Startpoint: TurnDisable
+              (input port clocked by RxClkFsm)
+  Endpoint: slave_fsm_inst_currentState_reg_2_
+            (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.05       1.05 r
+  TurnDisable (in)                                        0.00       1.05 r
+  U1310/Y (AO21X1_LVT)                                    0.02       1.07 r
+  U767/Y (INVX1_LVT)                                      0.01       1.08 f
+  U1311/Y (OA22X1_LVT)                                    0.02       1.10 f
+  U1343/Y (AND4X1_LVT)                                    0.03       1.13 f
+  U1351/Y (NAND4X0_LVT)                                   0.01       1.14 r
+  U1352/Y (OR2X1_LVT)                                     0.02       1.16 r
+  U1353/Y (AO21X1_LVT)                                    0.02       1.18 r
+  U1354/Y (AO22X1_LVT)                                    0.02       1.20 r
+  slave_fsm_inst_currentState_reg_2_/D (DFFARX1_LVT)      0.00       1.20 r
+  data arrival time                                                  1.20
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  clock uncertainty                                      -0.70       6.30
+  slave_fsm_inst_currentState_reg_2_/CLK (DFFARX1_LVT)
+                                                          0.00       6.30 r
+  library setup time                                     -0.02       6.28
+  data required time                                                 6.28
+  --------------------------------------------------------------------------
+  data required time                                                 6.28
+  data arrival time                                                 -1.20
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.09
+
+
+  Startpoint: TurnDisable
+              (input port clocked by RxClkFsm)
+  Endpoint: slave_fsm_inst_currentState_reg_4_
+            (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.05       1.05 f
+  TurnDisable (in)                                        0.00       1.05 f
+  U766/Y (INVX1_LVT)                                      0.01       1.06 r
+  U1306/Y (NAND2X0_LVT)                                   0.02       1.08 f
+  U1374/Y (AO21X1_LVT)                                    0.02       1.10 f
+  U1375/Y (AND4X1_LVT)                                    0.03       1.13 f
+  U1386/Y (NAND4X0_LVT)                                   0.01       1.14 r
+  U1387/Y (AO22X1_LVT)                                    0.02       1.16 r
+  slave_fsm_inst_currentState_reg_4_/D (DFFARX1_LVT)      0.00       1.16 r
+  data arrival time                                                  1.16
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  clock uncertainty                                      -0.70       6.30
+  slave_fsm_inst_currentState_reg_4_/CLK (DFFARX1_LVT)
+                                                          0.00       6.30 r
+  library setup time                                     -0.02       6.28
+  data required time                                                 6.28
+  --------------------------------------------------------------------------
+  data required time                                                 6.28
+  data arrival time                                                 -1.16
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.12
+
+
+  Startpoint: TurnDisable
+              (input port clocked by RxClkFsm)
+  Endpoint: slave_fsm_inst_currentState_reg_3_
+            (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.05       1.05 f
+  TurnDisable (in)                                        0.00       1.05 f
+  U766/Y (INVX1_LVT)                                      0.01       1.06 r
+  U1306/Y (NAND2X0_LVT)                                   0.02       1.08 f
+  U1374/Y (AO21X1_LVT)                                    0.02       1.10 f
+  U1375/Y (AND4X1_LVT)                                    0.03       1.13 f
+  U1378/Y (NAND4X0_LVT)                                   0.02       1.15 r
+  U1379/Y (AO22X1_LVT)                                    0.02       1.16 r
+  slave_fsm_inst_currentState_reg_3_/D (DFFARX1_LVT)      0.00       1.16 r
+  data arrival time                                                  1.16
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  clock uncertainty                                      -0.70       6.30
+  slave_fsm_inst_currentState_reg_3_/CLK (DFFARX1_LVT)
+                                                          0.00       6.30 r
+  library setup time                                     -0.02       6.28
+  data required time                                                 6.28
+  --------------------------------------------------------------------------
+  data required time                                                 6.28
+  data arrival time                                                 -1.16
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.12
+
+
+  Startpoint: TurnDisable
+              (input port clocked by RxClkFsm)
+  Endpoint: slave_fsm_inst_currentState_reg_1_
+            (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.05       1.05 f
+  TurnDisable (in)                                        0.00       1.05 f
+  U1310/Y (AO21X1_LVT)                                    0.02       1.07 f
+  U767/Y (INVX1_LVT)                                      0.01       1.08 r
+  U1311/Y (OA22X1_LVT)                                    0.02       1.10 r
+  U1321/Y (AND4X1_LVT)                                    0.02       1.13 r
+  U1371/Y (NAND4X0_LVT)                                   0.01       1.14 f
+  U1372/Y (AO22X1_LVT)                                    0.02       1.16 f
+  slave_fsm_inst_currentState_reg_1_/D (DFFARX1_LVT)      0.00       1.16 f
+  data arrival time                                                  1.16
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  clock uncertainty                                      -0.70       6.30
+  slave_fsm_inst_currentState_reg_1_/CLK (DFFARX1_LVT)
+                                                          0.00       6.30 r
+  library setup time                                     -0.02       6.28
+  data required time                                                 6.28
+  --------------------------------------------------------------------------
+  data required time                                                 6.28
+  data arrival time                                                 -1.16
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.12
+
+
+  Startpoint: ForceRxmode
+              (input port clocked by RxClkFsm)
+  Endpoint: slave_fsm_inst_currentState_reg_5_
+            (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.05       1.05 f
+  ForceRxmode (in)                                        0.00       1.05 f
+  U770/Y (INVX1_LVT)                                      0.01       1.06 r
+  U1345/Y (AND4X1_LVT)                                    0.03       1.08 r
+  U1381/Y (NAND3X0_LVT)                                   0.01       1.10 f
+  U1382/Y (AO22X1_LVT)                                    0.02       1.12 f
+  slave_fsm_inst_currentState_reg_5_/D (DFFARX1_LVT)      0.00       1.12 f
+  data arrival time                                                  1.12
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  clock uncertainty                                      -0.70       6.30
+  slave_fsm_inst_currentState_reg_5_/CLK (DFFARX1_LVT)
+                                                          0.00       6.30 r
+  library setup time                                     -0.02       6.28
+  data required time                                                 6.28
+  --------------------------------------------------------------------------
+  data required time                                                 6.28
+  data arrival time                                                 -1.12
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.17
+
+
+  Startpoint: slave_fsm_inst_currentState_reg_4_
+              (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Endpoint: UlpsActiveNot
+            (output port clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  slave_fsm_inst_currentState_reg_4_/CLK (DFFARX1_LVT)
+                                                          0.00       0.00 r
+  slave_fsm_inst_currentState_reg_4_/Q (DFFARX1_LVT)      0.05       0.05 r
+  U840/Y (NAND3X0_LVT)                                    0.02       0.07 f
+  U773/Y (INVX1_LVT)                                      0.01       0.08 r
+  U854/Y (NAND4X0_LVT)                                    0.05       0.13 f
+  U857/Y (AND4X1_LVT)                                     0.05       0.18 f
+  U858/Y (AND2X1_LVT)                                     0.02       0.21 f
+  U860/Y (AND2X1_LVT)                                     0.02       0.22 f
+  U862/Y (NAND4X0_LVT)                                    0.01       0.24 r
+  U865/Y (OR3X1_LVT)                                      0.03       0.27 r
+  U733/Y (OAI21X1_LVT)                                    0.03       0.30 f
+  U1156/Y (NOR3X0_LVT)                                    0.02       0.33 r
+  U1157/Y (NAND4X0_LVT)                                   0.01       0.34 f
+  UlpsActiveNot (out)                                     0.00       0.34 f
+  data arrival time                                                  0.34
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  output external delay                                  -1.05       5.95
+  data required time                                                 5.95
+  --------------------------------------------------------------------------
+  data required time                                                 5.95
+  data arrival time                                                 -0.34
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.61
+
+
+  Startpoint: slave_fsm_inst_currentState_reg_4_
+              (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Endpoint: Direction (output port clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  slave_fsm_inst_currentState_reg_4_/CLK (DFFARX1_LVT)
+                                                          0.00       0.00 r
+  slave_fsm_inst_currentState_reg_4_/Q (DFFARX1_LVT)      0.05       0.05 r
+  U840/Y (NAND3X0_LVT)                                    0.02       0.07 f
+  U773/Y (INVX1_LVT)                                      0.01       0.08 r
+  U854/Y (NAND4X0_LVT)                                    0.05       0.13 f
+  U857/Y (AND4X1_LVT)                                     0.05       0.18 f
+  U858/Y (AND2X1_LVT)                                     0.02       0.21 f
+  U860/Y (AND2X1_LVT)                                     0.02       0.22 f
+  U862/Y (NAND4X0_LVT)                                    0.01       0.24 r
+  U865/Y (OR3X1_LVT)                                      0.03       0.27 r
+  U1158/Y (NAND4X0_LVT)                                   0.02       0.29 f
+  U1159/Y (OR3X1_LVT)                                     0.02       0.30 f
+  Direction (out)                                         0.00       0.30 f
+  data arrival time                                                  0.30
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  output external delay                                  -1.05       5.95
+  data required time                                                 5.95
+  --------------------------------------------------------------------------
+  data required time                                                 5.95
+  data arrival time                                                 -0.30
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.65
+
+
+  Startpoint: slave_fsm_inst_currentState_reg_4_
+              (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Endpoint: Stopstate (output port clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  slave_fsm_inst_currentState_reg_4_/CLK (DFFARX1_LVT)
+                                                          0.00       0.00 r
+  slave_fsm_inst_currentState_reg_4_/Q (DFFARX1_LVT)      0.05       0.05 r
+  U840/Y (NAND3X0_LVT)                                    0.02       0.07 f
+  U773/Y (INVX1_LVT)                                      0.01       0.08 r
+  U854/Y (NAND4X0_LVT)                                    0.05       0.13 f
+  U857/Y (AND4X1_LVT)                                     0.05       0.18 f
+  U858/Y (AND2X1_LVT)                                     0.02       0.21 f
+  U860/Y (AND2X1_LVT)                                     0.02       0.22 f
+  U862/Y (NAND4X0_LVT)                                    0.01       0.24 r
+  U865/Y (OR3X1_LVT)                                      0.03       0.27 r
+  U733/Y (OAI21X1_LVT)                                    0.03       0.30 f
+  Stopstate (out)                                         0.00       0.30 f
+  data arrival time                                                  0.30
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  output external delay                                  -1.05       5.95
+  data required time                                                 5.95
+  --------------------------------------------------------------------------
+  data required time                                                 5.95
+  data arrival time                                                 -0.30
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.65
+
+
+  Startpoint: slave_fsm_inst_currentState_reg_4_
+              (rising edge-triggered flip-flop clocked by RxClkFsm)
+  Endpoint: LpRxEn (output port clocked by RxClkFsm)
+  Path Group: RxClkFsm
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxClkFsm (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  slave_fsm_inst_currentState_reg_4_/CLK (DFFARX1_LVT)
+                                                          0.00       0.00 r
+  slave_fsm_inst_currentState_reg_4_/Q (DFFARX1_LVT)      0.05       0.05 r
+  U840/Y (NAND3X0_LVT)                                    0.02       0.07 f
+  U773/Y (INVX1_LVT)                                      0.01       0.08 r
+  U854/Y (NAND4X0_LVT)                                    0.05       0.13 f
+  U857/Y (AND4X1_LVT)                                     0.05       0.18 f
+  U858/Y (AND2X1_LVT)                                     0.02       0.21 f
+  U860/Y (AND2X1_LVT)                                     0.02       0.22 f
+  U862/Y (NAND4X0_LVT)                                    0.01       0.24 r
+  LpRxEn (out)                                            0.00       0.24 r
+  data arrival time                                                  0.24
+
+  clock RxClkFsm (rise edge)                              7.00       7.00
+  clock network delay (ideal)                             0.00       7.00
+  output external delay                                  -1.05       5.95
+  data required time                                                 5.95
+  --------------------------------------------------------------------------
+  data required time                                                 5.95
+  data arrival time                                                 -0.24
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.71
+
+
+  Startpoint: FReg_data_out_reg_1_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: demapper_inst_mux_values_reg_11_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FReg_data_out_reg_1_/CLK (DFFARX1_LVT)                  0.00       0.00 r
+  FReg_data_out_reg_1_/Q (DFFARX1_LVT)                    0.06       0.06 r
+  U891/Y (NAND2X0_LVT)                                    0.02       0.08 f
+  U892/Y (AND2X1_LVT)                                     0.03       0.10 f
+  U898/Y (NAND2X0_LVT)                                    0.01       0.11 r
+  U900/Y (NAND2X0_LVT)                                    0.02       0.14 f
+  U901/Y (INVX1_LVT)                                      0.01       0.15 r
+  U903/Y (NAND2X0_LVT)                                    0.03       0.18 f
+  U904/Y (AO21X1_LVT)                                     0.03       0.21 f
+  U734/Y (INVX0_LVT)                                      0.01       0.22 r
+  U951/Y (NAND3X0_LVT)                                    0.02       0.23 f
+  U952/Y (OR2X1_LVT)                                      0.02       0.25 f
+  U953/Y (AO21X1_LVT)                                     0.01       0.26 f
+  demapper_inst_mux_values_reg_11_/D (DFFARX1_LVT)        0.00       0.26 f
+  data arrival time                                                  0.26
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  demapper_inst_mux_values_reg_11_/CLK (DFFARX1_LVT)      0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.26
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.62
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxPolarity_reg_1_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1257/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxPolarity_reg_1_/D (DFFARX1_LVT)       0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxPolarity_reg_1_/CLK (DFFARX1_LVT)     0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxPolarity_reg_0_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1260/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxPolarity_reg_0_/D (DFFARX1_LVT)       0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxPolarity_reg_0_/CLK (DFFARX1_LVT)     0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_5_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1276/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_5_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_5_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_4_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1278/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_4_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_4_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_3_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1280/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_3_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_3_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_2_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1282/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_2_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_2_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_1_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1284/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_1_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_1_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_0_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1286/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_0_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_0_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: sync_HSDeserEn_sync_reg2_reg_0_
+              (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Endpoint: hs_deserializer_RxFlip_reg_6_
+            (rising edge-triggered flip-flop clocked by RxSymClkHS)
+  Path Group: RxSymClkHS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock RxSymClkHS (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sync_HSDeserEn_sync_reg2_reg_0_/CLK (DFFARX1_LVT)       0.00       0.00 r
+  sync_HSDeserEn_sync_reg2_reg_0_/Q (DFFARX1_LVT)         0.06       0.06 r
+  U1238/Y (NAND4X0_LVT)                                   0.10       0.16 f
+  U1239/Y (INVX1_LVT)                                     0.06       0.21 r
+  U1287/Y (AO22X1_LVT)                                    0.04       0.25 r
+  hs_deserializer_RxFlip_reg_6_/D (DFFARX1_LVT)           0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock RxSymClkHS (rise edge)                            1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.10       0.90
+  hs_deserializer_RxFlip_reg_6_/CLK (DFFARX1_LVT)         0.00       0.90 r
+  library setup time                                     -0.02       0.88
+  data required time                                                 0.88
+  --------------------------------------------------------------------------
+  data required time                                                 0.88
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.63
+
+
+  Startpoint: EscEncoder_U0_Enable0_reg
+              (falling edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ErrContentionLP0
+            (output port clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  EscEncoder_U0_Enable0_reg/CLK (DFFNARX1_LVT)            0.00      50.00 f
+  EscEncoder_U0_Enable0_reg/Q (DFFNARX1_LVT)              0.05      50.05 f
+  U829/Y (OA221X1_LVT)                                    0.03      50.08 f
+  U831/Y (AO21X1_LVT)                                     0.02      50.10 f
+  U769/Y (INVX1_LVT)                                      0.01      50.10 r
+  U832/Y (OA21X1_LVT)                                     0.02      50.12 r
+  U833/Y (AO221X1_LVT)                                    0.02      50.15 r
+  U834/Y (AO221X1_LVT)                                    0.03      50.17 r
+  ErrContentionLP0 (out)                                  0.00      50.17 r
+  data arrival time                                                 50.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.83
+
+
+  Startpoint: EscEncoder_U0_Enable0_reg
+              (falling edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ErrContentionLP1
+            (output port clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  EscEncoder_U0_Enable0_reg/CLK (DFFNARX1_LVT)            0.00      50.00 f
+  EscEncoder_U0_Enable0_reg/Q (DFFNARX1_LVT)              0.04      50.04 r
+  U829/Y (OA221X1_LVT)                                    0.02      50.07 r
+  U830/Y (AO22X1_LVT)                                     0.02      50.09 r
+  U791/Y (OR2X1_LVT)                                      0.02      50.11 r
+  U1054/Y (AO222X1_LVT)                                   0.03      50.14 r
+  ErrContentionLP1 (out)                                  0.00      50.14 r
+  data arrival time                                                 50.14
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.14
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.86
+
+
+  Startpoint: EscEncoder_U0_Enable0_reg
+              (falling edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: LpTx[0] (output port clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  EscEncoder_U0_Enable0_reg/CLK (DFFNARX1_LVT)            0.00      50.00 f
+  EscEncoder_U0_Enable0_reg/Q (DFFNARX1_LVT)              0.04      50.04 r
+  U829/Y (OA221X1_LVT)                                    0.02      50.07 r
+  U830/Y (AO22X1_LVT)                                     0.02      50.09 r
+  U791/Y (OR2X1_LVT)                                      0.02      50.11 r
+  LpTx[0] (out)                                           0.00      50.11 r
+  data arrival time                                                 50.11
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.11
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.89
+
+
+  Startpoint: EscEncoder_U0_Enable0_reg
+              (falling edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: LpTx[2] (output port clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (fall edge)                             50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  EscEncoder_U0_Enable0_reg/CLK (DFFNARX1_LVT)            0.00      50.00 f
+  EscEncoder_U0_Enable0_reg/Q (DFFNARX1_LVT)              0.05      50.05 f
+  U829/Y (OA221X1_LVT)                                    0.03      50.08 f
+  U831/Y (AO21X1_LVT)                                     0.02      50.10 f
+  LpTx[2] (out)                                           0.00      50.10 f
+  data arrival time                                                 50.10
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  output external delay                                 -10.00      90.00
+  data required time                                                90.00
+  --------------------------------------------------------------------------
+  data required time                                                90.00
+  data arrival time                                                -50.10
+  --------------------------------------------------------------------------
+  slack (MET)                                                       39.90
+
+
+  Startpoint: ESC_Serializerr_U0_counter_reg_0_
+              (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ESC_Serializerr_U0_TxDataEsc_reg_reg_1_
+            (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ESC_Serializerr_U0_counter_reg_0_/CLK (DFFARX1_LVT)     0.00       0.00 r
+  ESC_Serializerr_U0_counter_reg_0_/Q (DFFARX1_LVT)       0.05       0.05 f
+  U790/Y (NOR2X0_LVT)                                     0.03       0.08 r
+  U869/Y (NAND3X0_LVT)                                    0.04       0.12 f
+  U787/Y (INVX1_LVT)                                      0.03       0.14 r
+  U1208/Y (AO22X1_LVT)                                    0.03       0.17 r
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_1_/D (DFFARX1_LVT)
+                                                          0.00       0.17 r
+  data arrival time                                                  0.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -5.00      95.00
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_1_/CLK (DFFARX1_LVT)
+                                                          0.00      95.00 r
+  library setup time                                     -0.02      94.98
+  data required time                                                94.98
+  --------------------------------------------------------------------------
+  data required time                                                94.98
+  data arrival time                                                 -0.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       94.81
+
+
+  Startpoint: ESC_Serializerr_U0_counter_reg_0_
+              (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ESC_Serializerr_U0_TxDataEsc_reg_reg_2_
+            (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ESC_Serializerr_U0_counter_reg_0_/CLK (DFFARX1_LVT)     0.00       0.00 r
+  ESC_Serializerr_U0_counter_reg_0_/Q (DFFARX1_LVT)       0.05       0.05 f
+  U790/Y (NOR2X0_LVT)                                     0.03       0.08 r
+  U869/Y (NAND3X0_LVT)                                    0.04       0.12 f
+  U787/Y (INVX1_LVT)                                      0.03       0.14 r
+  U1209/Y (AO22X1_LVT)                                    0.03       0.17 r
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_2_/D (DFFARX1_LVT)
+                                                          0.00       0.17 r
+  data arrival time                                                  0.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -5.00      95.00
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_2_/CLK (DFFARX1_LVT)
+                                                          0.00      95.00 r
+  library setup time                                     -0.02      94.98
+  data required time                                                94.98
+  --------------------------------------------------------------------------
+  data required time                                                94.98
+  data arrival time                                                 -0.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       94.81
+
+
+  Startpoint: ESC_Serializerr_U0_counter_reg_0_
+              (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ESC_Serializerr_U0_TxDataEsc_reg_reg_3_
+            (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ESC_Serializerr_U0_counter_reg_0_/CLK (DFFARX1_LVT)     0.00       0.00 r
+  ESC_Serializerr_U0_counter_reg_0_/Q (DFFARX1_LVT)       0.05       0.05 f
+  U790/Y (NOR2X0_LVT)                                     0.03       0.08 r
+  U869/Y (NAND3X0_LVT)                                    0.04       0.12 f
+  U787/Y (INVX1_LVT)                                      0.03       0.14 r
+  U1210/Y (AO22X1_LVT)                                    0.03       0.17 r
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_3_/D (DFFARX1_LVT)
+                                                          0.00       0.17 r
+  data arrival time                                                  0.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -5.00      95.00
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_3_/CLK (DFFARX1_LVT)
+                                                          0.00      95.00 r
+  library setup time                                     -0.02      94.98
+  data required time                                                94.98
+  --------------------------------------------------------------------------
+  data required time                                                94.98
+  data arrival time                                                 -0.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       94.81
+
+
+  Startpoint: ESC_Serializerr_U0_counter_reg_0_
+              (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ESC_Serializerr_U0_TxDataEsc_reg_reg_4_
+            (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ESC_Serializerr_U0_counter_reg_0_/CLK (DFFARX1_LVT)     0.00       0.00 r
+  ESC_Serializerr_U0_counter_reg_0_/Q (DFFARX1_LVT)       0.05       0.05 f
+  U790/Y (NOR2X0_LVT)                                     0.03       0.08 r
+  U869/Y (NAND3X0_LVT)                                    0.04       0.12 f
+  U787/Y (INVX1_LVT)                                      0.03       0.14 r
+  U1211/Y (AO22X1_LVT)                                    0.03       0.17 r
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_4_/D (DFFARX1_LVT)
+                                                          0.00       0.17 r
+  data arrival time                                                  0.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -5.00      95.00
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_4_/CLK (DFFARX1_LVT)
+                                                          0.00      95.00 r
+  library setup time                                     -0.02      94.98
+  data required time                                                94.98
+  --------------------------------------------------------------------------
+  data required time                                                94.98
+  data arrival time                                                 -0.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       94.81
+
+
+  Startpoint: ESC_Serializerr_U0_counter_reg_0_
+              (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ESC_Serializerr_U0_TxDataEsc_reg_reg_5_
+            (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ESC_Serializerr_U0_counter_reg_0_/CLK (DFFARX1_LVT)     0.00       0.00 r
+  ESC_Serializerr_U0_counter_reg_0_/Q (DFFARX1_LVT)       0.05       0.05 f
+  U790/Y (NOR2X0_LVT)                                     0.03       0.08 r
+  U869/Y (NAND3X0_LVT)                                    0.04       0.12 f
+  U787/Y (INVX1_LVT)                                      0.03       0.14 r
+  U1212/Y (AO22X1_LVT)                                    0.03       0.17 r
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_5_/D (DFFARX1_LVT)
+                                                          0.00       0.17 r
+  data arrival time                                                  0.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -5.00      95.00
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_5_/CLK (DFFARX1_LVT)
+                                                          0.00      95.00 r
+  library setup time                                     -0.02      94.98
+  data required time                                                94.98
+  --------------------------------------------------------------------------
+  data required time                                                94.98
+  data arrival time                                                 -0.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       94.81
+
+
+  Startpoint: ESC_Serializerr_U0_counter_reg_0_
+              (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Endpoint: ESC_Serializerr_U0_TxDataEsc_reg_reg_6_
+            (rising edge-triggered flip-flop clocked by TxClkEsc)
+  Path Group: TxClkEsc
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  slave              8000                  saed32lvt_ff1p16v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock TxClkEsc (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  ESC_Serializerr_U0_counter_reg_0_/CLK (DFFARX1_LVT)     0.00       0.00 r
+  ESC_Serializerr_U0_counter_reg_0_/Q (DFFARX1_LVT)       0.05       0.05 f
+  U790/Y (NOR2X0_LVT)                                     0.03       0.08 r
+  U869/Y (NAND3X0_LVT)                                    0.04       0.12 f
+  U787/Y (INVX1_LVT)                                      0.03       0.14 r
+  U1213/Y (AO22X1_LVT)                                    0.03       0.17 r
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_6_/D (DFFARX1_LVT)
+                                                          0.00       0.17 r
+  data arrival time                                                  0.17
+
+  clock TxClkEsc (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  clock uncertainty                                      -5.00      95.00
+  ESC_Serializerr_U0_TxDataEsc_reg_reg_6_/CLK (DFFARX1_LVT)
+                                                          0.00      95.00 r
+  library setup time                                     -0.02      94.98
+  data required time                                                94.98
+  --------------------------------------------------------------------------
+  data required time                                                94.98
+  data arrival time                                                 -0.17
+  --------------------------------------------------------------------------
+  slack (MET)                                                       94.81
+
+
+1

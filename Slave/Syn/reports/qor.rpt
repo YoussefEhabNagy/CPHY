@@ -1,0 +1,122 @@
+ 
+****************************************
+Report : qor
+Design : slave
+Version: V-2023.12-SP5-1
+Date   : Tue Jun  3 02:24:59 2025
+****************************************
+
+
+  Timing Path Group 'RxClkEsc'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.05
+  Critical Path Slack:          39.95
+  Critical Path Clk Period:    100.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -4.95
+  Total Hold Violation:       -172.76
+  No. of Hold Violations:       35.00
+  -----------------------------------
+
+  Timing Path Group 'RxClkFsm'
+  -----------------------------------
+  Levels of Logic:               8.00
+  Critical Path Length:          0.15
+  Critical Path Slack:           5.08
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.65
+  Total Hold Violation:        -35.12
+  No. of Hold Violations:       55.00
+  -----------------------------------
+
+  Timing Path Group 'RxSymClkHS'
+  -----------------------------------
+  Levels of Logic:              11.00
+  Critical Path Length:          0.26
+  Critical Path Slack:           0.62
+  Critical Path Clk Period:      1.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.05
+  Total Hold Violation:         -5.41
+  No. of Hold Violations:      138.00
+  -----------------------------------
+
+  Timing Path Group 'TxClkEsc'
+  -----------------------------------
+  Levels of Logic:               6.00
+  Critical Path Length:          0.17
+  Critical Path Slack:          39.83
+  Critical Path Clk Period:    100.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -4.96
+  Total Hold Violation:       -103.67
+  No. of Hold Violations:       21.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          2
+  Hierarchical Port Count:          6
+  Leaf Cell Count:                974
+  Buf/Inv Cell Count:              81
+  Buf Cell Count:                   2
+  Inv Cell Count:                  79
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:       694
+  Sequential Cell Count:          280
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     1495.129171
+  Noncombinational Area:  1997.571868
+  Buf/Inv Area:            104.453185
+  Total Buffer Area:             4.07
+  Total Inverter Area:         100.39
+  Macro/Black Box Area:      0.000000
+  Net Area:                921.071669
+  -----------------------------------
+  Cell Area:              3492.701039
+  Design Area:            4413.772708
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          1100
+  Nets With Violations:             1
+  Max Trans Violations:             1
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: academysvr02
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.77
+  Logic Optimization:                  0.26
+  Mapping Optimization:                0.79
+  -----------------------------------------
+  Overall Compile Time:                7.05
+  Overall Compile Wall Clock Time:     7.15
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 4.96  TNS: 316.96  Number of Violating Paths: 249
+
+  --------------------------------------------------------------------
+
+
+1

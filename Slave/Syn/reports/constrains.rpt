@@ -1,0 +1,1073 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : slave
+Version: V-2023.12-SP5-1
+Date   : Tue Jun  3 02:24:59 2025
+****************************************
+
+
+   min_delay/hold ('RxClkEsc' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   esc_deserializer_bit_count_reg_0_/D
+                                5.00           0.05 r        -4.95  (VIOLATED)
+   sync_EscDecoderEn_sync_reg2_reg_0_/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   sync_EscDeserEn_sync_reg2_reg_0_/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   esc_decoder_Counter_reg_0_/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   esc_decoder_Counter_reg_1_/D
+                                5.00           0.06 f        -4.95  (VIOLATED)
+   esc_decoder_Counter_reg_2_/D
+                                5.00           0.06 f        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_1_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_6_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   esc_deserializer_bit_count_reg_2_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_0_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_1_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_2_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_3_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_4_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_5_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_6_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_deserializer_RxEscData_reg_7_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_2_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   esc_decoder_CurrentState_reg_0_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_4_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_3_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_5_/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   esc_decoder_Command_reg_7_/D
+                                5.00           0.07 r        -4.94  (VIOLATED)
+   esc_deserializer_bit_count_reg_1_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_RxValidEsc_reg/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_0_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_1_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_4_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_3_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_decoder_CurrentState_reg_1_/D
+                                5.00           0.07 f        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_2_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_6_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_deserializer_shift_reg_reg_5_/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   esc_decoder_Command_reg_0_/D
+                                5.00           0.08 r        -4.92  (VIOLATED)
+   esc_decoder_EscBit_reg/D     5.00           0.09 f        -4.91  (VIOLATED)
+
+
+   min_delay/hold ('RxClkFsm' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   slave_fsm_inst_Rx_timer_counter_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Pause_Count_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_CtrlDecoderOut_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_CtrlDecoderOut_sync_reg2_reg_1_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_DetectedSeq_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_DetectedSeq_sync_reg2_reg_1_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_DetectedSeq_sync_reg2_reg_2_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InErrControl_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InErrEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InErrSotHS_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InErrSotSyncHS_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InErrSyncEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InRxInvalidCodeHS_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InRxLpdtEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InRxTriggerEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InRxUlpsEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_InRxValidEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_LpFsmStop_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_SerLastBit_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_SerReadyEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_TxReqEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_TxUlpsExit_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   sync_TxValidEsc_sync_reg2_reg_0_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   R_1/D                        0.70           0.05 r        -0.65  (VIOLATED)
+   slave_fsm_inst_Tx_timer_counter_reg_1_/D
+                                0.70           0.05 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Tx_timer_counter_reg_0_/D
+                                0.70           0.06 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Tx_timer_counter_reg_3_/D
+                                0.70           0.06 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Pause_Count_reg_3_/D
+                                0.70           0.06 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Pause_Count_reg_4_/D
+                                0.70           0.06 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_2_/D
+                                0.70           0.06 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_6_/D
+                                0.70           0.06 f        -0.65  (VIOLATED)
+   slave_fsm_inst_Pause_Count_reg_1_/D
+                                0.70           0.06 f        -0.64  (VIOLATED)
+   slave_fsm_inst_LPDT_Count_Done_reg/D
+                                0.70           0.06 f        -0.64  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_4_/D
+                                0.70           0.06 f        -0.64  (VIOLATED)
+   slave_fsm_inst_currentState_reg_5_/D
+                                0.70           0.07 f        -0.64  (VIOLATED)
+   slave_fsm_inst_currentState_reg_2_/D
+                                0.70           0.07 f        -0.63  (VIOLATED)
+   R_3/D                        0.70           0.07 f        -0.63  (VIOLATED)
+   slave_fsm_inst_currentState_reg_3_/D
+                                0.70           0.07 f        -0.63  (VIOLATED)
+   slave_fsm_inst_currentState_reg_4_/D
+                                0.70           0.07 f        -0.63  (VIOLATED)
+   slave_fsm_inst_currentState_reg_0_/D
+                                0.70           0.07 f        -0.63  (VIOLATED)
+   R_4/D                        0.71           0.08 r        -0.63  (VIOLATED)
+   slave_fsm_inst_Tx_timer_counter_reg_4_/D
+                                0.70           0.07 r        -0.63  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_8_/D
+                                0.70           0.08 r        -0.62  (VIOLATED)
+   slave_fsm_inst_Tx_timer_counter_reg_2_/D
+                                0.70           0.08 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Pause_Count_reg_2_/D
+                                0.70           0.08 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_7_/D
+                                0.70           0.08 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_1_/D
+                                0.70           0.08 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_3_/D
+                                0.70           0.08 f        -0.62  (VIOLATED)
+   slave_fsm_inst_currentState_reg_1_/D
+                                0.70           0.09 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Rx_timer_counter_reg_5_/D
+                                0.70           0.09 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Tx_timer_Timeout_reg/D
+                                0.70           0.08 r        -0.62  (VIOLATED)
+   sync_InErrControl_sync_reg1_reg_0_/D
+                                0.70           0.09 f        -0.62  (VIOLATED)
+   slave_fsm_inst_Rx_timer_Timeout_reg/D
+                                0.70           0.10 f        -0.61  (VIOLATED)
+   sync_CtrlDecoderOut_sync_reg1_reg_1_/D
+                                0.70           0.13 f        -0.57  (VIOLATED)
+   sync_CtrlDecoderOut_sync_reg1_reg_0_/D
+                                0.70           0.14 f        -0.57  (VIOLATED)
+
+
+   min_delay/hold ('RxSymClkHS' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   demapper_inst_RxDataHS_reg_12_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   demapper_inst_RxDataHS_reg_13_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   demapper_inst_temp_invalidcode_stage2_reg/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   sequence_detector_symbol_count_reg_1_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   DetectedSeqREG_reg_0_/D      0.10           0.05 f        -0.05  (VIOLATED)
+   DetectedSeqREG_reg_1_/D      0.10           0.05 f        -0.05  (VIOLATED)
+   DetectedSeqREG_reg_2_/D      0.10           0.05 f        -0.05  (VIOLATED)
+   demapper_inst_RxDataHS_reg_14_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   demapper_inst_RxDataHS_reg_15_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   demapper_inst_RxInvalidCodeHS_reg/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   sync_HSDeserEn_sync_reg2_reg_0_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   sync_HsDecoderEn_sync_reg2_reg_0_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   sync_HsSeqDetectorEn_sync_reg2_reg_0_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   FReg_data_out_reg_0_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   FReg_data_out_reg_1_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   FReg_data_out_reg_2_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   FReg_data_out_reg_3_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   FReg_data_out_reg_4_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   FReg_data_out_reg_5_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   FReg_data_out_reg_6_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_0_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_1_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_2_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_3_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_4_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_5_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   PReg_data_out_reg_6_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_0_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_1_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_2_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_3_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_4_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_5_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   RReg_data_out_reg_6_/D       0.10           0.05 r        -0.05  (VIOLATED)
+   wordclk/neg_count_reg_0_/D
+                                0.10           0.05 r        -0.05  (VIOLATED)
+   wordclk/pos_count_reg_0_/D
+                                0.10           0.05 f        -0.05  (VIOLATED)
+   sequence_detector_symbol_count_reg_0_/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   sequence_detector_state_reg_2_/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   demapper_inst_most_zero_reg/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   wordclk/neg_count_reg_1_/D
+                                0.10           0.05 r        -0.05  (VIOLATED)
+   sequence_detector_state_reg_1_/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   demapper_inst_most_two_reg/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   demapper_inst_most_four_reg/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   demapper_inst_most_one_reg/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   demapper_inst_most_five_reg/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   wordclk/pos_count_reg_1_/D
+                                0.10           0.06 f        -0.05  (VIOLATED)
+   sequence_detector_symbol_count_reg_3_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   DetectedSeq_REG_reg_2_/D     0.10           0.06 r        -0.04  (VIOLATED)
+   demapper_inst_most_three_reg/D
+                                0.10           0.06 r        -0.04  (VIOLATED)
+   wordclk/neg_count_reg_2_/D
+                                0.10           0.06 r        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_0_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_1_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_2_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_3_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_4_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_5_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_6_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_7_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_8_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_9_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_10_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_RxDataHS_reg_11_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   wordclk/pos_count_reg_2_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   sequence_detector_state_reg_0_/D
+                                0.10           0.06 f        -0.04  (VIOLATED)
+   demapper_inst_mux_values_reg_1_/D
+                                0.10           0.06 r        -0.04  (VIOLATED)
+   hs_deserializer_temp_flip_reg_0_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_polarity_reg_0_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_rotation_reg_0_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_flip_reg_1_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_flip_reg_4_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_polarity_reg_1_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_polarity_reg_4_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_rotation_reg_1_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_rotation_reg_4_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_flip_reg_5_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_polarity_reg_5_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_rotation_reg_5_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_flip_reg_2_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_polarity_reg_2_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_rotation_reg_2_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_flip_reg_3_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_polarity_reg_3_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_temp_rotation_reg_3_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_0_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_1_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_2_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_3_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_4_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_5_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_0_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_1_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_2_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_3_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_4_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_5_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_0_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_1_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_2_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_3_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_4_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_5_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxFlip_reg_6_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxPolarity_reg_6_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   hs_deserializer_RxRotation_reg_6_/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   demapper_inst_temp_invalidcode_stage1_reg/D
+                                0.10           0.07 f        -0.04  (VIOLATED)
+   decoder_PS_reg_2_/D          0.10           0.07 r        -0.04  (VIOLATED)
+   decoder_PS_reg_0_/D          0.10           0.07 r        -0.03  (VIOLATED)
+   decoder_PS_reg_1_/D          0.10           0.07 r        -0.03  (VIOLATED)
+   demapper_inst_temp_signal_reg_3_/D
+                                0.10           0.07 f        -0.03  (VIOLATED)
+   DetectedSeq_REG_reg_0_/D     0.10           0.07 r        -0.03  (VIOLATED)
+   decoder_CS_reg_0_/D          0.10           0.07 r        -0.03  (VIOLATED)
+   decoder_CS_reg_1_/D          0.10           0.07 r        -0.03  (VIOLATED)
+   decoder_CS_reg_2_/D          0.10           0.07 r        -0.03  (VIOLATED)
+   hs_deserializer_counter_reg_1_/D
+                                0.10           0.07 f        -0.03  (VIOLATED)
+   demapper_inst_mux_values_reg_8_/D
+                                0.10           0.07 r        -0.03  (VIOLATED)
+   demapper_inst_mux_values_reg_0_/D
+                                0.10           0.07 f        -0.03  (VIOLATED)
+   hs_deserializer_counter_reg_2_/D
+                                0.10           0.07 f        -0.03  (VIOLATED)
+   sequence_detector_symbol_count_reg_2_/D
+                                0.10           0.07 f        -0.03  (VIOLATED)
+   hs_deserializer_counter_reg_0_/D
+                                0.10           0.08 f        -0.03  (VIOLATED)
+   demapper_inst_temp_signal_reg_0_/D
+                                0.10           0.07 r        -0.03  (VIOLATED)
+   demapper_inst_temp_signal_reg_2_/D
+                                0.10           0.07 f        -0.03  (VIOLATED)
+   demapper_inst_mux_values_reg_12_/D
+                                0.10           0.07 r        -0.03  (VIOLATED)
+   demapper_inst_mux_values_reg_10_/D
+                                0.10           0.08 f        -0.03  (VIOLATED)
+   demapper_inst_mux_values_reg_3_/D
+                                0.10           0.08 f        -0.02  (VIOLATED)
+   demapper_inst_temp_signal_reg_4_/D
+                                0.10           0.08 r        -0.02  (VIOLATED)
+   DetectedSeq_REG_reg_1_/D     0.10           0.08 f        -0.02  (VIOLATED)
+   demapper_inst_mux_values_reg_6_/D
+                                0.10           0.08 f        -0.02  (VIOLATED)
+   demapper_inst_mux_values_reg_7_/D
+                                0.10           0.08 f        -0.02  (VIOLATED)
+   demapper_inst_mux_values_reg_2_/D
+                                0.10           0.08 f        -0.02  (VIOLATED)
+   demapper_inst_mux_values_reg_9_/D
+                                0.10           0.08 f        -0.02  (VIOLATED)
+   SymbolReg_data_out_reg_2_/D
+                                0.10           0.08 r        -0.02  (VIOLATED)
+   SymbolReg_data_out_reg_1_/D
+                                0.10           0.08 r        -0.02  (VIOLATED)
+   SymbolReg_data_out_reg_0_/D
+                                0.10           0.09 f        -0.02  (VIOLATED)
+   demapper_inst_mux_values_reg_5_/D
+                                0.10           0.09 f        -0.01  (VIOLATED)
+   demapper_inst_mux_values_reg_4_/D
+                                0.10           0.09 f        -0.01  (VIOLATED)
+   demapper_inst_temp_signal_reg_5_/D
+                                0.10           0.09 f        -0.01  (VIOLATED)
+   demapper_inst_mux_values_reg_11_/D
+                                0.10           0.09 f        -0.01  (VIOLATED)
+   demapper_inst_temp_signal_reg_1_/D
+                                0.10           0.09 r        -0.01  (VIOLATED)
+
+
+   min_delay/hold ('TxClkEsc' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   EscEncoder_U0_Enable0_reg/D
+                                5.00           0.04 r        -4.96  (VIOLATED)
+   EscEncoder_U0_Enable1_reg/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   ESC_Serializerr_U0_counter_reg_1_/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   Esc_Sequencer_U0_Count_reg_0_/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   Esc_Sequencer_U0_Count_reg_1_/D
+                                5.00           0.05 f        -4.95  (VIOLATED)
+   Esc_Sequencer_U0_Count_reg_2_/D
+                                5.00           0.06 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_3_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_7_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_2_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_6_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_4_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_5_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_TxDataEsc_reg_reg_1_/D
+                                5.00           0.07 f        -4.94  (VIOLATED)
+   EscEncoder_U0_data_A_reg/D
+                                5.00           0.06 r        -4.94  (VIOLATED)
+   ESC_Serializerr_U0_counter_reg_2_/D
+                                5.00           0.07 f        -4.93  (VIOLATED)
+   EscEncoder_U0_data_C_reg/D
+                                5.00           0.07 f        -4.93  (VIOLATED)
+   Esc_Sequencer_U0_CmdDone_reg/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   ESC_Serializerr_U0_LastBit_reg/D
+                                5.00           0.07 r        -4.93  (VIOLATED)
+   ESC_Serializerr_U0_TxReadyEsc_reg/D
+                                5.00           0.07 f        -4.93  (VIOLATED)
+   ESC_Serializerr_U0_counter_reg_0_/D
+                                5.00           0.08 r        -4.92  (VIOLATED)
+   ESC_Serializerr_U0_SerBit_reg/D
+                                5.00           0.09 f        -4.91  (VIOLATED)
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   RstN (dont_touch)            1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Tx_timer_counter_reg_0_/SETB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxTriggerEsc_sync_reg1_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   EscEncoder_U0_data_A_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   EscEncoder_U0_Enable1_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   EscEncoder_U0_Enable0_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_HsSeqDetectorEn_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_HsDecoderEn_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxUlpsExit_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_SerReadyEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   R_4/SETB         1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxValidEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxValidEsc_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_bit_count_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_EscDeserEn_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_EscDecoderEn_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   decoder_CS_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   R_3/RSTB         1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_currentState_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   SymbolReg_data_out_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   SymbolReg_data_out_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxUlpsExit_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxLpdtEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   R_1/RSTB         1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxUlpsEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxValidEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxReqEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxReqEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxTriggerEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxTriggerEsc_sync_reg1_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_TxTriggerEsc_sync_reg1_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Tx_timer_Timeout_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_counter_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_counter_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_counter_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_LastBit_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_SerLastBit_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_SerLastBit_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Pause_Count_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Pause_Count_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Pause_Count_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Pause_Count_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Pause_Count_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_LPDT_Count_Done_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_CtrlDecoderOut_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_CtrlDecoderOut_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_CtrlDecoderOut_sync_reg1_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_CtrlDecoderOut_sync_reg2_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Tx_timer_counter_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Tx_timer_counter_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Tx_timer_counter_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Tx_timer_counter_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   Esc_Sequencer_U0_Count_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   Esc_Sequencer_U0_Count_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   Esc_Sequencer_U0_Count_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   Esc_Sequencer_U0_CmdDone_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_CmdDone_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_EscDeserEn_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxValidEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxValidEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrControl_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrControl_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_HsSeqDetectorEn_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_HsDecoderEn_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   decoder_CS_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   decoder_PS_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   decoder_PS_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   decoder_CS_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   decoder_PS_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   SymbolReg_data_out_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrSotHS_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrSotHS_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrSotSyncHS_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrSotSyncHS_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   DetectedSeq_REG_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   DetectedSeqREG_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_DetectedSeq_sync_reg1_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_DetectedSeq_sync_reg2_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   DetectedSeq_REG_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   DetectedSeqREG_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_DetectedSeq_sync_reg1_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_DetectedSeq_sync_reg2_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   DetectedSeq_REG_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   DetectedSeqREG_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_DetectedSeq_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_DetectedSeq_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_HSDeserEn_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_HSDeserEn_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_polarity_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_rotation_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_flip_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_polarity_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_rotation_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_flip_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_polarity_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_rotation_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_flip_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_polarity_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_rotation_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_flip_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_polarity_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_rotation_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_flip_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_polarity_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_rotation_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_temp_flip_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxPolarity_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   PReg_data_out_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxRotation_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   RReg_data_out_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_RxFlip_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   FReg_data_out_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_invalidcode_stage1_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_most_four_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_most_zero_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_most_one_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_7_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_most_two_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_10_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_most_three_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_9_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_7_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_12_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_most_five_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_8_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_8_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_9_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_mux_values_reg_11_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_signal_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_10_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_signal_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_11_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_signal_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_12_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_signal_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_13_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_signal_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_14_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_signal_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxDataHS_reg_15_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_temp_invalidcode_stage2_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   demapper_inst_RxInvalidCodeHS_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxInvalidCodeHS_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxInvalidCodeHS_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_Timeout_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_7_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_Rx_timer_counter_reg_8_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_EscDecoderEn_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_LpFsmStop_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_LpFsmStop_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_CurrentState_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_CurrentState_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Counter_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Counter_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Counter_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrSyncEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrSyncEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_Command_reg_7_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InErrEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxTriggerEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxTriggerEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxUlpsEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxUlpsEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxLpdtEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_InRxLpdtEsc_sync_reg2_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_decoder_EscBit_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxDataEsc_reg_reg_7_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_TxReadyEsc_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sync_SerReadyEsc_sync_reg1_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   ESC_Serializerr_U0_SerBit_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   EscEncoder_U0_data_C_reg/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_currentState_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_currentState_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_currentState_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_currentState_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   slave_fsm_inst_currentState_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_symbol_count_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_symbol_count_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_symbol_count_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_symbol_count_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_state_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_state_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   sequence_detector_state_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_counter_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_counter_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   hs_deserializer_counter_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_bit_count_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_bit_count_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_3_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_4_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_5_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_shift_reg_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_6_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   esc_deserializer_RxEscData_reg_7_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   wordclk/neg_count_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   wordclk/neg_count_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   wordclk/neg_count_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   wordclk/pos_count_reg_0_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   wordclk/pos_count_reg_2_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+       PIN :   wordclk/pos_count_reg_1_/RSTB
+                                1.02          68.40         -67.37  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1                 -67.37  
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   slave                        0.00        4413.77       -4413.77  (VIOLATED)
+
+
+1

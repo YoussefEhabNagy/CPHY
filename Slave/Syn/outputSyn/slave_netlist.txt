@@ -1,0 +1,1889 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Ultra(TM) in wire load mode
+// Version   : V-2023.12-SP5-1
+// Date      : Tue Jun  3 02:24:58 2025
+/////////////////////////////////////////////////////////////
+
+
+module Word_Clock_Gen ( SymClk, RST, RxWordClkHs );
+  input SymClk, RST;
+  output RxWordClkHs;
+  wire   N9, N10, N11, N16, N17, N18, n1, n2, n3, n4, n5, n6;
+  wire   [2:0] pos_count;
+  wire   [2:0] neg_count;
+
+  DFFARX1_LVT pos_count_reg_0_ ( .D(N9), .CLK(SymClk), .RSTB(RST), .Q(
+        pos_count[0]), .QN(n6) );
+  DFFARX1_LVT pos_count_reg_2_ ( .D(N11), .CLK(SymClk), .RSTB(RST), .Q(
+        pos_count[2]), .QN(n2) );
+  DFFARX1_LVT pos_count_reg_1_ ( .D(N10), .CLK(SymClk), .RSTB(RST), .Q(
+        pos_count[1]), .QN(n4) );
+  DFFNARX1_LVT neg_count_reg_0_ ( .D(N16), .CLK(SymClk), .RSTB(RST), .Q(
+        neg_count[0]), .QN(n5) );
+  DFFNARX1_LVT neg_count_reg_1_ ( .D(N17), .CLK(SymClk), .RSTB(RST), .Q(
+        neg_count[1]), .QN(n3) );
+  DFFNARX1_LVT neg_count_reg_2_ ( .D(N18), .CLK(SymClk), .RSTB(RST), .Q(
+        neg_count[2]), .QN(n1) );
+  NAND2X0_LVT U3 ( .A1(n1), .A2(n2), .Y(RxWordClkHs) );
+  OA21X1_LVT U4 ( .A1(n1), .A2(n3), .A3(n5), .Y(N16) );
+  OA222X1_LVT U5 ( .A1(neg_count[0]), .A2(neg_count[1]), .A3(neg_count[0]), 
+        .A4(n1), .A5(n3), .A6(n5), .Y(N17) );
+  OA222X1_LVT U6 ( .A1(neg_count[2]), .A2(neg_count[0]), .A3(neg_count[2]), 
+        .A4(neg_count[1]), .A5(n3), .A6(n1), .Y(N18) );
+  OA21X1_LVT U7 ( .A1(n2), .A2(n4), .A3(n6), .Y(N9) );
+  OA222X1_LVT U8 ( .A1(pos_count[0]), .A2(pos_count[1]), .A3(pos_count[0]), 
+        .A4(n2), .A5(n4), .A6(n6), .Y(N10) );
+  OA222X1_LVT U9 ( .A1(pos_count[2]), .A2(pos_count[0]), .A3(pos_count[2]), 
+        .A4(pos_count[1]), .A5(n4), .A6(n2), .Y(N11) );
+endmodule
+
+
+module Clock_Recovery_LP ( A, RxClkEsc, C_BAR );
+  input A, C_BAR;
+  output RxClkEsc;
+
+
+  XNOR2X1_LVT U1 ( .A1(A), .A2(C_BAR), .Y(RxClkEsc) );
+endmodule
+
+
+module slave ( A, B, C, RxClkFsm, RstN, ForceRxmode, TurnDisable, TurnRequest, 
+        ForceTxStopmode, Enable, TxClkEsc, TxReqEsc, TxLpdtEsc, TxUlpsEsc, 
+        TxUlpsExit, TxTriggerEsc, TxDataEsc, TxValidEsc, LP_CD_A, LP_CD_B, 
+        LP_CD_C, RxDataHS, RxValidHS, RxActiveHS, RxSyncHS, RxInvalidCodeHS, 
+        HsRxEn, RxEscData, LpRxEn, RxClkEsc, RxValidEsc, RxTriggerEsc, 
+        RxUlpsEsc, RxLpdtEsc, Direction, Stopstate, UlpsActiveNot, ErrEsc, 
+        ErrSyncEsc, ErrControl, ErrSotHS, ErrSotSyncHS, TxReadyEsc, LpTx, 
+        LpTxEn, RecoveredClk, RxWordClkHS_out, ErrContentionLP0, 
+        ErrContentionLP1 );
+  input [3:0] TxTriggerEsc;
+  input [7:0] TxDataEsc;
+  output [15:0] RxDataHS;
+  output [7:0] RxEscData;
+  output [3:0] RxTriggerEsc;
+  output [2:0] LpTx;
+  input A, B, C, RxClkFsm, RstN, ForceRxmode, TurnDisable, TurnRequest,
+         ForceTxStopmode, Enable, TxClkEsc, TxReqEsc, TxLpdtEsc, TxUlpsEsc,
+         TxUlpsExit, TxValidEsc, LP_CD_A, LP_CD_B, LP_CD_C, RecoveredClk;
+  output RxValidHS, RxActiveHS, RxSyncHS, RxInvalidCodeHS, HsRxEn, LpRxEn,
+         RxClkEsc, RxValidEsc, RxUlpsEsc, RxLpdtEsc, Direction, Stopstate,
+         UlpsActiveNot, ErrEsc, ErrSyncEsc, ErrControl, ErrSotHS, ErrSotSyncHS,
+         TxReadyEsc, LpTxEn, RxWordClkHS_out, ErrContentionLP0,
+         ErrContentionLP1;
+  wire   HsSettleExp, RxSymClkHS, HsDecoderEn_sync, HSDeserEn_sync,
+         HsSeqDetectorEn, HsSeqDetectorEn_sync, EscDecoderEn,
+         EscDecoderEn_sync, EscDeserEn, EscDeserEn_sync, InRxInvalidCodeHS,
+         EscBit, InRxValidEsc, InRxUlpsEsc, InRxTriggerEsc_0_, InErrControl,
+         InErrSyncEsc, InErrEsc, LpFsmStop, InErrSotSyncHS, InErrSotHS,
+         CmdDone, SerReadyEsc, SerLastBit, SerBit, LpFsmStop_sync,
+         TxReqEsc_sync, TxLpdtEsc_sync, TxUlpsExit_sync, SerReadyEsc_sync,
+         SerLastBit_sync, decoder_N10, decoder_N9, decoder_N8, decoder_N7,
+         decoder_N6, decoder_N5, demapper_inst_N261, demapper_inst_N260,
+         demapper_inst_N258, demapper_inst_N257, demapper_inst_N248,
+         demapper_inst_N247, demapper_inst_N238, demapper_inst_N237,
+         demapper_inst_N228, demapper_inst_N227, demapper_inst_N218,
+         demapper_inst_N217, demapper_inst_N208, demapper_inst_N207,
+         demapper_inst_N184, demapper_inst_N183, demapper_inst_N182,
+         demapper_inst_N181, demapper_inst_N180, demapper_inst_N179,
+         demapper_inst_N178, demapper_inst_N177, demapper_inst_N176,
+         demapper_inst_N175, demapper_inst_N174, demapper_inst_N173,
+         demapper_inst_N172, demapper_inst_N171, demapper_inst_N170,
+         demapper_inst_N169, demapper_inst_N168, demapper_inst_N167,
+         demapper_inst_N166, demapper_inst_N165,
+         demapper_inst_temp_invalidcode_stage2, demapper_inst_N77,
+         demapper_inst_N76, demapper_inst_N75, demapper_inst_N74,
+         demapper_inst_N73, demapper_inst_N72,
+         demapper_inst_temp_invalidcode_stage1, demapper_inst_most_five,
+         demapper_inst_most_four, demapper_inst_most_three,
+         demapper_inst_most_two, demapper_inst_most_one,
+         demapper_inst_most_zero, esc_deserializer_N54, esc_deserializer_N53,
+         esc_deserializer_N52, esc_decoder_N39, esc_decoder_N38,
+         esc_decoder_N37, esc_decoder_N36, esc_decoder_N35, esc_decoder_N34,
+         esc_decoder_N33, esc_decoder_N32, esc_decoder_N31, esc_decoder_N30,
+         esc_decoder_N29, esc_decoder_N28, Esc_Sequencer_U0_N32,
+         Esc_Sequencer_U0_N30, Esc_Sequencer_U0_N29, Esc_Sequencer_U0_N28,
+         ESC_Serializerr_U0_N31, ESC_Serializerr_U0_N30,
+         ESC_Serializerr_U0_N29, ESC_Serializerr_U0_N28,
+         ESC_Serializerr_U0_N27, ESC_Serializerr_U0_N26, EscEncoder_U0_N18,
+         EscEncoder_U0_Enable0, EscEncoder_U0_N14, EscEncoder_U0_N13,
+         EscEncoder_U0_N12, EscEncoder_U0_data_C, EscEncoder_U0_data_A,
+         EscEncoder_U0_Enable1, slave_fsm_inst_N775, slave_fsm_inst_N774,
+         slave_fsm_inst_N773, slave_fsm_inst_N772, slave_fsm_inst_N771,
+         slave_fsm_inst_N770, slave_fsm_inst_LPDT_Count_Done,
+         slave_fsm_inst_TxTimeOut, slave_fsm_inst_RxTimeOut,
+         sync_SerLastBit_sync_reg1_0_, sync_SerReadyEsc_sync_reg1_0_,
+         sync_CmdDone_sync_reg1_0_, sync_TxUlpsExit_sync_reg1_0_,
+         sync_TxLpdtEsc_sync_reg1_0_, sync_TxUlpsEsc_sync_reg1_0_,
+         sync_TxValidEsc_sync_reg1_0_, sync_TxReqEsc_sync_reg1_0_,
+         sync_InErrControl_sync_reg1_0_, sync_InErrSyncEsc_sync_reg1_0_,
+         sync_InErrEsc_sync_reg1_0_, sync_InErrSotSyncHS_sync_reg1_0_,
+         sync_InErrSotHS_sync_reg1_0_, sync_InRxInvalidCodeHS_sync_reg1_0_,
+         sync_InRxLpdtEsc_sync_reg1_0_, sync_InRxUlpsEsc_sync_reg1_0_,
+         sync_InRxValidEsc_sync_reg1_0_, sync_LpFsmStop_sync_reg1_0_,
+         sync_EscDeserEn_sync_reg1_0_, sync_EscDecoderEn_sync_reg1_0_,
+         sync_HsSeqDetectorEn_sync_reg1_0_, sync_HSDeserEn_sync_reg1_0_,
+         sync_HsDecoderEn_sync_reg1_0_, sync_InRxTriggerEsc_sync_reg1_0_,
+         slave_fsm_inst_Rx_timer_N84, slave_fsm_inst_Rx_timer_N74,
+         slave_fsm_inst_Rx_timer_N73, slave_fsm_inst_Rx_timer_N72,
+         slave_fsm_inst_Rx_timer_N71, slave_fsm_inst_Rx_timer_N70,
+         slave_fsm_inst_Rx_timer_N69, slave_fsm_inst_Rx_timer_N68,
+         slave_fsm_inst_Rx_timer_N67, slave_fsm_inst_Rx_timer_N66,
+         slave_fsm_inst_Tx_timer_N58, slave_fsm_inst_Tx_timer_N46,
+         slave_fsm_inst_Tx_timer_N45, slave_fsm_inst_Tx_timer_N44,
+         slave_fsm_inst_Tx_timer_N43, slave_fsm_inst_Tx_timer_N42, n252, n499,
+         n500, n501, n502, n503, n504, n505, n506, n507, n508, n509, n510,
+         n511, n512, n513, n514, n515, n516, n517, n518, n519, n520, n521,
+         n522, n523, n524, n525, n526, n527, n528, n529, n530, n531, n532,
+         n533, n534, n535, n536, n537, n538, n539, n540, n541, n542, n543,
+         n544, n545, n546, n547, n548, n549, n550, n551, n552, n553, n554,
+         n555, n556, n557, n558, n559, n560, n561, n562, n563, n564, n565,
+         n566, n567, n568, n569, n570, n571, n572, n573, n574, n575, n576,
+         n577, n578, n579, n580, n587, n588, n589, n590, n591, n592, n593,
+         n594, n595, n596, n597, n598, n599, n600, n601, n602, n603, n604,
+         n605, n606, n607, n608, n609, n610, n611, n612, n613, n614, n615,
+         n616, n617, n618, n619, n620, n621, n622, n623, n624, n625, n626,
+         n627, n628, n629, n630, n631, n632, n633, n634, n635, n636, n637,
+         n638, n639, n640, n641, n642, n643, n644, n645, n646, n647, n648,
+         n649, n650, n651, n652, n653, n654, n655, n656, n657, n658, n659,
+         n660, n661, n662, n663, n664, n665, n666, n667, n668, n669, n670,
+         n671, n672, n673, n674, n675, n676, n677, n678, n679, n680, n681,
+         n682, n683, n684, n685, n686, n687, n688, n689, n690, n691, n692,
+         n693, n694, n695, n696, n697, n698, n699, n700, n701, n702, n703,
+         n704, n705, n706, n707, n708, n709, n710, n711, n712, n713, n714,
+         n715, n716, n717, n718, n719, n720, n721, n722, n723, n724, n725,
+         n726, n727, n728, n729, n730, n731, n732, n733, n734, n735, n736,
+         n737, n738, n739, n740, n741, n742, n743, n744, n745, n746, n747,
+         n748, n749, n750, n751, n752, n753, n754, n755, n756, n757, n758,
+         n759, n760, n761, n762, n763, n764, n765, n766, n767, n768, n769,
+         n770, n771, n772, n773, n774, n775, n776, n777, n778, n779, n780,
+         n781, n782, n783, n784, n785, n786, n787, n788, n789, n790, n791,
+         n792, n793, n794, n795, n796, n797, n798, n799, n800, n801, n802,
+         n803, n804, n805, n806, n807, n808, n809, n810, n811, n812, n813,
+         n814, n815, n816, n817, n818, n819, n820, n821, n822, n823, n824,
+         n825, n826, n827, n828, n829, n830, n831, n832, n833, n834, n835,
+         n836, n837, n838, n839, n840, n841, n842, n843, n844, n845, n846,
+         n847, n848, n849, n850, n851, n852, n853, n854, n855, n856, n857,
+         n858, n859, n860, n861, n862, n863, n864, n865, n866, n867, n868,
+         n869, n870, n871, n872, n873, n874, n875, n876, n877, n878, n879,
+         n880, n881, n882, n883, n884, n885, n886, n887, n888, n889, n890,
+         n891, n892, n893, n894, n895, n896, n897, n898, n899, n900, n901,
+         n902, n903, n904, n905, n906, n907, n908, n909, n910, n911, n912,
+         n913, n914, n915, n916, n917, n918, n919, n920, n921, n922, n923,
+         n924, n925, n926, n927, n928, n929, n930, n931, n932, n933, n934,
+         n935, n936, n937, n938, n939, n940, n941, n942, n943, n944, n945,
+         n946, n947, n948, n949, n950, n951, n952, n953, n954, n955, n956,
+         n957, n958, n959, n960, n961, n962, n963, n964, n965, n966, n967,
+         n968, n969, n970, n971, n972, n973, n974, n975, n976, n977, n978,
+         n979, n980, n981, n982, n983, n984, n985, n986, n987, n988, n989,
+         n990, n991, n992, n993, n994, n995, n996, n997, n998, n999, n1000,
+         n1001, n1002, n1003, n1004, n1005, n1006, n1007, n1008, n1009, n1010,
+         n1011, n1012, n1013, n1014, n1015, n1016, n1017, n1018, n1019, n1020,
+         n1021, n1022, n1023, n1024, n1025, n1026, n1027, n1028, n1029, n1030,
+         n1031, n1032, n1033, n1034, n1035, n1036, n1037, n1038, n1039, n1040,
+         n1041, n1042, n1043, n1044, n1045, n1046, n1047, n1048, n1049, n1050,
+         n1051, n1052, n1053, n1055, n1056, n1057, n1058, n1059, n1060, n1061,
+         n1062, n1063, n1064, n1065, n1066, n1067, n1068, n1069, n1070, n1071,
+         n1072, n1073, n1074, n1075, n1076, n1077, n1078, n1079, n1080, n1081,
+         n1082, n1083, n1084, n1085, n1086, n1087, n1088, n1089, n1090, n1091,
+         n1092, n1093, n1094, n1095, n1096, n1097, n1098, n1099, n1100, n1101,
+         n1102, n1103, n1104, n1105, n1106, n1107, n1108, n1109, n1110, n1111,
+         n1112, n1113, n1114, n1115, n1116, n1117, n1118, n1119, n1120, n1121,
+         n1122, n1123, n1124, n1125, n1126, n1127, n1128, n1129, n1130, n1131,
+         n1132, n1133, n1134, n1135, n1136, n1137, n1138, n1139, n1140, n1141,
+         n1142, n1143, n1144;
+  wire   [2:0] InRxSymbol;
+  wire   [2:0] RxSymbol;
+  wire   [6:0] InRxPolarity;
+  wire   [6:0] InRxRotation;
+  wire   [6:0] InRxFlip;
+  wire   [6:0] RxPolarity;
+  wire   [6:0] RxRotation;
+  wire   [6:0] RxFlip;
+  wire   [2:0] DetectedSeq;
+  wire   [2:0] DetectedSeqREG;
+  wire   [2:0] DetectedSeq_REG;
+  wire   [1:0] CtrlDecoderOut;
+  wire   [2:0] DetectedSeq_sync;
+  wire   [1:0] CtrlDecoderOut_sync;
+  wire   [2:0] decoder_PS;
+  wire   [2:0] decoder_CS;
+  wire   [5:0] hs_deserializer_temp_polarity;
+  wire   [5:0] hs_deserializer_temp_rotation;
+  wire   [5:0] hs_deserializer_temp_flip;
+  wire   [2:0] hs_deserializer_counter;
+  wire   [5:0] demapper_inst_temp_signal;
+  wire   [12:0] demapper_inst_mux_values;
+  wire   [6:0] esc_deserializer_shift_reg;
+  wire   [2:0] esc_deserializer_bit_count;
+  wire   [7:0] esc_decoder_Command;
+  wire   [2:0] esc_decoder_Counter;
+  wire   [1:0] esc_decoder_CurrentState;
+  wire   [3:0] sequence_detector_symbol_count;
+  wire   [2:0] sequence_detector_state;
+  wire   [2:0] Esc_Sequencer_U0_Count;
+  wire   [7:1] ESC_Serializerr_U0_TxDataEsc_reg;
+  wire   [2:0] ESC_Serializerr_U0_counter;
+  wire   [2:0] sync_DetectedSeq_sync_reg1;
+  wire   [4:0] slave_fsm_inst_Pause_Count;
+  wire   [5:0] slave_fsm_inst_currentState;
+  wire   [1:0] sync_CtrlDecoderOut_sync_reg1;
+  wire   [3:0] sync_TxTriggerEsc_sync_reg1;
+  wire   [8:0] slave_fsm_inst_Rx_timer_counter;
+  wire   [4:0] slave_fsm_inst_Tx_timer_counter;
+
+  CGLNPRX2_LVT clk_gating ( .CLK(RecoveredClk), .EN(HsSettleExp), .SE(1'b0), 
+        .GCLK(RxSymClkHS) );
+  Word_Clock_Gen wordclk ( .SymClk(RxSymClkHS), .RST(RstN), .RxWordClkHs(
+        RxWordClkHS_out) );
+  Clock_Recovery_LP clk_recovery_lp ( .A(n1053), .RxClkEsc(RxClkEsc), .C_BAR(
+        n252) );
+  DFFARX1_LVT sync_TxUlpsExit_sync_reg1_reg_0_ ( .D(TxUlpsExit), .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_TxUlpsExit_sync_reg1_0_) );
+  DFFARX1_LVT sync_TxUlpsExit_sync_reg2_reg_0_ ( .D(
+        sync_TxUlpsExit_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        TxUlpsExit_sync), .QN(n1117) );
+  DFFARX1_LVT sync_TxLpdtEsc_sync_reg1_reg_0_ ( .D(TxLpdtEsc), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_TxLpdtEsc_sync_reg1_0_) );
+  DFFARX1_LVT R_1 ( .D(sync_TxLpdtEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(
+        RstN), .Q(TxLpdtEsc_sync) );
+  DFFARX1_LVT sync_TxUlpsEsc_sync_reg1_reg_0_ ( .D(TxUlpsEsc), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_TxUlpsEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_TxValidEsc_sync_reg1_reg_0_ ( .D(TxValidEsc), .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_TxValidEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_TxValidEsc_sync_reg2_reg_0_ ( .D(
+        sync_TxValidEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .QN(n1115)
+         );
+  DFFARX1_LVT sync_TxReqEsc_sync_reg1_reg_0_ ( .D(TxReqEsc), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_TxReqEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_TxReqEsc_sync_reg2_reg_0_ ( .D(sync_TxReqEsc_sync_reg1_0_), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(TxReqEsc_sync), .QN(n1114) );
+  DFFARX1_LVT sync_TxTriggerEsc_sync_reg1_reg_0_ ( .D(TxTriggerEsc[0]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_TxTriggerEsc_sync_reg1[0]) );
+  DFFARX1_LVT sync_TxTriggerEsc_sync_reg1_reg_1_ ( .D(TxTriggerEsc[1]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_TxTriggerEsc_sync_reg1[1]) );
+  DFFARX1_LVT sync_TxTriggerEsc_sync_reg1_reg_2_ ( .D(TxTriggerEsc[2]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_TxTriggerEsc_sync_reg1[2]) );
+  DFFARX1_LVT sync_TxTriggerEsc_sync_reg1_reg_3_ ( .D(TxTriggerEsc[3]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_TxTriggerEsc_sync_reg1[3]) );
+  DFFARX1_LVT slave_fsm_inst_Tx_timer_Timeout_reg ( .D(
+        slave_fsm_inst_Tx_timer_N58), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_TxTimeOut), .QN(n1120) );
+  DFFARX1_LVT ESC_Serializerr_U0_counter_reg_0_ ( .D(ESC_Serializerr_U0_N29), 
+        .CLK(TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_counter[0]) );
+  DFFARX1_LVT ESC_Serializerr_U0_counter_reg_1_ ( .D(ESC_Serializerr_U0_N30), 
+        .CLK(TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_counter[1]), .QN(
+        n1088) );
+  DFFARX1_LVT ESC_Serializerr_U0_counter_reg_2_ ( .D(ESC_Serializerr_U0_N31), 
+        .CLK(TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_counter[2]), .QN(
+        n1132) );
+  DFFARX1_LVT ESC_Serializerr_U0_LastBit_reg ( .D(ESC_Serializerr_U0_N26), 
+        .CLK(TxClkEsc), .RSTB(RstN), .Q(SerLastBit) );
+  DFFARX1_LVT sync_SerLastBit_sync_reg1_reg_0_ ( .D(SerLastBit), .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_SerLastBit_sync_reg1_0_) );
+  DFFARX1_LVT sync_SerLastBit_sync_reg2_reg_0_ ( .D(
+        sync_SerLastBit_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        SerLastBit_sync) );
+  DFFARX1_LVT slave_fsm_inst_Pause_Count_reg_0_ ( .D(slave_fsm_inst_N770), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(slave_fsm_inst_Pause_Count[0]), .QN(
+        n1121) );
+  DFFARX1_LVT slave_fsm_inst_Pause_Count_reg_1_ ( .D(slave_fsm_inst_N771), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(slave_fsm_inst_Pause_Count[1]), .QN(
+        n1084) );
+  DFFARX1_LVT slave_fsm_inst_Pause_Count_reg_2_ ( .D(slave_fsm_inst_N772), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(slave_fsm_inst_Pause_Count[2]) );
+  DFFARX1_LVT slave_fsm_inst_Pause_Count_reg_3_ ( .D(slave_fsm_inst_N773), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(slave_fsm_inst_Pause_Count[3]), .QN(
+        n1127) );
+  DFFARX1_LVT slave_fsm_inst_Pause_Count_reg_4_ ( .D(slave_fsm_inst_N774), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(slave_fsm_inst_Pause_Count[4]), .QN(
+        n1128) );
+  DFFARX1_LVT slave_fsm_inst_LPDT_Count_Done_reg ( .D(slave_fsm_inst_N775), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(slave_fsm_inst_LPDT_Count_Done) );
+  DFFARX1_LVT sync_CtrlDecoderOut_sync_reg1_reg_0_ ( .D(CtrlDecoderOut[0]), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_CtrlDecoderOut_sync_reg1[0]) );
+  DFFARX1_LVT sync_CtrlDecoderOut_sync_reg2_reg_0_ ( .D(
+        sync_CtrlDecoderOut_sync_reg1[0]), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        CtrlDecoderOut_sync[0]), .QN(n1113) );
+  DFFARX1_LVT sync_CtrlDecoderOut_sync_reg1_reg_1_ ( .D(CtrlDecoderOut[1]), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_CtrlDecoderOut_sync_reg1[1]) );
+  DFFARX1_LVT sync_CtrlDecoderOut_sync_reg2_reg_1_ ( .D(
+        sync_CtrlDecoderOut_sync_reg1[1]), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        CtrlDecoderOut_sync[1]), .QN(n1082) );
+  DFFARX1_LVT slave_fsm_inst_Tx_timer_counter_reg_1_ ( .D(
+        slave_fsm_inst_Tx_timer_N43), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Tx_timer_counter[1]), .QN(n1125) );
+  DFFARX1_LVT slave_fsm_inst_Tx_timer_counter_reg_2_ ( .D(
+        slave_fsm_inst_Tx_timer_N44), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Tx_timer_counter[2]) );
+  DFFARX1_LVT slave_fsm_inst_Tx_timer_counter_reg_3_ ( .D(
+        slave_fsm_inst_Tx_timer_N45), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Tx_timer_counter[3]), .QN(n1126) );
+  DFFARX1_LVT slave_fsm_inst_Tx_timer_counter_reg_4_ ( .D(
+        slave_fsm_inst_Tx_timer_N46), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Tx_timer_counter[4]) );
+  DFFARX1_LVT Esc_Sequencer_U0_Count_reg_0_ ( .D(Esc_Sequencer_U0_N28), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(Esc_Sequencer_U0_Count[0]), .QN(n1090) );
+  DFFARX1_LVT Esc_Sequencer_U0_Count_reg_1_ ( .D(Esc_Sequencer_U0_N29), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(Esc_Sequencer_U0_Count[1]), .QN(n1136) );
+  DFFARX1_LVT Esc_Sequencer_U0_Count_reg_2_ ( .D(Esc_Sequencer_U0_N30), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(Esc_Sequencer_U0_Count[2]) );
+  DFFARX1_LVT Esc_Sequencer_U0_CmdDone_reg ( .D(Esc_Sequencer_U0_N32), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(CmdDone) );
+  DFFARX1_LVT sync_CmdDone_sync_reg1_reg_0_ ( .D(CmdDone), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_CmdDone_sync_reg1_0_) );
+  DFFARX1_LVT sync_EscDeserEn_sync_reg1_reg_0_ ( .D(EscDeserEn), .CLK(RxClkEsc), .RSTB(RstN), .Q(sync_EscDeserEn_sync_reg1_0_) );
+  DFFARX1_LVT sync_EscDeserEn_sync_reg2_reg_0_ ( .D(
+        sync_EscDeserEn_sync_reg1_0_), .CLK(RxClkEsc), .RSTB(RstN), .Q(
+        EscDeserEn_sync), .QN(n1130) );
+  DFFARX1_LVT sync_InRxValidEsc_sync_reg1_reg_0_ ( .D(InRxValidEsc), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_InRxValidEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_InRxValidEsc_sync_reg2_reg_0_ ( .D(
+        sync_InRxValidEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        RxValidEsc) );
+  DFFARX1_LVT sync_InErrControl_sync_reg1_reg_0_ ( .D(InErrControl), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_InErrControl_sync_reg1_0_) );
+  DFFARX1_LVT sync_InErrControl_sync_reg2_reg_0_ ( .D(
+        sync_InErrControl_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        ErrControl) );
+  DFFARX1_LVT sync_HsSeqDetectorEn_sync_reg1_reg_0_ ( .D(HsSeqDetectorEn), 
+        .CLK(RxSymClkHS), .RSTB(RstN), .Q(sync_HsSeqDetectorEn_sync_reg1_0_)
+         );
+  DFFARX1_LVT sync_HsDecoderEn_sync_reg1_reg_0_ ( .D(RxActiveHS), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(sync_HsDecoderEn_sync_reg1_0_) );
+  DFFARX1_LVT sync_HsDecoderEn_sync_reg2_reg_0_ ( .D(
+        sync_HsDecoderEn_sync_reg1_0_), .CLK(RxSymClkHS), .RSTB(RstN), .Q(
+        HsDecoderEn_sync) );
+  DFFARX1_LVT decoder_CS_reg_0_ ( .D(decoder_N5), .CLK(RxSymClkHS), .RSTB(RstN), .Q(decoder_CS[0]), .QN(n1071) );
+  DFFARX1_LVT decoder_PS_reg_0_ ( .D(decoder_N8), .CLK(RxSymClkHS), .RSTB(RstN), .Q(decoder_PS[0]), .QN(n1095) );
+  DFFARX1_LVT decoder_PS_reg_1_ ( .D(decoder_N9), .CLK(RxSymClkHS), .RSTB(RstN), .Q(decoder_PS[1]), .QN(n1061) );
+  DFFARX1_LVT decoder_CS_reg_2_ ( .D(decoder_N7), .CLK(RxSymClkHS), .RSTB(RstN), .Q(decoder_CS[2]), .QN(n1072) );
+  DFFARX1_LVT decoder_PS_reg_2_ ( .D(decoder_N10), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(decoder_PS[2]), .QN(n1098) );
+  DFFARX1_LVT SymbolReg_data_out_reg_2_ ( .D(InRxSymbol[2]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxSymbol[2]), .QN(n1093) );
+  DFFARX1_LVT sync_InErrSotHS_sync_reg1_reg_0_ ( .D(InErrSotHS), .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_InErrSotHS_sync_reg1_0_) );
+  DFFARX1_LVT sync_InErrSotHS_sync_reg2_reg_0_ ( .D(
+        sync_InErrSotHS_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        ErrSotHS) );
+  DFFARX1_LVT sync_InErrSotSyncHS_sync_reg1_reg_0_ ( .D(InErrSotSyncHS), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_InErrSotSyncHS_sync_reg1_0_) );
+  DFFARX1_LVT sync_InErrSotSyncHS_sync_reg2_reg_0_ ( .D(
+        sync_InErrSotSyncHS_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        ErrSotSyncHS) );
+  DFFARX1_LVT DetectedSeq_REG_reg_1_ ( .D(DetectedSeq[1]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(DetectedSeq_REG[1]) );
+  DFFARX1_LVT DetectedSeqREG_reg_1_ ( .D(DetectedSeq_REG[1]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(DetectedSeqREG[1]) );
+  DFFARX1_LVT sync_DetectedSeq_sync_reg1_reg_1_ ( .D(DetectedSeqREG[1]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_DetectedSeq_sync_reg1[1]) );
+  DFFARX1_LVT sync_DetectedSeq_sync_reg2_reg_1_ ( .D(
+        sync_DetectedSeq_sync_reg1[1]), .CLK(RxClkFsm), .RSTB(RstN), .QN(n1112) );
+  DFFARX1_LVT DetectedSeq_REG_reg_2_ ( .D(DetectedSeq[2]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(DetectedSeq_REG[2]) );
+  DFFARX1_LVT DetectedSeqREG_reg_2_ ( .D(DetectedSeq_REG[2]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(DetectedSeqREG[2]) );
+  DFFARX1_LVT sync_DetectedSeq_sync_reg1_reg_2_ ( .D(DetectedSeqREG[2]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_DetectedSeq_sync_reg1[2]) );
+  DFFARX1_LVT sync_DetectedSeq_sync_reg2_reg_2_ ( .D(
+        sync_DetectedSeq_sync_reg1[2]), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        DetectedSeq_sync[2]) );
+  DFFARX1_LVT DetectedSeq_REG_reg_0_ ( .D(DetectedSeq[0]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(DetectedSeq_REG[0]) );
+  DFFARX1_LVT DetectedSeqREG_reg_0_ ( .D(DetectedSeq_REG[0]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(DetectedSeqREG[0]) );
+  DFFARX1_LVT sync_DetectedSeq_sync_reg1_reg_0_ ( .D(DetectedSeqREG[0]), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_DetectedSeq_sync_reg1[0]) );
+  DFFARX1_LVT sync_DetectedSeq_sync_reg2_reg_0_ ( .D(
+        sync_DetectedSeq_sync_reg1[0]), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        DetectedSeq_sync[0]) );
+  DFFARX1_LVT sync_HSDeserEn_sync_reg1_reg_0_ ( .D(RxValidHS), .CLK(RxSymClkHS), .RSTB(RstN), .Q(sync_HSDeserEn_sync_reg1_0_) );
+  DFFARX1_LVT sync_HSDeserEn_sync_reg2_reg_0_ ( .D(sync_HSDeserEn_sync_reg1_0_), .CLK(RxSymClkHS), .RSTB(RstN), .Q(HSDeserEn_sync) );
+  DFFARX1_LVT hs_deserializer_temp_polarity_reg_5_ ( .D(n555), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_polarity[5]) );
+  DFFARX1_LVT hs_deserializer_temp_rotation_reg_5_ ( .D(n542), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_rotation[5]) );
+  DFFARX1_LVT hs_deserializer_temp_flip_reg_5_ ( .D(n529), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_temp_flip[5]) );
+  DFFARX1_LVT hs_deserializer_temp_polarity_reg_4_ ( .D(n553), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_polarity[4]) );
+  DFFARX1_LVT hs_deserializer_temp_rotation_reg_4_ ( .D(n540), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_rotation[4]) );
+  DFFARX1_LVT hs_deserializer_temp_flip_reg_4_ ( .D(n527), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_temp_flip[4]) );
+  DFFARX1_LVT hs_deserializer_temp_polarity_reg_3_ ( .D(n551), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_polarity[3]) );
+  DFFARX1_LVT hs_deserializer_temp_rotation_reg_3_ ( .D(n538), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_rotation[3]) );
+  DFFARX1_LVT hs_deserializer_temp_flip_reg_3_ ( .D(n525), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_temp_flip[3]) );
+  DFFARX1_LVT hs_deserializer_temp_polarity_reg_2_ ( .D(n549), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_polarity[2]) );
+  DFFARX1_LVT hs_deserializer_temp_rotation_reg_2_ ( .D(n536), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_rotation[2]) );
+  DFFARX1_LVT hs_deserializer_temp_flip_reg_2_ ( .D(n523), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_temp_flip[2]) );
+  DFFARX1_LVT hs_deserializer_temp_polarity_reg_1_ ( .D(n547), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_polarity[1]) );
+  DFFARX1_LVT hs_deserializer_temp_rotation_reg_1_ ( .D(n534), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_rotation[1]) );
+  DFFARX1_LVT hs_deserializer_temp_flip_reg_1_ ( .D(n521), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_temp_flip[1]) );
+  DFFARX1_LVT hs_deserializer_temp_polarity_reg_0_ ( .D(n545), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_polarity[0]) );
+  DFFARX1_LVT hs_deserializer_temp_rotation_reg_0_ ( .D(n532), .CLK(RxSymClkHS), .RSTB(RstN), .Q(hs_deserializer_temp_rotation[0]) );
+  DFFARX1_LVT hs_deserializer_temp_flip_reg_0_ ( .D(n519), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_temp_flip[0]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_5_ ( .D(n554), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[5]) );
+  DFFARX1_LVT PReg_data_out_reg_5_ ( .D(InRxPolarity[5]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[5]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_4_ ( .D(n552), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[4]) );
+  DFFARX1_LVT PReg_data_out_reg_4_ ( .D(InRxPolarity[4]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[4]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_3_ ( .D(n550), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[3]) );
+  DFFARX1_LVT PReg_data_out_reg_3_ ( .D(InRxPolarity[3]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[3]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_2_ ( .D(n548), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[2]) );
+  DFFARX1_LVT PReg_data_out_reg_2_ ( .D(InRxPolarity[2]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[2]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_1_ ( .D(n546), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[1]) );
+  DFFARX1_LVT PReg_data_out_reg_1_ ( .D(InRxPolarity[1]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[1]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_0_ ( .D(n544), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[0]) );
+  DFFARX1_LVT PReg_data_out_reg_0_ ( .D(InRxPolarity[0]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[0]) );
+  DFFARX1_LVT hs_deserializer_RxPolarity_reg_6_ ( .D(n543), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxPolarity[6]) );
+  DFFARX1_LVT PReg_data_out_reg_6_ ( .D(InRxPolarity[6]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxPolarity[6]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_5_ ( .D(n541), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[5]) );
+  DFFARX1_LVT RReg_data_out_reg_5_ ( .D(InRxRotation[5]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[5]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_4_ ( .D(n539), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[4]) );
+  DFFARX1_LVT RReg_data_out_reg_4_ ( .D(InRxRotation[4]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[4]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_3_ ( .D(n537), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[3]) );
+  DFFARX1_LVT RReg_data_out_reg_3_ ( .D(InRxRotation[3]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[3]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_2_ ( .D(n535), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[2]) );
+  DFFARX1_LVT RReg_data_out_reg_2_ ( .D(InRxRotation[2]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[2]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_1_ ( .D(n533), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[1]) );
+  DFFARX1_LVT RReg_data_out_reg_1_ ( .D(InRxRotation[1]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[1]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_0_ ( .D(n531), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[0]) );
+  DFFARX1_LVT RReg_data_out_reg_0_ ( .D(InRxRotation[0]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[0]) );
+  DFFARX1_LVT hs_deserializer_RxRotation_reg_6_ ( .D(n530), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxRotation[6]) );
+  DFFARX1_LVT RReg_data_out_reg_6_ ( .D(InRxRotation[6]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxRotation[6]) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_5_ ( .D(n528), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[5]) );
+  DFFARX1_LVT FReg_data_out_reg_5_ ( .D(InRxFlip[5]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[5]), .QN(n1080) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_4_ ( .D(n526), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[4]) );
+  DFFARX1_LVT FReg_data_out_reg_4_ ( .D(InRxFlip[4]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[4]), .QN(n1108) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_3_ ( .D(n524), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[3]) );
+  DFFARX1_LVT FReg_data_out_reg_3_ ( .D(InRxFlip[3]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[3]), .QN(n1067) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_2_ ( .D(n522), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[2]) );
+  DFFARX1_LVT FReg_data_out_reg_2_ ( .D(InRxFlip[2]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[2]), .QN(n1092) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_1_ ( .D(n520), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[1]) );
+  DFFARX1_LVT FReg_data_out_reg_1_ ( .D(InRxFlip[1]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[1]), .QN(n1055) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_0_ ( .D(n518), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[0]) );
+  DFFARX1_LVT FReg_data_out_reg_0_ ( .D(InRxFlip[0]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[0]), .QN(n1058) );
+  DFFARX1_LVT hs_deserializer_RxFlip_reg_6_ ( .D(n517), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(InRxFlip[6]) );
+  DFFARX1_LVT FReg_data_out_reg_6_ ( .D(InRxFlip[6]), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(RxFlip[6]), .QN(n1062) );
+  DFFARX1_LVT demapper_inst_temp_invalidcode_stage1_reg ( .D(demapper_inst_N77), .CLK(RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_invalidcode_stage1) );
+  DFFARX1_LVT demapper_inst_most_four_reg ( .D(demapper_inst_N73), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_most_four) );
+  DFFARX1_LVT demapper_inst_most_zero_reg ( .D(demapper_inst_N72), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_most_zero), .QN(n1070) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_1_ ( .D(demapper_inst_N173), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[1]), .QN(n1107)
+         );
+  DFFARX1_LVT demapper_inst_mux_values_reg_3_ ( .D(demapper_inst_N175), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[3]), .QN(n1106)
+         );
+  DFFARX1_LVT demapper_inst_mux_values_reg_5_ ( .D(demapper_inst_N177), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[5]), .QN(n1105)
+         );
+  DFFARX1_LVT demapper_inst_most_one_reg ( .D(demapper_inst_N76), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_most_one), .QN(n1097) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_7_ ( .D(demapper_inst_N179), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[7]), .QN(n1104)
+         );
+  DFFARX1_LVT demapper_inst_most_two_reg ( .D(demapper_inst_N75), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_most_two) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_10_ ( .D(demapper_inst_N182), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[10]), .QN(n1074)
+         );
+  DFFARX1_LVT demapper_inst_most_three_reg ( .D(demapper_inst_N74), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_most_three) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_9_ ( .D(demapper_inst_N181), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[9]), .QN(n1103)
+         );
+  DFFARX1_LVT demapper_inst_mux_values_reg_4_ ( .D(demapper_inst_N176), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[4]), .QN(n1077)
+         );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_4_ ( .D(demapper_inst_N227), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[4]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_5_ ( .D(demapper_inst_N228), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[5]) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_6_ ( .D(demapper_inst_N178), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[6]), .QN(n1076)
+         );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_6_ ( .D(demapper_inst_N237), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[6]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_7_ ( .D(demapper_inst_N238), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[7]) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_0_ ( .D(demapper_inst_N172), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[0]), .QN(n1079)
+         );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_0_ ( .D(demapper_inst_N207), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[0]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_1_ ( .D(demapper_inst_N208), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[1]) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_2_ ( .D(demapper_inst_N174), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[2]), .QN(n1078)
+         );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_2_ ( .D(demapper_inst_N217), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[2]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_3_ ( .D(demapper_inst_N218), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[3]) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_12_ ( .D(demapper_inst_N184), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[12]), .QN(n1110)
+         );
+  DFFARX1_LVT demapper_inst_most_five_reg ( .D(n516), .CLK(RxSymClkHS), .RSTB(
+        RstN), .Q(demapper_inst_most_five), .QN(n1109) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_8_ ( .D(demapper_inst_N180), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[8]), .QN(n1075)
+         );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_8_ ( .D(demapper_inst_N247), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[8]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_9_ ( .D(demapper_inst_N248), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[9]) );
+  DFFARX1_LVT demapper_inst_mux_values_reg_11_ ( .D(demapper_inst_N183), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_mux_values[11]), .QN(n1102)
+         );
+  DFFARX1_LVT demapper_inst_temp_signal_reg_0_ ( .D(demapper_inst_N165), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_signal[0]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_10_ ( .D(demapper_inst_N257), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[10]) );
+  DFFARX1_LVT demapper_inst_temp_signal_reg_1_ ( .D(demapper_inst_N166), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_signal[1]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_11_ ( .D(demapper_inst_N258), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[11]) );
+  DFFARX1_LVT demapper_inst_temp_signal_reg_2_ ( .D(demapper_inst_N167), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_signal[2]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_12_ ( .D(demapper_inst_N260), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[12]) );
+  DFFARX1_LVT demapper_inst_temp_signal_reg_3_ ( .D(demapper_inst_N168), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_signal[3]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_13_ ( .D(demapper_inst_N261), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[13]) );
+  DFFARX1_LVT demapper_inst_temp_signal_reg_4_ ( .D(demapper_inst_N169), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_signal[4]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_14_ ( .D(demapper_inst_temp_signal[4]), .CLK(RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[14]) );
+  DFFARX1_LVT demapper_inst_temp_signal_reg_5_ ( .D(demapper_inst_N170), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(demapper_inst_temp_signal[5]) );
+  DFFARX1_LVT demapper_inst_RxDataHS_reg_15_ ( .D(demapper_inst_temp_signal[5]), .CLK(RxSymClkHS), .RSTB(RstN), .Q(RxDataHS[15]) );
+  DFFARX1_LVT demapper_inst_temp_invalidcode_stage2_reg ( .D(
+        demapper_inst_N171), .CLK(RxSymClkHS), .RSTB(RstN), .Q(
+        demapper_inst_temp_invalidcode_stage2) );
+  DFFARX1_LVT demapper_inst_RxInvalidCodeHS_reg ( .D(
+        demapper_inst_temp_invalidcode_stage2), .CLK(RxSymClkHS), .RSTB(RstN), 
+        .Q(InRxInvalidCodeHS) );
+  DFFARX1_LVT sync_InRxInvalidCodeHS_sync_reg1_reg_0_ ( .D(InRxInvalidCodeHS), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_InRxInvalidCodeHS_sync_reg1_0_)
+         );
+  DFFARX1_LVT sync_InRxInvalidCodeHS_sync_reg2_reg_0_ ( .D(
+        sync_InRxInvalidCodeHS_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        RxInvalidCodeHS) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_Timeout_reg ( .D(
+        slave_fsm_inst_Rx_timer_N84), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_RxTimeOut), .QN(n1083) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_0_ ( .D(
+        slave_fsm_inst_Rx_timer_N66), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[0]), .QN(n1129) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_1_ ( .D(
+        slave_fsm_inst_Rx_timer_N67), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[1]) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_2_ ( .D(
+        slave_fsm_inst_Rx_timer_N68), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[2]), .QN(n1124) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_3_ ( .D(
+        slave_fsm_inst_Rx_timer_N69), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[3]) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_4_ ( .D(
+        slave_fsm_inst_Rx_timer_N70), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[4]), .QN(n1122) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_5_ ( .D(
+        slave_fsm_inst_Rx_timer_N71), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[5]) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_6_ ( .D(
+        slave_fsm_inst_Rx_timer_N72), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[6]), .QN(n1123) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_7_ ( .D(
+        slave_fsm_inst_Rx_timer_N73), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[7]) );
+  DFFARX1_LVT slave_fsm_inst_Rx_timer_counter_reg_8_ ( .D(
+        slave_fsm_inst_Rx_timer_N74), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        slave_fsm_inst_Rx_timer_counter[8]) );
+  DFFARX1_LVT sync_EscDecoderEn_sync_reg1_reg_0_ ( .D(EscDecoderEn), .CLK(
+        RxClkEsc), .RSTB(RstN), .Q(sync_EscDecoderEn_sync_reg1_0_) );
+  DFFARX1_LVT sync_EscDecoderEn_sync_reg2_reg_0_ ( .D(
+        sync_EscDecoderEn_sync_reg1_0_), .CLK(RxClkEsc), .RSTB(RstN), .Q(
+        EscDecoderEn_sync) );
+  DFFARX1_LVT sync_LpFsmStop_sync_reg1_reg_0_ ( .D(LpFsmStop), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_LpFsmStop_sync_reg1_0_) );
+  DFFARX1_LVT sync_LpFsmStop_sync_reg2_reg_0_ ( .D(sync_LpFsmStop_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(LpFsmStop_sync), .QN(n1118) );
+  DFFARX1_LVT esc_decoder_CurrentState_reg_1_ ( .D(n578), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_CurrentState[1]), .QN(n1134) );
+  DFFARX1_LVT esc_decoder_CurrentState_reg_0_ ( .D(n579), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_CurrentState[0]) );
+  DFFARX1_LVT esc_decoder_Counter_reg_0_ ( .D(esc_decoder_N28), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Counter[0]), .QN(n1065) );
+  DFFARX1_LVT esc_decoder_Counter_reg_1_ ( .D(esc_decoder_N29), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Counter[1]), .QN(n1087) );
+  DFFARX1_LVT esc_decoder_Counter_reg_2_ ( .D(esc_decoder_N30), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Counter[2]), .QN(n1133) );
+  DFFARX1_LVT sync_InErrSyncEsc_sync_reg1_reg_0_ ( .D(InErrSyncEsc), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_InErrSyncEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_InErrSyncEsc_sync_reg2_reg_0_ ( .D(
+        sync_InErrSyncEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        ErrSyncEsc) );
+  DFFARX1_LVT esc_decoder_Command_reg_0_ ( .D(esc_decoder_N31), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[0]), .QN(n1091) );
+  DFFARX1_LVT esc_decoder_Command_reg_1_ ( .D(esc_decoder_N32), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[1]), .QN(n1138) );
+  DFFARX1_LVT esc_decoder_Command_reg_2_ ( .D(esc_decoder_N33), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[2]) );
+  DFFARX1_LVT esc_decoder_Command_reg_3_ ( .D(esc_decoder_N34), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[3]) );
+  DFFARX1_LVT esc_decoder_Command_reg_4_ ( .D(esc_decoder_N35), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[4]) );
+  DFFARX1_LVT esc_decoder_Command_reg_5_ ( .D(esc_decoder_N36), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[5]), .QN(n1139) );
+  DFFARX1_LVT esc_decoder_Command_reg_6_ ( .D(esc_decoder_N37), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[6]) );
+  DFFARX1_LVT esc_decoder_Command_reg_7_ ( .D(esc_decoder_N38), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_decoder_Command[7]), .QN(n1137) );
+  DFFARX1_LVT sync_InErrEsc_sync_reg1_reg_0_ ( .D(InErrEsc), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_InErrEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_InErrEsc_sync_reg2_reg_0_ ( .D(sync_InErrEsc_sync_reg1_0_), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(ErrEsc) );
+  DFFARX1_LVT sync_InRxTriggerEsc_sync_reg1_reg_0_ ( .D(InRxTriggerEsc_0_), 
+        .CLK(RxClkFsm), .RSTB(RstN), .Q(sync_InRxTriggerEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_InRxTriggerEsc_sync_reg2_reg_0_ ( .D(
+        sync_InRxTriggerEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        RxTriggerEsc[0]) );
+  DFFARX1_LVT sync_InRxUlpsEsc_sync_reg1_reg_0_ ( .D(InRxUlpsEsc), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_InRxUlpsEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_InRxUlpsEsc_sync_reg2_reg_0_ ( .D(
+        sync_InRxUlpsEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        RxUlpsEsc), .QN(n1116) );
+  DFFARX1_LVT sync_InRxLpdtEsc_sync_reg1_reg_0_ ( .D(n580), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(sync_InRxLpdtEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_InRxLpdtEsc_sync_reg2_reg_0_ ( .D(
+        sync_InRxLpdtEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        RxLpdtEsc), .QN(n1119) );
+  DFFARX1_LVT esc_decoder_EscBit_reg ( .D(esc_decoder_N39), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(EscBit) );
+  DFFARX1_LVT EscEncoder_U0_Enable1_reg ( .D(EscEncoder_U0_N14), .CLK(TxClkEsc), .RSTB(RstN), .Q(EscEncoder_U0_Enable1), .QN(n1131) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_1_ ( .D(n577), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[1]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_2_ ( .D(n576), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[2]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_3_ ( .D(n575), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[3]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_4_ ( .D(n574), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[4]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_5_ ( .D(n573), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[5]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_6_ ( .D(n572), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[6]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxDataEsc_reg_reg_7_ ( .D(n571), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(ESC_Serializerr_U0_TxDataEsc_reg[7]) );
+  DFFARX1_LVT ESC_Serializerr_U0_TxReadyEsc_reg ( .D(ESC_Serializerr_U0_N27), 
+        .CLK(TxClkEsc), .RSTB(RstN), .Q(SerReadyEsc) );
+  DFFARX1_LVT sync_SerReadyEsc_sync_reg1_reg_0_ ( .D(SerReadyEsc), .CLK(
+        RxClkFsm), .RSTB(RstN), .Q(sync_SerReadyEsc_sync_reg1_0_) );
+  DFFARX1_LVT sync_SerReadyEsc_sync_reg2_reg_0_ ( .D(
+        sync_SerReadyEsc_sync_reg1_0_), .CLK(RxClkFsm), .RSTB(RstN), .Q(
+        SerReadyEsc_sync) );
+  DFFARX1_LVT ESC_Serializerr_U0_SerBit_reg ( .D(ESC_Serializerr_U0_N28), 
+        .CLK(TxClkEsc), .RSTB(RstN), .Q(SerBit) );
+  DFFARX1_LVT EscEncoder_U0_data_C_reg ( .D(EscEncoder_U0_N13), .CLK(TxClkEsc), 
+        .RSTB(RstN), .Q(EscEncoder_U0_data_C) );
+  DFFARX1_LVT EscEncoder_U0_data_A_reg ( .D(EscEncoder_U0_N12), .CLK(TxClkEsc), 
+        .RSTB(RstN), .Q(EscEncoder_U0_data_A) );
+  DFFARX1_LVT slave_fsm_inst_currentState_reg_0_ ( .D(n515), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(slave_fsm_inst_currentState[0]), .QN(n1063) );
+  DFFARX1_LVT slave_fsm_inst_currentState_reg_2_ ( .D(n514), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(n587), .QN(n1142) );
+  DFFARX1_LVT slave_fsm_inst_currentState_reg_3_ ( .D(n512), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(slave_fsm_inst_currentState[3]), .QN(n1081) );
+  DFFARX1_LVT slave_fsm_inst_currentState_reg_5_ ( .D(n511), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(slave_fsm_inst_currentState[5]), .QN(n1064) );
+  DFFARX1_LVT slave_fsm_inst_currentState_reg_4_ ( .D(n510), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(slave_fsm_inst_currentState[4]), .QN(n1111) );
+  DFFARX1_LVT sequence_detector_symbol_count_reg_0_ ( .D(n509), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(sequence_detector_symbol_count[0]), .QN(
+        n1094) );
+  DFFARX1_LVT sequence_detector_symbol_count_reg_3_ ( .D(n508), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(sequence_detector_symbol_count[3]), .QN(
+        n1069) );
+  DFFARX1_LVT sequence_detector_symbol_count_reg_1_ ( .D(n507), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(sequence_detector_symbol_count[1]), .QN(
+        n1060) );
+  DFFARX1_LVT sequence_detector_symbol_count_reg_2_ ( .D(n506), .CLK(
+        RxSymClkHS), .RSTB(RstN), .Q(sequence_detector_symbol_count[2]) );
+  DFFARX1_LVT sequence_detector_state_reg_2_ ( .D(n505), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(sequence_detector_state[2]), .QN(n1059) );
+  DFFARX1_LVT sequence_detector_state_reg_1_ ( .D(n504), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(sequence_detector_state[1]), .QN(n1096) );
+  DFFARX1_LVT sequence_detector_state_reg_0_ ( .D(n503), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(sequence_detector_state[0]), .QN(n1068) );
+  DFFARX1_LVT hs_deserializer_counter_reg_0_ ( .D(n502), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_counter[0]), .QN(n1073) );
+  DFFARX1_LVT hs_deserializer_counter_reg_1_ ( .D(n501), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_counter[1]), .QN(n1099) );
+  DFFARX1_LVT hs_deserializer_counter_reg_2_ ( .D(n500), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(hs_deserializer_counter[2]), .QN(n1100) );
+  DFFASX1_LVT slave_fsm_inst_Tx_timer_counter_reg_0_ ( .D(
+        slave_fsm_inst_Tx_timer_N42), .CLK(RxClkFsm), .SETB(RstN), .Q(
+        slave_fsm_inst_Tx_timer_counter[0]), .QN(n1085) );
+  DFFNARX1_LVT esc_deserializer_bit_count_reg_0_ ( .D(esc_deserializer_N52), 
+        .CLK(RxClkEsc), .RSTB(RstN), .Q(esc_deserializer_bit_count[0]), .QN(
+        n1135) );
+  DFFNARX1_LVT esc_deserializer_bit_count_reg_1_ ( .D(esc_deserializer_N53), 
+        .CLK(RxClkEsc), .RSTB(RstN), .Q(esc_deserializer_bit_count[1]), .QN(
+        n1089) );
+  DFFNARX1_LVT esc_deserializer_bit_count_reg_2_ ( .D(esc_deserializer_N54), 
+        .CLK(RxClkEsc), .RSTB(RstN), .Q(esc_deserializer_bit_count[2]), .QN(
+        n1066) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_0_ ( .D(n570), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[0]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_0_ ( .D(n563), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[0]) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_1_ ( .D(n569), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[1]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_1_ ( .D(n562), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[1]) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_2_ ( .D(n568), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[2]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_2_ ( .D(n561), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[2]) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_3_ ( .D(n567), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[3]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_3_ ( .D(n560), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[3]) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_4_ ( .D(n566), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[4]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_4_ ( .D(n559), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[4]) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_5_ ( .D(n565), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[5]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_5_ ( .D(n558), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[5]) );
+  DFFNARX1_LVT esc_deserializer_shift_reg_reg_6_ ( .D(n564), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(esc_deserializer_shift_reg[6]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_6_ ( .D(n557), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[6]) );
+  DFFNARX1_LVT esc_deserializer_RxEscData_reg_7_ ( .D(n556), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(RxEscData[7]) );
+  DFFNARX1_LVT EscEncoder_U0_Enable0_reg ( .D(EscEncoder_U0_N18), .CLK(
+        TxClkEsc), .RSTB(RstN), .Q(EscEncoder_U0_Enable0), .QN(n1086) );
+  DFFNARX1_LVT esc_deserializer_RxValidEsc_reg ( .D(n499), .CLK(RxClkEsc), 
+        .RSTB(RstN), .Q(InRxValidEsc) );
+  DFFARX1_LVT sync_HsSeqDetectorEn_sync_reg2_reg_0_ ( .D(
+        sync_HsSeqDetectorEn_sync_reg1_0_), .CLK(RxSymClkHS), .RSTB(RstN), .Q(
+        HsSeqDetectorEn_sync), .QN(n1101) );
+  DFFARX1_LVT SymbolReg_data_out_reg_0_ ( .D(InRxSymbol[0]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxSymbol[0]) );
+  DFFARX1_LVT SymbolReg_data_out_reg_1_ ( .D(InRxSymbol[1]), .CLK(RxSymClkHS), 
+        .RSTB(RstN), .Q(RxSymbol[1]) );
+  DFFARX1_LVT slave_fsm_inst_currentState_reg_1_ ( .D(n513), .CLK(RxClkFsm), 
+        .RSTB(RstN), .Q(slave_fsm_inst_currentState[1]), .QN(n1057) );
+  DFFARX1_LVT R_3 ( .D(n1141), .CLK(RxClkFsm), .RSTB(RstN), .Q(n1143) );
+  DFFASX1_LVT R_4 ( .D(n1140), .CLK(RxClkFsm), .SETB(RstN), .Q(n1144) );
+  DFFARX1_LVT decoder_CS_reg_1_ ( .D(decoder_N6), .CLK(RxSymClkHS), .RSTB(RstN), .Q(decoder_CS[1]), .QN(n1056) );
+  OAI21X1_LVT U733 ( .A1(n966), .A2(n615), .A3(n804), .Y(Stopstate) );
+  INVX0_LVT U734 ( .A(demapper_inst_N179), .Y(n648) );
+  INVX0_LVT U735 ( .A(n600), .Y(LpTx[1]) );
+  INVX1_LVT U736 ( .A(n819), .Y(n822) );
+  INVX0_LVT U737 ( .A(n769), .Y(n771) );
+  INVX1_LVT U738 ( .A(n723), .Y(n803) );
+  INVX1_LVT U739 ( .A(n935), .Y(n879) );
+  INVX0_LVT U740 ( .A(n830), .Y(n831) );
+  INVX0_LVT U741 ( .A(n776), .Y(n649) );
+  INVX0_LVT U742 ( .A(n747), .Y(n745) );
+  INVX1_LVT U743 ( .A(EscDecoderEn), .Y(n807) );
+  INVX1_LVT U744 ( .A(n850), .Y(n606) );
+  INVX1_LVT U745 ( .A(n820), .Y(n821) );
+  INVX0_LVT U746 ( .A(n1038), .Y(n1040) );
+  INVX0_LVT U747 ( .A(n985), .Y(n594) );
+  INVX1_LVT U748 ( .A(n940), .Y(RxValidHS) );
+  INVX1_LVT U749 ( .A(n799), .Y(n809) );
+  INVX0_LVT U750 ( .A(n1022), .Y(n590) );
+  INVX0_LVT U751 ( .A(n817), .Y(n818) );
+  INVX0_LVT U752 ( .A(n611), .Y(n957) );
+  INVX1_LVT U753 ( .A(n893), .Y(n934) );
+  INVX1_LVT U754 ( .A(n949), .Y(n970) );
+  INVX1_LVT U755 ( .A(n826), .Y(n827) );
+  INVX1_LVT U756 ( .A(n951), .Y(n924) );
+  INVX1_LVT U757 ( .A(n980), .Y(n916) );
+  INVX0_LVT U758 ( .A(C), .Y(n252) );
+  INVX1_LVT U759 ( .A(ForceTxStopmode), .Y(n915) );
+  INVX1_LVT U760 ( .A(1'b1), .Y(RxTriggerEsc[1]) );
+  INVX1_LVT U762 ( .A(1'b1), .Y(RxTriggerEsc[2]) );
+  INVX1_LVT U764 ( .A(1'b1), .Y(RxTriggerEsc[3]) );
+  INVX1_LVT U766 ( .A(TurnDisable), .Y(n887) );
+  INVX1_LVT U767 ( .A(n989), .Y(n890) );
+  INVX1_LVT U768 ( .A(n1003), .Y(n991) );
+  INVX1_LVT U769 ( .A(LpTx[2]), .Y(n598) );
+  INVX1_LVT U770 ( .A(ForceRxmode), .Y(n948) );
+  INVX1_LVT U771 ( .A(n988), .Y(n956) );
+  INVX1_LVT U772 ( .A(n705), .Y(n759) );
+  INVX1_LVT U773 ( .A(n607), .Y(n1008) );
+  INVX1_LVT U774 ( .A(n860), .Y(n863) );
+  INVX1_LVT U775 ( .A(n852), .Y(n853) );
+  INVX1_LVT U776 ( .A(Enable), .Y(n1015) );
+  INVX1_LVT U777 ( .A(n847), .Y(n848) );
+  INVX1_LVT U778 ( .A(n631), .Y(n626) );
+  INVX1_LVT U779 ( .A(n690), .Y(n785) );
+  INVX1_LVT U780 ( .A(n780), .Y(n752) );
+  INVX1_LVT U781 ( .A(n875), .Y(n876) );
+  INVX1_LVT U782 ( .A(n997), .Y(n906) );
+  INVX1_LVT U783 ( .A(LpTx[0]), .Y(n602) );
+  INVX1_LVT U784 ( .A(n591), .Y(n682) );
+  INVX1_LVT U785 ( .A(n966), .Y(n925) );
+  MUX21X1_LVT U786 ( .A1(esc_deserializer_shift_reg[6]), .A2(n861), .S0(n617), 
+        .Y(n564) );
+  INVX1_LVT U787 ( .A(n851), .Y(ESC_Serializerr_U0_N27) );
+  INVX1_LVT U788 ( .A(n794), .Y(InErrSotHS) );
+  OA221X1_LVT U789 ( .A1(n252), .A2(n652), .A3(n252), .A4(n623), .A5(n651), 
+        .Y(CtrlDecoderOut[1]) );
+  NOR2X0_LVT U790 ( .A1(ESC_Serializerr_U0_counter[0]), .A2(n935), .Y(
+        ESC_Serializerr_U0_N29) );
+  OR2X1_LVT U791 ( .A1(LpTx[1]), .A2(n595), .Y(LpTx[0]) );
+  NBUFFX2_LVT U792 ( .A(RxActiveHS), .Y(HsRxEn) );
+  AND2X1_LVT U793 ( .A1(n588), .A2(n589), .Y(slave_fsm_inst_Rx_timer_N84) );
+  AND2X1_LVT U794 ( .A1(n723), .A2(n726), .Y(n588) );
+  OR2X1_LVT U795 ( .A1(n724), .A2(n725), .Y(n589) );
+  NBUFFX2_LVT U796 ( .A(A), .Y(n1053) );
+  NAND3X0_LVT U797 ( .A1(slave_fsm_inst_currentState[1]), .A2(
+        slave_fsm_inst_currentState[0]), .A3(n1142), .Y(n951) );
+  NAND3X0_LVT U798 ( .A1(n1081), .A2(n1064), .A3(n1111), .Y(n966) );
+  NAND2X0_LVT U799 ( .A1(n924), .A2(n925), .Y(n895) );
+  NAND4X0_LVT U800 ( .A1(n587), .A2(n925), .A3(n1063), .A4(n1057), .Y(n940) );
+  NAND2X0_LVT U801 ( .A1(n895), .A2(n940), .Y(HsSeqDetectorEn) );
+  NAND3X0_LVT U802 ( .A1(slave_fsm_inst_currentState[1]), .A2(n1142), .A3(
+        n1063), .Y(n949) );
+  AO21X1_LVT U803 ( .A1(n970), .A2(n925), .A3(HsSeqDetectorEn), .Y(RxActiveHS)
+         );
+  NAND4X0_LVT U804 ( .A1(sequence_detector_symbol_count[0]), .A2(
+        sequence_detector_symbol_count[2]), .A3(n1069), .A4(n1060), .Y(n1022)
+         );
+  AND3X1_LVT U805 ( .A1(sequence_detector_state[1]), .A2(n1068), .A3(n1059), 
+        .Y(n1023) );
+  AND2X1_LVT U806 ( .A1(n590), .A2(n1023), .Y(n1044) );
+  NAND3X0_LVT U807 ( .A1(RxSymbol[1]), .A2(RxSymbol[0]), .A3(n1093), .Y(n790)
+         );
+  INVX1_LVT U808 ( .A(n790), .Y(n1042) );
+  NAND2X0_LVT U809 ( .A1(n1044), .A2(n1042), .Y(n794) );
+  NAND3X0_LVT U810 ( .A1(slave_fsm_inst_currentState[5]), .A2(n1081), .A3(
+        n1111), .Y(n893) );
+  NAND3X0_LVT U811 ( .A1(n934), .A2(n1142), .A3(n1057), .Y(n591) );
+  NAND2X0_LVT U812 ( .A1(n682), .A2(n1063), .Y(n935) );
+  NAND3X0_LVT U813 ( .A1(slave_fsm_inst_currentState[3]), .A2(
+        slave_fsm_inst_currentState[4]), .A3(n1064), .Y(n980) );
+  NAND4X0_LVT U814 ( .A1(n587), .A2(slave_fsm_inst_currentState[1]), .A3(
+        slave_fsm_inst_currentState[0]), .A4(n916), .Y(n997) );
+  NAND2X0_LVT U815 ( .A1(n997), .A2(n591), .Y(n850) );
+  NAND3X0_LVT U816 ( .A1(slave_fsm_inst_currentState[3]), .A2(n1064), .A3(
+        n1111), .Y(n988) );
+  NAND2X0_LVT U817 ( .A1(n956), .A2(n970), .Y(n963) );
+  NAND2X0_LVT U818 ( .A1(n934), .A2(n1142), .Y(n998) );
+  NAND2X0_LVT U819 ( .A1(n1142), .A2(n1057), .Y(n615) );
+  NAND3X0_LVT U820 ( .A1(n916), .A2(n1063), .A3(n615), .Y(n604) );
+  NAND3X0_LVT U821 ( .A1(slave_fsm_inst_currentState[0]), .A2(n916), .A3(n1142), .Y(n592) );
+  NAND4X0_LVT U822 ( .A1(n963), .A2(n998), .A3(n604), .A4(n592), .Y(n593) );
+  NOR2X0_LVT U823 ( .A1(n850), .A2(n593), .Y(n596) );
+  NAND2X0_LVT U824 ( .A1(n956), .A2(n924), .Y(n964) );
+  AND2X1_LVT U825 ( .A1(n596), .A2(n964), .Y(n603) );
+  NAND2X0_LVT U826 ( .A1(n587), .A2(slave_fsm_inst_currentState[1]), .Y(n965)
+         );
+  NAND3X0_LVT U827 ( .A1(slave_fsm_inst_currentState[0]), .A2(n916), .A3(n965), 
+        .Y(n985) );
+  NAND2X0_LVT U828 ( .A1(n603), .A2(n985), .Y(n600) );
+  OA221X1_LVT U829 ( .A1(EscEncoder_U0_Enable1), .A2(EscEncoder_U0_Enable0), 
+        .A3(n1131), .A4(n1086), .A5(n850), .Y(n597) );
+  AO22X1_LVT U830 ( .A1(n594), .A2(n593), .A3(n597), .A4(EscEncoder_U0_data_A), 
+        .Y(n595) );
+  AO21X1_LVT U831 ( .A1(n597), .A2(EscEncoder_U0_data_C), .A3(n596), .Y(
+        LpTx[2]) );
+  OA21X1_LVT U832 ( .A1(C), .A2(LP_CD_C), .A3(n598), .Y(n599) );
+  AO221X1_LVT U833 ( .A1(n600), .A2(B), .A3(n600), .A4(LP_CD_B), .A5(n599), 
+        .Y(n601) );
+  AO221X1_LVT U834 ( .A1(n602), .A2(n1053), .A3(n602), .A4(LP_CD_A), .A5(n601), 
+        .Y(ErrContentionLP0) );
+  NAND4X0_LVT U835 ( .A1(slave_fsm_inst_currentState[0]), .A2(n925), .A3(n1142), .A4(n1057), .Y(n981) );
+  NAND3X0_LVT U836 ( .A1(n587), .A2(slave_fsm_inst_currentState[0]), .A3(n1057), .Y(n611) );
+  NAND2X0_LVT U837 ( .A1(n916), .A2(n957), .Y(n939) );
+  NAND3X0_LVT U838 ( .A1(n603), .A2(n981), .A3(n939), .Y(LpTxEn) );
+  NAND3X0_LVT U839 ( .A1(n587), .A2(n956), .A3(n1057), .Y(n619) );
+  NAND3X0_LVT U840 ( .A1(slave_fsm_inst_currentState[4]), .A2(n1081), .A3(
+        n1064), .Y(n607) );
+  NAND4X0_LVT U841 ( .A1(slave_fsm_inst_currentState[0]), .A2(n1008), .A3(
+        n1142), .A4(n1057), .Y(n899) );
+  NAND4X0_LVT U842 ( .A1(n587), .A2(n956), .A3(slave_fsm_inst_currentState[1]), 
+        .A4(n1063), .Y(n1006) );
+  NAND4X0_LVT U843 ( .A1(n587), .A2(slave_fsm_inst_currentState[1]), .A3(
+        slave_fsm_inst_currentState[0]), .A4(n925), .Y(n990) );
+  NAND4X0_LVT U844 ( .A1(n619), .A2(n899), .A3(n1006), .A4(n990), .Y(
+        EscDecoderEn) );
+  NAND2X0_LVT U845 ( .A1(n985), .A2(n604), .Y(n820) );
+  AO21X1_LVT U846 ( .A1(n949), .A2(n965), .A3(n893), .Y(n605) );
+  AND4X1_LVT U847 ( .A1(n606), .A2(n807), .A3(n821), .A4(n605), .Y(n802) );
+  NAND4X0_LVT U848 ( .A1(n956), .A2(slave_fsm_inst_currentState[0]), .A3(n1057), .A4(n1142), .Y(n902) );
+  NAND4X0_LVT U849 ( .A1(n587), .A2(slave_fsm_inst_currentState[0]), .A3(n934), 
+        .A4(n1057), .Y(n903) );
+  NAND4X0_LVT U850 ( .A1(n956), .A2(n1057), .A3(n1142), .A4(n1063), .Y(n904)
+         );
+  AND2X1_LVT U851 ( .A1(n903), .A2(n904), .Y(n609) );
+  OR2X1_LVT U852 ( .A1(n607), .A2(n949), .Y(n608) );
+  AND2X1_LVT U853 ( .A1(n609), .A2(n608), .Y(n801) );
+  NAND4X0_LVT U854 ( .A1(n1008), .A2(n1142), .A3(n1057), .A4(n1063), .Y(n1010)
+         );
+  NAND4X0_LVT U855 ( .A1(n956), .A2(n587), .A3(slave_fsm_inst_currentState[1]), 
+        .A4(slave_fsm_inst_currentState[0]), .Y(n1004) );
+  NAND4X0_LVT U856 ( .A1(n925), .A2(n1142), .A3(n1057), .A4(n1063), .Y(n610)
+         );
+  AND4X1_LVT U857 ( .A1(n801), .A2(n1010), .A3(n1004), .A4(n610), .Y(n805) );
+  AND2X1_LVT U858 ( .A1(n902), .A2(n805), .Y(n613) );
+  OR2X1_LVT U859 ( .A1(n611), .A2(n966), .Y(n612) );
+  AND2X1_LVT U860 ( .A1(n613), .A2(n612), .Y(n622) );
+  NAND2X0_LVT U861 ( .A1(n924), .A2(n934), .Y(n921) );
+  NAND4X0_LVT U862 ( .A1(n802), .A2(n622), .A3(n921), .A4(n981), .Y(LpRxEn) );
+  NAND4X0_LVT U863 ( .A1(slave_fsm_inst_currentState[1]), .A2(n587), .A3(n925), 
+        .A4(n1063), .Y(n799) );
+  NAND3X0_LVT U864 ( .A1(n964), .A2(n963), .A3(n799), .Y(n614) );
+  OR3X1_LVT U865 ( .A1(LpRxEn), .A2(RxActiveHS), .A3(n614), .Y(n804) );
+  OA221X1_LVT U866 ( .A1(n924), .A2(n587), .A3(n924), .A4(n1057), .A5(n925), 
+        .Y(HsSettleExp) );
+  INVX0_LVT U867 ( .A(n899), .Y(EscDeserEn) );
+  NOR2X0_LVT U868 ( .A1(SerBit), .A2(n935), .Y(EscEncoder_U0_N13) );
+  NAND3X0_LVT U869 ( .A1(ESC_Serializerr_U0_N29), .A2(n1132), .A3(n1088), .Y(
+        n851) );
+  NAND2X0_LVT U870 ( .A1(EscDeserEn_sync), .A2(n1066), .Y(n860) );
+  NAND2X0_LVT U871 ( .A1(esc_deserializer_bit_count[1]), .A2(
+        esc_deserializer_bit_count[0]), .Y(n786) );
+  NAND2X0_LVT U872 ( .A1(EscDeserEn_sync), .A2(n786), .Y(n856) );
+  NAND2X0_LVT U873 ( .A1(n860), .A2(n856), .Y(n864) );
+  AND2X1_LVT U874 ( .A1(EscBit), .A2(n864), .Y(n861) );
+  NAND2X0_LVT U875 ( .A1(esc_deserializer_bit_count[2]), .A2(
+        esc_deserializer_bit_count[1]), .Y(n616) );
+  NAND2X0_LVT U876 ( .A1(EscDeserEn_sync), .A2(n616), .Y(n617) );
+  AO222X1_LVT U877 ( .A1(n864), .A2(esc_deserializer_bit_count[2]), .A3(n864), 
+        .A4(esc_deserializer_bit_count[0]), .A5(n864), .A6(n1089), .Y(n618) );
+  MUX21X1_LVT U878 ( .A1(n861), .A2(esc_deserializer_shift_reg[2]), .S0(n618), 
+        .Y(n568) );
+  NAND3X0_LVT U879 ( .A1(n1053), .A2(B), .A3(C), .Y(n787) );
+  NAND2X0_LVT U880 ( .A1(slave_fsm_inst_currentState[1]), .A2(n1063), .Y(n979)
+         );
+  NOR3X0_LVT U881 ( .A1(n966), .A2(n787), .A3(n979), .Y(InErrControl) );
+  OR2X1_LVT U882 ( .A1(n1053), .A2(B), .Y(n652) );
+  NAND2X0_LVT U883 ( .A1(n1053), .A2(B), .Y(n623) );
+  INVX0_LVT U884 ( .A(LpTxEn), .Y(n621) );
+  AND2X1_LVT U885 ( .A1(n619), .A2(n799), .Y(n920) );
+  AND2X1_LVT U886 ( .A1(n965), .A2(n920), .Y(n620) );
+  NAND4X0_LVT U887 ( .A1(n622), .A2(n621), .A3(n620), .A4(n804), .Y(n651) );
+  AND2X1_LVT U888 ( .A1(n1067), .A2(n1058), .Y(n773) );
+  AND3X1_LVT U889 ( .A1(RxFlip[2]), .A2(RxFlip[1]), .A3(n773), .Y(n781) );
+  NAND2X0_LVT U890 ( .A1(n1092), .A2(n1055), .Y(n705) );
+  NAND2X0_LVT U891 ( .A1(RxFlip[2]), .A2(RxFlip[1]), .Y(n706) );
+  AND2X1_LVT U892 ( .A1(n705), .A2(n706), .Y(n774) );
+  AND3X1_LVT U893 ( .A1(RxFlip[3]), .A2(n774), .A3(n1058), .Y(n768) );
+  OA221X1_LVT U894 ( .A1(RxFlip[3]), .A2(n774), .A3(n1067), .A4(n759), .A5(
+        RxFlip[0]), .Y(n689) );
+  AO222X1_LVT U895 ( .A1(demapper_inst_most_zero), .A2(n781), .A3(
+        demapper_inst_most_zero), .A4(n768), .A5(demapper_inst_most_zero), 
+        .A6(n689), .Y(demapper_inst_N177) );
+  NAND2X0_LVT U896 ( .A1(demapper_inst_most_one), .A2(n1070), .Y(n760) );
+  INVX1_LVT U897 ( .A(n760), .Y(n767) );
+  NAND2X0_LVT U898 ( .A1(n774), .A2(n773), .Y(n779) );
+  NAND3X0_LVT U899 ( .A1(n759), .A2(RxFlip[0]), .A3(n1067), .Y(n765) );
+  NAND2X0_LVT U900 ( .A1(n779), .A2(n765), .Y(n753) );
+  INVX1_LVT U901 ( .A(n753), .Y(n624) );
+  NAND3X0_LVT U902 ( .A1(RxFlip[3]), .A2(n759), .A3(n1058), .Y(n766) );
+  NAND2X0_LVT U903 ( .A1(n624), .A2(n766), .Y(n763) );
+  AO21X1_LVT U904 ( .A1(n767), .A2(n763), .A3(demapper_inst_N177), .Y(
+        demapper_inst_N179) );
+  NAND4X0_LVT U905 ( .A1(esc_decoder_CurrentState[0]), .A2(n1065), .A3(n1087), 
+        .A4(n1133), .Y(n729) );
+  INVX0_LVT U906 ( .A(n729), .Y(n849) );
+  AND2X1_LVT U907 ( .A1(n849), .A2(n1134), .Y(n728) );
+  NAND2X0_LVT U908 ( .A1(esc_decoder_Command[5]), .A2(esc_decoder_Command[6]), 
+        .Y(n625) );
+  NOR4X1_LVT U909 ( .A1(esc_decoder_Command[3]), .A2(esc_decoder_Command[2]), 
+        .A3(esc_decoder_Command[4]), .A4(n625), .Y(n630) );
+  NAND4X0_LVT U910 ( .A1(n630), .A2(esc_decoder_Command[1]), .A3(n1091), .A4(
+        n1137), .Y(n631) );
+  AND2X1_LVT U911 ( .A1(n728), .A2(n626), .Y(InRxTriggerEsc_0_) );
+  NAND3X0_LVT U912 ( .A1(n1091), .A2(n1137), .A3(esc_decoder_Command[1]), .Y(
+        n628) );
+  NAND4X0_LVT U913 ( .A1(esc_decoder_Command[3]), .A2(esc_decoder_Command[2]), 
+        .A3(esc_decoder_Command[4]), .A4(n1139), .Y(n627) );
+  OR3X1_LVT U914 ( .A1(esc_decoder_Command[6]), .A2(n628), .A3(n627), .Y(n632)
+         );
+  INVX0_LVT U915 ( .A(n632), .Y(n629) );
+  AND2X1_LVT U916 ( .A1(n728), .A2(n629), .Y(InRxUlpsEsc) );
+  NAND4X0_LVT U917 ( .A1(esc_decoder_Command[0]), .A2(n630), .A3(
+        esc_decoder_Command[7]), .A4(n1138), .Y(n847) );
+  AND4X1_LVT U918 ( .A1(n728), .A2(n632), .A3(n847), .A4(n631), .Y(InErrEsc)
+         );
+  OA21X1_LVT U919 ( .A1(slave_fsm_inst_currentState[0]), .A2(SerReadyEsc_sync), 
+        .A3(n682), .Y(TxReadyEsc) );
+  AND4X1_LVT U920 ( .A1(sequence_detector_state[0]), .A2(
+        sequence_detector_state[1]), .A3(n1059), .A4(n790), .Y(DetectedSeq[0])
+         );
+  AND4X1_LVT U921 ( .A1(n879), .A2(ESC_Serializerr_U0_counter[0]), .A3(
+        ESC_Serializerr_U0_counter[2]), .A4(ESC_Serializerr_U0_counter[1]), 
+        .Y(ESC_Serializerr_U0_N26) );
+  OA221X1_LVT U922 ( .A1(ESC_Serializerr_U0_counter[1]), .A2(
+        ESC_Serializerr_U0_TxDataEsc_reg[4]), .A3(n1088), .A4(
+        ESC_Serializerr_U0_TxDataEsc_reg[6]), .A5(
+        ESC_Serializerr_U0_counter[2]), .Y(n633) );
+  AND2X1_LVT U923 ( .A1(ESC_Serializerr_U0_counter[1]), .A2(n1132), .Y(n797)
+         );
+  OA221X1_LVT U924 ( .A1(n633), .A2(n797), .A3(n633), .A4(
+        ESC_Serializerr_U0_TxDataEsc_reg[2]), .A5(ESC_Serializerr_U0_N29), .Y(
+        n637) );
+  AND2X1_LVT U925 ( .A1(n879), .A2(ESC_Serializerr_U0_counter[0]), .Y(n796) );
+  AO22X1_LVT U926 ( .A1(ESC_Serializerr_U0_counter[2]), .A2(
+        ESC_Serializerr_U0_TxDataEsc_reg[5]), .A3(n1132), .A4(
+        ESC_Serializerr_U0_TxDataEsc_reg[1]), .Y(n634) );
+  AO22X1_LVT U927 ( .A1(ESC_Serializerr_U0_TxDataEsc_reg[3]), .A2(n797), .A3(
+        n634), .A4(n1088), .Y(n635) );
+  AO22X1_LVT U928 ( .A1(n796), .A2(n635), .A3(
+        ESC_Serializerr_U0_TxDataEsc_reg[7]), .A4(ESC_Serializerr_U0_N26), .Y(
+        n636) );
+  OR2X1_LVT U929 ( .A1(n637), .A2(n636), .Y(n638) );
+  AO21X1_LVT U930 ( .A1(TxDataEsc[0]), .A2(ESC_Serializerr_U0_N27), .A3(n638), 
+        .Y(ESC_Serializerr_U0_N28) );
+  NAND2X0_LVT U931 ( .A1(RxFlip[3]), .A2(RxFlip[0]), .Y(n641) );
+  OA221X1_LVT U932 ( .A1(n773), .A2(n759), .A3(n773), .A4(n641), .A5(n706), 
+        .Y(n643) );
+  NOR4X1_LVT U933 ( .A1(demapper_inst_most_three), .A2(demapper_inst_most_two), 
+        .A3(demapper_inst_most_one), .A4(demapper_inst_most_zero), .Y(n639) );
+  NAND2X0_LVT U934 ( .A1(n639), .A2(demapper_inst_most_four), .Y(n780) );
+  NAND3X0_LVT U935 ( .A1(demapper_inst_most_two), .A2(n1097), .A3(n1070), .Y(
+        n761) );
+  NAND3X0_LVT U936 ( .A1(n780), .A2(n761), .A3(n760), .Y(n747) );
+  OR3X1_LVT U937 ( .A1(demapper_inst_most_two), .A2(demapper_inst_most_one), 
+        .A3(demapper_inst_most_zero), .Y(n750) );
+  NOR3X0_LVT U938 ( .A1(demapper_inst_most_three), .A2(demapper_inst_most_four), .A3(n750), .Y(n646) );
+  NAND2X0_LVT U939 ( .A1(demapper_inst_most_five), .A2(n646), .Y(n776) );
+  INVX1_LVT U940 ( .A(n750), .Y(n701) );
+  NAND2X0_LVT U941 ( .A1(demapper_inst_most_three), .A2(n701), .Y(n647) );
+  NAND2X0_LVT U942 ( .A1(n776), .A2(n647), .Y(n690) );
+  OR2X1_LVT U943 ( .A1(demapper_inst_N177), .A2(n690), .Y(n640) );
+  AO21X1_LVT U944 ( .A1(n643), .A2(n747), .A3(n640), .Y(demapper_inst_N170) );
+  OA22X1_LVT U945 ( .A1(n759), .A2(n641), .A3(n773), .A4(n706), .Y(n642) );
+  OAI22X1_LVT U946 ( .A1(n745), .A2(n643), .A3(n642), .A4(n1070), .Y(n644) );
+  OR2X1_LVT U947 ( .A1(demapper_inst_temp_invalidcode_stage1), .A2(n644), .Y(
+        n645) );
+  AO21X1_LVT U948 ( .A1(n646), .A2(n1109), .A3(n645), .Y(demapper_inst_N171)
+         );
+  INVX1_LVT U949 ( .A(n761), .Y(n772) );
+  NAND2X0_LVT U950 ( .A1(n772), .A2(n763), .Y(n754) );
+  NAND3X0_LVT U951 ( .A1(n648), .A2(n647), .A3(n754), .Y(demapper_inst_N181)
+         );
+  OR2X1_LVT U952 ( .A1(n649), .A2(demapper_inst_N181), .Y(n650) );
+  AO21X1_LVT U953 ( .A1(n752), .A2(n763), .A3(n650), .Y(demapper_inst_N183) );
+  AND2X1_LVT U954 ( .A1(n651), .A2(n787), .Y(n654) );
+  OR2X1_LVT U955 ( .A1(n652), .A2(C), .Y(n653) );
+  AND2X1_LVT U956 ( .A1(n654), .A2(n653), .Y(CtrlDecoderOut[0]) );
+  NAND2X0_LVT U957 ( .A1(slave_fsm_inst_Rx_timer_counter[0]), .A2(
+        slave_fsm_inst_Rx_timer_counter[1]), .Y(n826) );
+  NAND3X0_LVT U958 ( .A1(slave_fsm_inst_Rx_timer_counter[3]), .A2(
+        slave_fsm_inst_Rx_timer_counter[2]), .A3(n827), .Y(n829) );
+  INVX0_LVT U959 ( .A(n829), .Y(n828) );
+  NAND3X0_LVT U960 ( .A1(slave_fsm_inst_Rx_timer_counter[5]), .A2(
+        slave_fsm_inst_Rx_timer_counter[4]), .A3(n828), .Y(n830) );
+  NAND3X0_LVT U961 ( .A1(slave_fsm_inst_Rx_timer_counter[7]), .A2(
+        slave_fsm_inst_Rx_timer_counter[6]), .A3(n831), .Y(n665) );
+  AND2X1_LVT U962 ( .A1(n1010), .A2(n902), .Y(n969) );
+  NAND3X0_LVT U963 ( .A1(n1064), .A2(n1111), .A3(n970), .Y(n901) );
+  NAND3X0_LVT U964 ( .A1(n969), .A2(n964), .A3(n901), .Y(n723) );
+  AO21X1_LVT U965 ( .A1(slave_fsm_inst_Rx_timer_counter[6]), .A2(n963), .A3(
+        slave_fsm_inst_Rx_timer_counter[7]), .Y(n722) );
+  OR2X1_LVT U966 ( .A1(slave_fsm_inst_Rx_timer_counter[6]), .A2(n963), .Y(n720) );
+  OA21X1_LVT U967 ( .A1(n949), .A2(n966), .A3(n902), .Y(n806) );
+  NAND2X0_LVT U968 ( .A1(n969), .A2(n806), .Y(n655) );
+  NAND2X0_LVT U969 ( .A1(n1010), .A2(n963), .Y(n657) );
+  AO222X1_LVT U970 ( .A1(slave_fsm_inst_Rx_timer_counter[1]), .A2(n655), .A3(
+        slave_fsm_inst_Rx_timer_counter[1]), .A4(
+        slave_fsm_inst_Rx_timer_counter[0]), .A5(n655), .A6(n657), .Y(n658) );
+  OA21X1_LVT U971 ( .A1(slave_fsm_inst_Rx_timer_counter[2]), .A2(n658), .A3(
+        n969), .Y(n656) );
+  AO22X1_LVT U972 ( .A1(slave_fsm_inst_Rx_timer_counter[2]), .A2(n658), .A3(
+        n657), .A4(n656), .Y(n714) );
+  AND2X1_LVT U973 ( .A1(n714), .A2(slave_fsm_inst_Rx_timer_counter[3]), .Y(
+        n660) );
+  OR2X1_LVT U974 ( .A1(slave_fsm_inst_Rx_timer_counter[4]), .A2(n806), .Y(n659) );
+  AND2X1_LVT U975 ( .A1(n660), .A2(n659), .Y(n662) );
+  OR2X1_LVT U976 ( .A1(n1010), .A2(slave_fsm_inst_Rx_timer_counter[5]), .Y(
+        n721) );
+  OR2X1_LVT U977 ( .A1(n806), .A2(slave_fsm_inst_Rx_timer_counter[5]), .Y(n717) );
+  AO22X1_LVT U978 ( .A1(slave_fsm_inst_Rx_timer_counter[4]), .A2(n721), .A3(
+        slave_fsm_inst_Rx_timer_counter[5]), .A4(n1010), .Y(n661) );
+  AO22X1_LVT U979 ( .A1(n662), .A2(n721), .A3(n717), .A4(n661), .Y(n663) );
+  OR2X1_LVT U980 ( .A1(slave_fsm_inst_Rx_timer_counter[8]), .A2(n1010), .Y(
+        n726) );
+  OA221X1_LVT U981 ( .A1(n722), .A2(n720), .A3(n722), .A4(n663), .A5(n726), 
+        .Y(n664) );
+  AND2X1_LVT U982 ( .A1(slave_fsm_inst_Rx_timer_counter[8]), .A2(n1010), .Y(
+        n725) );
+  NOR3X0_LVT U983 ( .A1(n803), .A2(n664), .A3(n725), .Y(n832) );
+  AND2X1_LVT U984 ( .A1(n665), .A2(n832), .Y(n667) );
+  AND3X1_LVT U985 ( .A1(slave_fsm_inst_Rx_timer_counter[2]), .A2(
+        slave_fsm_inst_Rx_timer_counter[0]), .A3(
+        slave_fsm_inst_Rx_timer_counter[1]), .Y(n671) );
+  AND3X1_LVT U986 ( .A1(slave_fsm_inst_Rx_timer_counter[4]), .A2(
+        slave_fsm_inst_Rx_timer_counter[3]), .A3(n671), .Y(n668) );
+  AND3X1_LVT U987 ( .A1(slave_fsm_inst_Rx_timer_counter[6]), .A2(
+        slave_fsm_inst_Rx_timer_counter[5]), .A3(n668), .Y(n833) );
+  OR2X1_LVT U988 ( .A1(n833), .A2(slave_fsm_inst_Rx_timer_counter[7]), .Y(n666) );
+  AND2X1_LVT U989 ( .A1(n667), .A2(n666), .Y(slave_fsm_inst_Rx_timer_N73) );
+  AND2X1_LVT U990 ( .A1(n830), .A2(n832), .Y(n670) );
+  OR2X1_LVT U991 ( .A1(n668), .A2(slave_fsm_inst_Rx_timer_counter[5]), .Y(n669) );
+  AND2X1_LVT U992 ( .A1(n670), .A2(n669), .Y(slave_fsm_inst_Rx_timer_N71) );
+  AND2X1_LVT U993 ( .A1(n829), .A2(n832), .Y(n673) );
+  OR2X1_LVT U994 ( .A1(n671), .A2(slave_fsm_inst_Rx_timer_counter[3]), .Y(n672) );
+  AND2X1_LVT U995 ( .A1(n673), .A2(n672), .Y(slave_fsm_inst_Rx_timer_N69) );
+  AND2X1_LVT U996 ( .A1(n826), .A2(n832), .Y(n675) );
+  OR2X1_LVT U997 ( .A1(slave_fsm_inst_Rx_timer_counter[1]), .A2(
+        slave_fsm_inst_Rx_timer_counter[0]), .Y(n674) );
+  AND2X1_LVT U998 ( .A1(n675), .A2(n674), .Y(slave_fsm_inst_Rx_timer_N67) );
+  NAND3X0_LVT U999 ( .A1(slave_fsm_inst_Tx_timer_counter[0]), .A2(
+        slave_fsm_inst_Tx_timer_counter[2]), .A3(
+        slave_fsm_inst_Tx_timer_counter[1]), .Y(n823) );
+  NAND4X0_LVT U1000 ( .A1(n587), .A2(n916), .A3(n1063), .A4(n1057), .Y(n996)
+         );
+  AO222X1_LVT U1001 ( .A1(slave_fsm_inst_Tx_timer_counter[1]), .A2(
+        slave_fsm_inst_Tx_timer_counter[4]), .A3(
+        slave_fsm_inst_Tx_timer_counter[1]), .A4(n996), .A5(
+        slave_fsm_inst_Tx_timer_counter[4]), .A6(
+        slave_fsm_inst_Tx_timer_counter[0]), .Y(n676) );
+  NAND3X0_LVT U1002 ( .A1(slave_fsm_inst_Tx_timer_counter[2]), .A2(
+        slave_fsm_inst_Tx_timer_counter[3]), .A3(n676), .Y(n678) );
+  NAND2X0_LVT U1003 ( .A1(slave_fsm_inst_Tx_timer_counter[4]), .A2(n996), .Y(
+        n677) );
+  NAND2X0_LVT U1004 ( .A1(n678), .A2(n677), .Y(n819) );
+  AND2X1_LVT U1005 ( .A1(n822), .A2(n820), .Y(n824) );
+  AND2X1_LVT U1006 ( .A1(n823), .A2(n824), .Y(n681) );
+  AND2X1_LVT U1007 ( .A1(slave_fsm_inst_Tx_timer_counter[0]), .A2(
+        slave_fsm_inst_Tx_timer_counter[1]), .Y(n679) );
+  OR2X1_LVT U1008 ( .A1(n679), .A2(slave_fsm_inst_Tx_timer_counter[2]), .Y(
+        n680) );
+  AND2X1_LVT U1009 ( .A1(n681), .A2(n680), .Y(slave_fsm_inst_Tx_timer_N44) );
+  NAND2X0_LVT U1010 ( .A1(slave_fsm_inst_currentState[0]), .A2(n682), .Y(n884)
+         );
+  AOI21X1_LVT U1011 ( .A1(n1115), .A2(TxReqEsc_sync), .A3(n884), .Y(n811) );
+  AND2X1_LVT U1012 ( .A1(n879), .A2(SerLastBit_sync), .Y(n812) );
+  OR2X1_LVT U1013 ( .A1(n811), .A2(n812), .Y(n816) );
+  NAND3X0_LVT U1014 ( .A1(slave_fsm_inst_Pause_Count[0]), .A2(
+        slave_fsm_inst_Pause_Count[1]), .A3(slave_fsm_inst_Pause_Count[2]), 
+        .Y(n813) );
+  AND2X1_LVT U1015 ( .A1(n816), .A2(n813), .Y(n684) );
+  AND2X1_LVT U1016 ( .A1(slave_fsm_inst_Pause_Count[0]), .A2(
+        slave_fsm_inst_Pause_Count[1]), .Y(n815) );
+  OR2X1_LVT U1017 ( .A1(n815), .A2(slave_fsm_inst_Pause_Count[2]), .Y(n683) );
+  AND2X1_LVT U1018 ( .A1(n684), .A2(n683), .Y(slave_fsm_inst_N772) );
+  AO21X1_LVT U1019 ( .A1(Esc_Sequencer_U0_Count[1]), .A2(
+        Esc_Sequencer_U0_Count[0]), .A3(Esc_Sequencer_U0_Count[2]), .Y(n685)
+         );
+  AND2X1_LVT U1020 ( .A1(n685), .A2(n906), .Y(n688) );
+  NAND2X0_LVT U1021 ( .A1(Esc_Sequencer_U0_Count[1]), .A2(
+        Esc_Sequencer_U0_Count[2]), .Y(n686) );
+  OR2X1_LVT U1022 ( .A1(n686), .A2(n1090), .Y(n687) );
+  AND2X1_LVT U1023 ( .A1(n688), .A2(n687), .Y(Esc_Sequencer_U0_N30) );
+  NAND2X0_LVT U1025 ( .A1(demapper_inst_most_zero), .A2(n689), .Y(n691) );
+  AND2X1_LVT U1026 ( .A1(n691), .A2(n785), .Y(n693) );
+  OR2X1_LVT U1027 ( .A1(n780), .A2(n766), .Y(n692) );
+  AND2X1_LVT U1028 ( .A1(n693), .A2(n692), .Y(n704) );
+  NAND3X0_LVT U1029 ( .A1(n773), .A2(n1092), .A3(RxFlip[1]), .Y(n694) );
+  NAND2X0_LVT U1030 ( .A1(n694), .A2(n765), .Y(n751) );
+  NAND2X0_LVT U1031 ( .A1(n1070), .A2(n780), .Y(n756) );
+  OA221X1_LVT U1032 ( .A1(n772), .A2(RxFlip[1]), .A3(n772), .A4(n756), .A5(
+        n773), .Y(n695) );
+  AOI22X1_LVT U1033 ( .A1(n767), .A2(n751), .A3(n695), .A4(n1092), .Y(n698) );
+  OR2X1_LVT U1034 ( .A1(n766), .A2(n761), .Y(n697) );
+  NAND4X0_LVT U1035 ( .A1(demapper_inst_most_zero), .A2(RxFlip[3]), .A3(n1055), 
+        .A4(n1058), .Y(n696) );
+  NAND4X0_LVT U1036 ( .A1(n704), .A2(n698), .A3(n697), .A4(n696), .Y(
+        demapper_inst_N167) );
+  NAND2X0_LVT U1037 ( .A1(n773), .A2(n1055), .Y(n699) );
+  OA21X1_LVT U1038 ( .A1(n1092), .A2(n699), .A3(n766), .Y(n700) );
+  OA22X1_LVT U1039 ( .A1(n701), .A2(n700), .A3(n760), .A4(n765), .Y(n703) );
+  NAND3X0_LVT U1040 ( .A1(n752), .A2(n773), .A3(n1055), .Y(n702) );
+  NAND3X0_LVT U1041 ( .A1(n704), .A2(n703), .A3(n702), .Y(demapper_inst_N168)
+         );
+  OAI221X1_LVT U1042 ( .A1(n1067), .A2(n706), .A3(RxFlip[3]), .A4(n705), .A5(
+        n1058), .Y(n707) );
+  OA221X1_LVT U1043 ( .A1(n1070), .A2(n707), .A3(n1070), .A4(n765), .A5(n785), 
+        .Y(n710) );
+  NAND2X0_LVT U1044 ( .A1(n752), .A2(n763), .Y(n709) );
+  AO21X1_LVT U1045 ( .A1(n766), .A2(n779), .A3(n760), .Y(n708) );
+  NAND4X0_LVT U1046 ( .A1(n710), .A2(n709), .A3(n754), .A4(n708), .Y(
+        demapper_inst_N169) );
+  OA221X1_LVT U1047 ( .A1(n1134), .A2(esc_decoder_CurrentState[0]), .A3(n1134), 
+        .A4(n787), .A5(EscDecoderEn_sync), .Y(n579) );
+  OA221X1_LVT U1048 ( .A1(esc_decoder_Counter[0]), .A2(esc_decoder_Counter[1]), 
+        .A3(n1065), .A4(n1087), .A5(n579), .Y(esc_decoder_N29) );
+  OA221X1_LVT U1049 ( .A1(Esc_Sequencer_U0_Count[0]), .A2(
+        Esc_Sequencer_U0_Count[1]), .A3(n1090), .A4(n1136), .A5(n906), .Y(
+        Esc_Sequencer_U0_N29) );
+  AO22X1_LVT U1050 ( .A1(ESC_Serializerr_U0_counter[1]), .A2(
+        ESC_Serializerr_U0_N29), .A3(n1088), .A4(n796), .Y(
+        ESC_Serializerr_U0_N30) );
+  NAND2X0_LVT U1051 ( .A1(B), .A2(LP_CD_B), .Y(n713) );
+  NAND2X0_LVT U1052 ( .A1(n1053), .A2(LP_CD_A), .Y(n712) );
+  NAND2X0_LVT U1053 ( .A1(C), .A2(LP_CD_C), .Y(n711) );
+  AO222X1_LVT U1054 ( .A1(n713), .A2(LpTx[1]), .A3(LpTx[0]), .A4(n712), .A5(
+        n711), .A6(LpTx[2]), .Y(ErrContentionLP1) );
+  NAND2X0_LVT U1055 ( .A1(slave_fsm_inst_Rx_timer_counter[3]), .A2(n714), .Y(
+        n716) );
+  NAND2X0_LVT U1056 ( .A1(slave_fsm_inst_Rx_timer_counter[5]), .A2(n1010), .Y(
+        n715) );
+  NAND2X0_LVT U1057 ( .A1(n716), .A2(n715), .Y(n718) );
+  AO222X1_LVT U1058 ( .A1(slave_fsm_inst_Rx_timer_counter[4]), .A2(n718), .A3(
+        slave_fsm_inst_Rx_timer_counter[4]), .A4(n806), .A5(n718), .A6(n717), 
+        .Y(n719) );
+  OA222X1_LVT U1059 ( .A1(n722), .A2(n721), .A3(n722), .A4(n720), .A5(n722), 
+        .A6(n719), .Y(n724) );
+  AND4X1_LVT U1060 ( .A1(esc_decoder_CurrentState[1]), .A2(EscDecoderEn_sync), 
+        .A3(esc_decoder_CurrentState[0]), .A4(n787), .Y(n727) );
+  AO21X1_LVT U1061 ( .A1(EscDecoderEn_sync), .A2(n728), .A3(n727), .Y(n578) );
+  AND2X1_LVT U1062 ( .A1(n1053), .A2(n578), .Y(esc_decoder_N39) );
+  AND3X1_LVT U1063 ( .A1(EscDecoderEn_sync), .A2(n1134), .A3(n729), .Y(n730)
+         );
+  AND2X1_LVT U1064 ( .A1(n1053), .A2(n730), .Y(esc_decoder_N31) );
+  AND2X1_LVT U1065 ( .A1(esc_decoder_Command[0]), .A2(n730), .Y(
+        esc_decoder_N32) );
+  AND2X1_LVT U1066 ( .A1(esc_decoder_Command[1]), .A2(n730), .Y(
+        esc_decoder_N33) );
+  AND2X1_LVT U1067 ( .A1(esc_decoder_Command[2]), .A2(n730), .Y(
+        esc_decoder_N34) );
+  AND2X1_LVT U1068 ( .A1(esc_decoder_Command[3]), .A2(n730), .Y(
+        esc_decoder_N35) );
+  AND2X1_LVT U1069 ( .A1(esc_decoder_Command[4]), .A2(n730), .Y(
+        esc_decoder_N36) );
+  AND2X1_LVT U1070 ( .A1(esc_decoder_Command[5]), .A2(n730), .Y(
+        esc_decoder_N37) );
+  AND2X1_LVT U1071 ( .A1(esc_decoder_Command[6]), .A2(n730), .Y(
+        esc_decoder_N38) );
+  AND2X1_LVT U1072 ( .A1(n1065), .A2(n579), .Y(esc_decoder_N28) );
+  NAND2X0_LVT U1073 ( .A1(esc_decoder_Counter[0]), .A2(esc_decoder_Counter[1]), 
+        .Y(n731) );
+  INVX0_LVT U1074 ( .A(n731), .Y(n732) );
+  OA221X1_LVT U1075 ( .A1(esc_decoder_Counter[2]), .A2(n732), .A3(n1133), .A4(
+        n731), .A5(n579), .Y(esc_decoder_N30) );
+  AND2X1_LVT U1076 ( .A1(n879), .A2(SerBit), .Y(EscEncoder_U0_N12) );
+  AO22X1_LVT U1077 ( .A1(demapper_inst_mux_values[10]), .A2(RxPolarity[6]), 
+        .A3(n1074), .A4(RxPolarity[5]), .Y(n733) );
+  OA222X1_LVT U1078 ( .A1(n1102), .A2(demapper_inst_temp_signal[0]), .A3(n1102), .A4(n1074), .A5(demapper_inst_mux_values[11]), .A6(n733), .Y(
+        demapper_inst_N257) );
+  AO22X1_LVT U1079 ( .A1(demapper_inst_mux_values[10]), .A2(RxRotation[6]), 
+        .A3(n1074), .A4(RxRotation[5]), .Y(n734) );
+  OA222X1_LVT U1080 ( .A1(n1102), .A2(demapper_inst_temp_signal[1]), .A3(n1102), .A4(n1074), .A5(demapper_inst_mux_values[11]), .A6(n734), .Y(
+        demapper_inst_N258) );
+  AO22X1_LVT U1081 ( .A1(demapper_inst_mux_values[8]), .A2(RxPolarity[5]), 
+        .A3(n1075), .A4(RxPolarity[4]), .Y(n735) );
+  OA222X1_LVT U1082 ( .A1(n1103), .A2(RxPolarity[6]), .A3(n1103), .A4(n1075), 
+        .A5(demapper_inst_mux_values[9]), .A6(n735), .Y(demapper_inst_N247) );
+  AO22X1_LVT U1083 ( .A1(demapper_inst_mux_values[8]), .A2(RxRotation[5]), 
+        .A3(n1075), .A4(RxRotation[4]), .Y(n736) );
+  OA222X1_LVT U1084 ( .A1(n1103), .A2(RxRotation[6]), .A3(n1103), .A4(n1075), 
+        .A5(demapper_inst_mux_values[9]), .A6(n736), .Y(demapper_inst_N248) );
+  AO22X1_LVT U1085 ( .A1(demapper_inst_mux_values[6]), .A2(RxPolarity[4]), 
+        .A3(n1076), .A4(RxPolarity[3]), .Y(n737) );
+  OA222X1_LVT U1086 ( .A1(n1104), .A2(RxPolarity[5]), .A3(n1104), .A4(n1076), 
+        .A5(demapper_inst_mux_values[7]), .A6(n737), .Y(demapper_inst_N237) );
+  AO22X1_LVT U1087 ( .A1(demapper_inst_mux_values[6]), .A2(RxRotation[4]), 
+        .A3(n1076), .A4(RxRotation[3]), .Y(n738) );
+  OA222X1_LVT U1088 ( .A1(n1104), .A2(RxRotation[5]), .A3(n1104), .A4(n1076), 
+        .A5(demapper_inst_mux_values[7]), .A6(n738), .Y(demapper_inst_N238) );
+  AO22X1_LVT U1089 ( .A1(demapper_inst_mux_values[4]), .A2(RxPolarity[3]), 
+        .A3(n1077), .A4(RxPolarity[2]), .Y(n739) );
+  OA222X1_LVT U1090 ( .A1(n1105), .A2(RxPolarity[4]), .A3(n1105), .A4(n1077), 
+        .A5(demapper_inst_mux_values[5]), .A6(n739), .Y(demapper_inst_N227) );
+  AO22X1_LVT U1091 ( .A1(demapper_inst_mux_values[4]), .A2(RxRotation[3]), 
+        .A3(n1077), .A4(RxRotation[2]), .Y(n740) );
+  OA222X1_LVT U1092 ( .A1(n1105), .A2(RxRotation[4]), .A3(n1105), .A4(n1077), 
+        .A5(demapper_inst_mux_values[5]), .A6(n740), .Y(demapper_inst_N228) );
+  AO22X1_LVT U1093 ( .A1(demapper_inst_mux_values[2]), .A2(RxPolarity[2]), 
+        .A3(n1078), .A4(RxPolarity[1]), .Y(n741) );
+  OA222X1_LVT U1094 ( .A1(n1106), .A2(RxPolarity[3]), .A3(n1106), .A4(n1078), 
+        .A5(demapper_inst_mux_values[3]), .A6(n741), .Y(demapper_inst_N217) );
+  AO22X1_LVT U1095 ( .A1(demapper_inst_mux_values[2]), .A2(RxRotation[2]), 
+        .A3(n1078), .A4(RxRotation[1]), .Y(n742) );
+  OA222X1_LVT U1096 ( .A1(n1106), .A2(RxRotation[3]), .A3(n1106), .A4(n1078), 
+        .A5(demapper_inst_mux_values[3]), .A6(n742), .Y(demapper_inst_N218) );
+  AO22X1_LVT U1097 ( .A1(demapper_inst_mux_values[0]), .A2(RxPolarity[1]), 
+        .A3(n1079), .A4(RxPolarity[0]), .Y(n743) );
+  OA222X1_LVT U1098 ( .A1(n1107), .A2(RxPolarity[2]), .A3(n1107), .A4(n1079), 
+        .A5(demapper_inst_mux_values[1]), .A6(n743), .Y(demapper_inst_N207) );
+  AO22X1_LVT U1099 ( .A1(demapper_inst_mux_values[0]), .A2(RxRotation[1]), 
+        .A3(n1079), .A4(RxRotation[0]), .Y(n744) );
+  OA222X1_LVT U1100 ( .A1(n1107), .A2(RxRotation[2]), .A3(n1107), .A4(n1079), 
+        .A5(demapper_inst_mux_values[1]), .A6(n744), .Y(demapper_inst_N208) );
+  AND2X1_LVT U1101 ( .A1(decoder_CS[0]), .A2(HsDecoderEn_sync), .Y(decoder_N8)
+         );
+  AND2X1_LVT U1102 ( .A1(decoder_CS[1]), .A2(HsDecoderEn_sync), .Y(decoder_N9)
+         );
+  AND2X1_LVT U1103 ( .A1(decoder_CS[2]), .A2(HsDecoderEn_sync), .Y(decoder_N10) );
+  AND2X1_LVT U1104 ( .A1(C), .A2(HsDecoderEn_sync), .Y(decoder_N5) );
+  AND2X1_LVT U1105 ( .A1(B), .A2(HsDecoderEn_sync), .Y(decoder_N6) );
+  AND2X1_LVT U1106 ( .A1(A), .A2(HsDecoderEn_sync), .Y(decoder_N7) );
+  NAND4X0_LVT U1107 ( .A1(demapper_inst_most_zero), .A2(RxFlip[0]), .A3(n1067), 
+        .A4(n1055), .Y(n770) );
+  OR2X1_LVT U1108 ( .A1(n745), .A2(n765), .Y(n746) );
+  NAND4X0_LVT U1109 ( .A1(demapper_inst_most_zero), .A2(n759), .A3(RxFlip[3]), 
+        .A4(RxFlip[0]), .Y(n782) );
+  NAND3X0_LVT U1110 ( .A1(n770), .A2(n746), .A3(n782), .Y(demapper_inst_N172)
+         );
+  AND3X1_LVT U1111 ( .A1(demapper_inst_most_zero), .A2(RxFlip[0]), .A3(n1067), 
+        .Y(n749) );
+  AND3X1_LVT U1112 ( .A1(RxFlip[1]), .A2(n749), .A3(n1092), .Y(
+        demapper_inst_N173) );
+  OA221X1_LVT U1113 ( .A1(RxFlip[1]), .A2(RxFlip[0]), .A3(n1055), .A4(n1058), 
+        .A5(n1092), .Y(n748) );
+  AO22X1_LVT U1114 ( .A1(demapper_inst_most_zero), .A2(n748), .A3(n751), .A4(
+        n747), .Y(demapper_inst_N174) );
+  AO22X1_LVT U1115 ( .A1(demapper_inst_most_zero), .A2(n781), .A3(n774), .A4(
+        n749), .Y(demapper_inst_N175) );
+  AO22X1_LVT U1116 ( .A1(n752), .A2(n751), .A3(n750), .A4(n753), .Y(
+        demapper_inst_N176) );
+  AOI22X1_LVT U1117 ( .A1(n753), .A2(n752), .A3(n763), .A4(
+        demapper_inst_most_zero), .Y(n755) );
+  NAND2X0_LVT U1118 ( .A1(n755), .A2(n754), .Y(demapper_inst_N178) );
+  NAND3X0_LVT U1119 ( .A1(n759), .A2(n773), .A3(n767), .Y(n758) );
+  NAND2X0_LVT U1120 ( .A1(n763), .A2(n756), .Y(n757) );
+  NAND3X0_LVT U1121 ( .A1(n758), .A2(n757), .A3(n776), .Y(demapper_inst_N180)
+         );
+  AND2X1_LVT U1122 ( .A1(n759), .A2(n773), .Y(n764) );
+  NAND2X0_LVT U1123 ( .A1(n761), .A2(n760), .Y(n762) );
+  AO22X1_LVT U1124 ( .A1(demapper_inst_most_zero), .A2(n763), .A3(n764), .A4(
+        n762), .Y(demapper_inst_N182) );
+  NAND2X0_LVT U1125 ( .A1(n764), .A2(demapper_inst_most_zero), .Y(
+        demapper_inst_N184) );
+  NAND2X0_LVT U1126 ( .A1(n766), .A2(n765), .Y(n769) );
+  AOI22X1_LVT U1127 ( .A1(demapper_inst_most_zero), .A2(n768), .A3(n767), .A4(
+        n769), .Y(n778) );
+  OA22X1_LVT U1128 ( .A1(n771), .A2(n780), .A3(n1092), .A4(n770), .Y(n777) );
+  NAND3X0_LVT U1129 ( .A1(n774), .A2(n773), .A3(n772), .Y(n775) );
+  NAND4X0_LVT U1130 ( .A1(n778), .A2(n777), .A3(n776), .A4(n775), .Y(
+        demapper_inst_N165) );
+  OA21X1_LVT U1131 ( .A1(n780), .A2(n779), .A3(n778), .Y(n784) );
+  NAND2X0_LVT U1132 ( .A1(demapper_inst_most_zero), .A2(n781), .Y(n783) );
+  NAND4X0_LVT U1133 ( .A1(n785), .A2(n784), .A3(n783), .A4(n782), .Y(
+        demapper_inst_N166) );
+  AND2X1_LVT U1134 ( .A1(EscDeserEn_sync), .A2(n1135), .Y(esc_deserializer_N52) );
+  INVX0_LVT U1135 ( .A(n856), .Y(n857) );
+  OA21X1_LVT U1136 ( .A1(esc_deserializer_bit_count[1]), .A2(
+        esc_deserializer_bit_count[0]), .A3(n857), .Y(esc_deserializer_N53) );
+  AOI22X1_LVT U1137 ( .A1(n1066), .A2(n786), .A3(n860), .A4(n856), .Y(
+        esc_deserializer_N54) );
+  INVX1_LVT U1138 ( .A(n787), .Y(n788) );
+  AND2X1_LVT U1139 ( .A1(n788), .A2(EscDecoderEn_sync), .Y(LpFsmStop) );
+  AO222X1_LVT U1140 ( .A1(LpFsmStop), .A2(esc_decoder_Counter[1]), .A3(
+        LpFsmStop), .A4(esc_decoder_Counter[2]), .A5(LpFsmStop), .A6(n1065), 
+        .Y(InErrSyncEsc) );
+  NAND3X0_LVT U1141 ( .A1(sequence_detector_state[2]), .A2(n1096), .A3(n1068), 
+        .Y(n1017) );
+  OR3X1_LVT U1142 ( .A1(n1093), .A2(RxSymbol[1]), .A3(RxSymbol[0]), .Y(n791)
+         );
+  INVX1_LVT U1143 ( .A(n791), .Y(n1045) );
+  NAND4X0_LVT U1144 ( .A1(sequence_detector_symbol_count[1]), .A2(
+        sequence_detector_symbol_count[2]), .A3(n1094), .A4(n1069), .Y(n789)
+         );
+  NAND2X0_LVT U1145 ( .A1(n1045), .A2(n789), .Y(n1018) );
+  AO21X1_LVT U1146 ( .A1(n1022), .A2(n789), .A3(n790), .Y(n795) );
+  NAND2X0_LVT U1147 ( .A1(n1018), .A2(n795), .Y(n793) );
+  NAND2X0_LVT U1148 ( .A1(n791), .A2(n790), .Y(n1039) );
+  NAND3X0_LVT U1149 ( .A1(sequence_detector_state[0]), .A2(
+        sequence_detector_state[1]), .A3(n1059), .Y(n792) );
+  OAI22X1_LVT U1150 ( .A1(n1017), .A2(n793), .A3(n1039), .A4(n792), .Y(
+        InErrSotSyncHS) );
+  OAI21X1_LVT U1151 ( .A1(n795), .A2(n1017), .A3(n794), .Y(DetectedSeq[1]) );
+  AND4X1_LVT U1152 ( .A1(n906), .A2(Esc_Sequencer_U0_Count[0]), .A3(
+        Esc_Sequencer_U0_Count[1]), .A4(Esc_Sequencer_U0_Count[2]), .Y(
+        Esc_Sequencer_U0_N32) );
+  AND2X1_LVT U1153 ( .A1(n906), .A2(n1090), .Y(Esc_Sequencer_U0_N28) );
+  AO21X1_LVT U1154 ( .A1(n879), .A2(n1088), .A3(ESC_Serializerr_U0_N29), .Y(
+        n798) );
+  AO22X1_LVT U1155 ( .A1(ESC_Serializerr_U0_counter[2]), .A2(n798), .A3(n797), 
+        .A4(n796), .Y(ESC_Serializerr_U0_N31) );
+  NOR3X0_LVT U1156 ( .A1(n809), .A2(HsSettleExp), .A3(Stopstate), .Y(n800) );
+  NAND4X0_LVT U1157 ( .A1(n803), .A2(n802), .A3(n801), .A4(n800), .Y(
+        UlpsActiveNot) );
+  NAND4X0_LVT U1158 ( .A1(n807), .A2(n806), .A3(n805), .A4(n804), .Y(n808) );
+  OR3X1_LVT U1159 ( .A1(n809), .A2(HsSettleExp), .A3(n808), .Y(Direction) );
+  AND4X1_LVT U1160 ( .A1(slave_fsm_inst_Pause_Count[4]), .A2(
+        slave_fsm_inst_Pause_Count[2]), .A3(slave_fsm_inst_Pause_Count[3]), 
+        .A4(n1084), .Y(n810) );
+  OA221X1_LVT U1161 ( .A1(slave_fsm_inst_Pause_Count[0]), .A2(n812), .A3(n1121), .A4(n811), .A5(n810), .Y(slave_fsm_inst_N775) );
+  AND2X1_LVT U1162 ( .A1(n1121), .A2(n816), .Y(slave_fsm_inst_N770) );
+  OA221X1_LVT U1163 ( .A1(slave_fsm_inst_Pause_Count[1]), .A2(
+        slave_fsm_inst_Pause_Count[0]), .A3(n1084), .A4(n1121), .A5(n816), .Y(
+        slave_fsm_inst_N771) );
+  INVX0_LVT U1164 ( .A(n813), .Y(n814) );
+  OA221X1_LVT U1165 ( .A1(slave_fsm_inst_Pause_Count[3]), .A2(n814), .A3(n1127), .A4(n813), .A5(n816), .Y(slave_fsm_inst_N773) );
+  NAND3X0_LVT U1166 ( .A1(slave_fsm_inst_Pause_Count[2]), .A2(
+        slave_fsm_inst_Pause_Count[3]), .A3(n815), .Y(n817) );
+  OA221X1_LVT U1167 ( .A1(slave_fsm_inst_Pause_Count[4]), .A2(n818), .A3(n1128), .A4(n817), .A5(n816), .Y(slave_fsm_inst_N774) );
+  AND2X1_LVT U1168 ( .A1(n820), .A2(n819), .Y(slave_fsm_inst_Tx_timer_N58) );
+  AO21X1_LVT U1169 ( .A1(n822), .A2(n1085), .A3(n821), .Y(
+        slave_fsm_inst_Tx_timer_N42) );
+  OA221X1_LVT U1170 ( .A1(slave_fsm_inst_Tx_timer_counter[0]), .A2(
+        slave_fsm_inst_Tx_timer_counter[1]), .A3(n1085), .A4(n1125), .A5(n824), 
+        .Y(slave_fsm_inst_Tx_timer_N43) );
+  INVX0_LVT U1171 ( .A(n823), .Y(n825) );
+  OA221X1_LVT U1172 ( .A1(slave_fsm_inst_Tx_timer_counter[3]), .A2(n825), .A3(
+        n1126), .A4(n823), .A5(n824), .Y(slave_fsm_inst_Tx_timer_N45) );
+  OA221X1_LVT U1173 ( .A1(slave_fsm_inst_Tx_timer_counter[4]), .A2(
+        slave_fsm_inst_Tx_timer_counter[3]), .A3(
+        slave_fsm_inst_Tx_timer_counter[4]), .A4(n825), .A5(n824), .Y(
+        slave_fsm_inst_Tx_timer_N46) );
+  AND2X1_LVT U1174 ( .A1(n832), .A2(n1129), .Y(slave_fsm_inst_Rx_timer_N66) );
+  OA221X1_LVT U1175 ( .A1(slave_fsm_inst_Rx_timer_counter[2]), .A2(n827), .A3(
+        n1124), .A4(n826), .A5(n832), .Y(slave_fsm_inst_Rx_timer_N68) );
+  OA221X1_LVT U1176 ( .A1(n1122), .A2(n829), .A3(
+        slave_fsm_inst_Rx_timer_counter[4]), .A4(n828), .A5(n832), .Y(
+        slave_fsm_inst_Rx_timer_N70) );
+  OA221X1_LVT U1177 ( .A1(slave_fsm_inst_Rx_timer_counter[6]), .A2(n831), .A3(
+        n1123), .A4(n830), .A5(n832), .Y(slave_fsm_inst_Rx_timer_N72) );
+  OA221X1_LVT U1178 ( .A1(slave_fsm_inst_Rx_timer_counter[8]), .A2(
+        slave_fsm_inst_Rx_timer_counter[7]), .A3(
+        slave_fsm_inst_Rx_timer_counter[8]), .A4(n833), .A5(n832), .Y(
+        slave_fsm_inst_Rx_timer_N74) );
+  AND2X1_LVT U1179 ( .A1(sequence_detector_state[2]), .A2(n1045), .Y(n1021) );
+  AND3X1_LVT U1180 ( .A1(sequence_detector_state[0]), .A2(n1021), .A3(n1096), 
+        .Y(DetectedSeq[2]) );
+  AND3X1_LVT U1181 ( .A1(n1080), .A2(n1062), .A3(n1108), .Y(demapper_inst_N72)
+         );
+  AND2X1_LVT U1182 ( .A1(RxFlip[5]), .A2(RxFlip[6]), .Y(demapper_inst_N77) );
+  AND3X1_LVT U1183 ( .A1(RxFlip[4]), .A2(n1080), .A3(n1062), .Y(
+        demapper_inst_N76) );
+  AND3X1_LVT U1184 ( .A1(RxFlip[5]), .A2(n1062), .A3(n1108), .Y(
+        demapper_inst_N75) );
+  AND3X1_LVT U1185 ( .A1(RxFlip[5]), .A2(RxFlip[4]), .A3(n1062), .Y(
+        demapper_inst_N74) );
+  AND3X1_LVT U1186 ( .A1(RxFlip[6]), .A2(n1080), .A3(n1108), .Y(
+        demapper_inst_N73) );
+  AO22X1_LVT U1187 ( .A1(demapper_inst_mux_values[12]), .A2(
+        demapper_inst_temp_signal[2]), .A3(n1110), .A4(RxPolarity[6]), .Y(
+        demapper_inst_N260) );
+  AO22X1_LVT U1188 ( .A1(demapper_inst_mux_values[12]), .A2(
+        demapper_inst_temp_signal[3]), .A3(n1110), .A4(RxRotation[6]), .Y(
+        demapper_inst_N261) );
+  AO22X1_LVT U1189 ( .A1(n1056), .A2(n1061), .A3(n1095), .A4(n1071), .Y(n834)
+         );
+  AO221X1_LVT U1190 ( .A1(decoder_CS[1]), .A2(decoder_PS[1]), .A3(
+        decoder_CS[0]), .A4(decoder_PS[0]), .A5(n834), .Y(n835) );
+  AO221X1_LVT U1191 ( .A1(decoder_CS[2]), .A2(decoder_PS[2]), .A3(n1072), .A4(
+        n1098), .A5(n835), .Y(n845) );
+  AO22X1_LVT U1192 ( .A1(decoder_CS[2]), .A2(n1061), .A3(n1072), .A4(
+        decoder_PS[1]), .Y(n842) );
+  AO22X1_LVT U1193 ( .A1(decoder_PS[2]), .A2(n1071), .A3(n1098), .A4(
+        decoder_CS[0]), .Y(n841) );
+  AO22X1_LVT U1194 ( .A1(decoder_PS[0]), .A2(n1056), .A3(n1095), .A4(
+        decoder_CS[1]), .Y(n840) );
+  AO222X1_LVT U1195 ( .A1(n845), .A2(n842), .A3(n845), .A4(n841), .A5(n845), 
+        .A6(n840), .Y(n844) );
+  OA22X1_LVT U1196 ( .A1(n1095), .A2(n1072), .A3(decoder_PS[0]), .A4(
+        decoder_CS[2]), .Y(n838) );
+  OA22X1_LVT U1197 ( .A1(n1098), .A2(n1056), .A3(decoder_PS[2]), .A4(
+        decoder_CS[1]), .Y(n837) );
+  OA22X1_LVT U1198 ( .A1(n1061), .A2(n1071), .A3(decoder_PS[1]), .A4(
+        decoder_CS[0]), .Y(n836) );
+  OR3X1_LVT U1199 ( .A1(n838), .A2(n837), .A3(n836), .Y(n839) );
+  AND3X1_LVT U1200 ( .A1(n838), .A2(n837), .A3(n836), .Y(n846) );
+  AO21X1_LVT U1201 ( .A1(n844), .A2(n839), .A3(n846), .Y(InRxSymbol[0]) );
+  NAND3X0_LVT U1202 ( .A1(n842), .A2(n841), .A3(n840), .Y(n843) );
+  AO21X1_LVT U1203 ( .A1(n844), .A2(n843), .A3(n846), .Y(InRxSymbol[1]) );
+  NOR2X0_LVT U1204 ( .A1(n846), .A2(n845), .Y(InRxSymbol[2]) );
+  AO22X1_LVT U1205 ( .A1(esc_decoder_CurrentState[1]), .A2(
+        esc_decoder_CurrentState[0]), .A3(n849), .A4(n848), .Y(n580) );
+  AND2X1_LVT U1206 ( .A1(n850), .A2(n1086), .Y(EscEncoder_U0_N18) );
+  AND2X1_LVT U1207 ( .A1(n850), .A2(n1131), .Y(EscEncoder_U0_N14) );
+  AO22X1_LVT U1208 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[1]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[1]), .Y(n577) );
+  AO22X1_LVT U1209 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[2]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[2]), .Y(n576) );
+  AO22X1_LVT U1210 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[3]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[3]), .Y(n575) );
+  AO22X1_LVT U1211 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[4]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[4]), .Y(n574) );
+  AO22X1_LVT U1212 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[5]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[5]), .Y(n573) );
+  AO22X1_LVT U1213 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[6]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[6]), .Y(n572) );
+  AO22X1_LVT U1214 ( .A1(ESC_Serializerr_U0_N27), .A2(TxDataEsc[7]), .A3(n851), 
+        .A4(ESC_Serializerr_U0_TxDataEsc_reg[7]), .Y(n571) );
+  NAND3X0_LVT U1215 ( .A1(n1066), .A2(n1089), .A3(n1135), .Y(n852) );
+  OA221X1_LVT U1216 ( .A1(n853), .A2(esc_deserializer_shift_reg[0]), .A3(n852), 
+        .A4(EscBit), .A5(n864), .Y(n570) );
+  NAND3X0_LVT U1217 ( .A1(esc_deserializer_bit_count[0]), .A2(n1066), .A3(
+        n1089), .Y(n854) );
+  INVX0_LVT U1218 ( .A(n854), .Y(n855) );
+  OA221X1_LVT U1219 ( .A1(n855), .A2(esc_deserializer_shift_reg[1]), .A3(n854), 
+        .A4(EscBit), .A5(n864), .Y(n569) );
+  AO22X1_LVT U1220 ( .A1(n857), .A2(esc_deserializer_shift_reg[3]), .A3(n856), 
+        .A4(n861), .Y(n567) );
+  NAND3X0_LVT U1221 ( .A1(esc_deserializer_bit_count[2]), .A2(n1089), .A3(
+        n1135), .Y(n858) );
+  INVX0_LVT U1222 ( .A(n858), .Y(n859) );
+  OA221X1_LVT U1223 ( .A1(n859), .A2(esc_deserializer_shift_reg[4]), .A3(n858), 
+        .A4(EscBit), .A5(n864), .Y(n566) );
+  AND3X1_LVT U1224 ( .A1(esc_deserializer_bit_count[2]), .A2(
+        esc_deserializer_bit_count[0]), .A3(n861), .Y(n862) );
+  AO221X1_LVT U1225 ( .A1(esc_deserializer_shift_reg[5]), .A2(n863), .A3(
+        esc_deserializer_shift_reg[5]), .A4(esc_deserializer_N52), .A5(n862), 
+        .Y(n565) );
+  AND4X1_LVT U1226 ( .A1(EscDeserEn_sync), .A2(esc_deserializer_bit_count[2]), 
+        .A3(esc_deserializer_bit_count[1]), .A4(esc_deserializer_bit_count[0]), 
+        .Y(n1052) );
+  AO22X1_LVT U1227 ( .A1(n1052), .A2(esc_deserializer_shift_reg[0]), .A3(
+        RxEscData[0]), .A4(n864), .Y(n563) );
+  AO22X1_LVT U1228 ( .A1(n1052), .A2(esc_deserializer_shift_reg[1]), .A3(
+        RxEscData[1]), .A4(n864), .Y(n562) );
+  AO22X1_LVT U1229 ( .A1(n1052), .A2(esc_deserializer_shift_reg[2]), .A3(
+        RxEscData[2]), .A4(n864), .Y(n561) );
+  AO22X1_LVT U1230 ( .A1(n1052), .A2(esc_deserializer_shift_reg[3]), .A3(
+        RxEscData[3]), .A4(n864), .Y(n560) );
+  AO22X1_LVT U1231 ( .A1(n1052), .A2(esc_deserializer_shift_reg[4]), .A3(
+        RxEscData[4]), .A4(n864), .Y(n559) );
+  AO22X1_LVT U1232 ( .A1(n1052), .A2(esc_deserializer_shift_reg[5]), .A3(
+        RxEscData[5]), .A4(n864), .Y(n558) );
+  AO22X1_LVT U1233 ( .A1(n1052), .A2(esc_deserializer_shift_reg[6]), .A3(
+        RxEscData[6]), .A4(n864), .Y(n557) );
+  AO22X1_LVT U1234 ( .A1(n1052), .A2(EscBit), .A3(RxEscData[7]), .A4(n864), 
+        .Y(n556) );
+  NAND4X0_LVT U1235 ( .A1(hs_deserializer_counter[0]), .A2(
+        hs_deserializer_counter[2]), .A3(HSDeserEn_sync), .A4(n1099), .Y(n866)
+         );
+  INVX1_LVT U1236 ( .A(n866), .Y(n867) );
+  AO22X1_LVT U1237 ( .A1(n867), .A2(RxSymbol[0]), .A3(n866), .A4(
+        hs_deserializer_temp_polarity[5]), .Y(n555) );
+  NAND4X0_LVT U1238 ( .A1(hs_deserializer_counter[2]), .A2(HSDeserEn_sync), 
+        .A3(hs_deserializer_counter[1]), .A4(n1073), .Y(n865) );
+  INVX1_LVT U1239 ( .A(n865), .Y(n877) );
+  AO22X1_LVT U1240 ( .A1(n877), .A2(hs_deserializer_temp_polarity[5]), .A3(
+        n865), .A4(InRxPolarity[5]), .Y(n554) );
+  AND2X1_LVT U1241 ( .A1(HSDeserEn_sync), .A2(n1099), .Y(n1049) );
+  NAND3X0_LVT U1242 ( .A1(hs_deserializer_counter[2]), .A2(n1049), .A3(n1073), 
+        .Y(n868) );
+  INVX1_LVT U1243 ( .A(n868), .Y(n869) );
+  AO22X1_LVT U1244 ( .A1(n869), .A2(RxSymbol[0]), .A3(n868), .A4(
+        hs_deserializer_temp_polarity[4]), .Y(n553) );
+  AO22X1_LVT U1245 ( .A1(n877), .A2(hs_deserializer_temp_polarity[4]), .A3(
+        n865), .A4(InRxPolarity[4]), .Y(n552) );
+  NAND4X0_LVT U1246 ( .A1(hs_deserializer_counter[0]), .A2(HSDeserEn_sync), 
+        .A3(hs_deserializer_counter[1]), .A4(n1100), .Y(n870) );
+  INVX1_LVT U1247 ( .A(n870), .Y(n1050) );
+  AO22X1_LVT U1248 ( .A1(n1050), .A2(RxSymbol[0]), .A3(n870), .A4(
+        hs_deserializer_temp_polarity[3]), .Y(n551) );
+  AO22X1_LVT U1249 ( .A1(n877), .A2(hs_deserializer_temp_polarity[3]), .A3(
+        n865), .A4(InRxPolarity[3]), .Y(n550) );
+  NAND4X0_LVT U1250 ( .A1(HSDeserEn_sync), .A2(hs_deserializer_counter[1]), 
+        .A3(n1100), .A4(n1073), .Y(n871) );
+  INVX1_LVT U1251 ( .A(n871), .Y(n872) );
+  AO22X1_LVT U1252 ( .A1(n872), .A2(RxSymbol[0]), .A3(n871), .A4(
+        hs_deserializer_temp_polarity[2]), .Y(n549) );
+  AO22X1_LVT U1253 ( .A1(n877), .A2(hs_deserializer_temp_polarity[2]), .A3(
+        n865), .A4(InRxPolarity[2]), .Y(n548) );
+  NAND3X0_LVT U1254 ( .A1(hs_deserializer_counter[0]), .A2(n1049), .A3(n1100), 
+        .Y(n873) );
+  INVX1_LVT U1255 ( .A(n873), .Y(n874) );
+  AO22X1_LVT U1256 ( .A1(n874), .A2(RxSymbol[0]), .A3(n873), .A4(
+        hs_deserializer_temp_polarity[1]), .Y(n547) );
+  AO22X1_LVT U1257 ( .A1(n877), .A2(hs_deserializer_temp_polarity[1]), .A3(
+        n865), .A4(InRxPolarity[1]), .Y(n546) );
+  NAND3X0_LVT U1258 ( .A1(n1049), .A2(n1100), .A3(n1073), .Y(n875) );
+  AO22X1_LVT U1259 ( .A1(n876), .A2(RxSymbol[0]), .A3(n875), .A4(
+        hs_deserializer_temp_polarity[0]), .Y(n545) );
+  AO22X1_LVT U1260 ( .A1(n877), .A2(hs_deserializer_temp_polarity[0]), .A3(
+        n865), .A4(InRxPolarity[0]), .Y(n544) );
+  AO22X1_LVT U1261 ( .A1(n877), .A2(RxSymbol[0]), .A3(n865), .A4(
+        InRxPolarity[6]), .Y(n543) );
+  AO22X1_LVT U1262 ( .A1(n867), .A2(RxSymbol[1]), .A3(n866), .A4(
+        hs_deserializer_temp_rotation[5]), .Y(n542) );
+  AO22X1_LVT U1263 ( .A1(n877), .A2(hs_deserializer_temp_rotation[5]), .A3(
+        n865), .A4(InRxRotation[5]), .Y(n541) );
+  AO22X1_LVT U1264 ( .A1(n869), .A2(RxSymbol[1]), .A3(n868), .A4(
+        hs_deserializer_temp_rotation[4]), .Y(n540) );
+  AO22X1_LVT U1265 ( .A1(n877), .A2(hs_deserializer_temp_rotation[4]), .A3(
+        n865), .A4(InRxRotation[4]), .Y(n539) );
+  AO22X1_LVT U1266 ( .A1(n1050), .A2(RxSymbol[1]), .A3(n870), .A4(
+        hs_deserializer_temp_rotation[3]), .Y(n538) );
+  AO22X1_LVT U1267 ( .A1(n877), .A2(hs_deserializer_temp_rotation[3]), .A3(
+        n865), .A4(InRxRotation[3]), .Y(n537) );
+  AO22X1_LVT U1268 ( .A1(n872), .A2(RxSymbol[1]), .A3(n871), .A4(
+        hs_deserializer_temp_rotation[2]), .Y(n536) );
+  AO22X1_LVT U1269 ( .A1(n877), .A2(hs_deserializer_temp_rotation[2]), .A3(
+        n865), .A4(InRxRotation[2]), .Y(n535) );
+  AO22X1_LVT U1270 ( .A1(n874), .A2(RxSymbol[1]), .A3(n873), .A4(
+        hs_deserializer_temp_rotation[1]), .Y(n534) );
+  AO22X1_LVT U1271 ( .A1(n877), .A2(hs_deserializer_temp_rotation[1]), .A3(
+        n865), .A4(InRxRotation[1]), .Y(n533) );
+  AO22X1_LVT U1272 ( .A1(n876), .A2(RxSymbol[1]), .A3(n875), .A4(
+        hs_deserializer_temp_rotation[0]), .Y(n532) );
+  AO22X1_LVT U1273 ( .A1(n877), .A2(hs_deserializer_temp_rotation[0]), .A3(
+        n865), .A4(InRxRotation[0]), .Y(n531) );
+  AO22X1_LVT U1274 ( .A1(n877), .A2(RxSymbol[1]), .A3(n865), .A4(
+        InRxRotation[6]), .Y(n530) );
+  AO22X1_LVT U1275 ( .A1(n867), .A2(RxSymbol[2]), .A3(n866), .A4(
+        hs_deserializer_temp_flip[5]), .Y(n529) );
+  AO22X1_LVT U1276 ( .A1(n877), .A2(hs_deserializer_temp_flip[5]), .A3(n865), 
+        .A4(InRxFlip[5]), .Y(n528) );
+  AO22X1_LVT U1277 ( .A1(n869), .A2(RxSymbol[2]), .A3(n868), .A4(
+        hs_deserializer_temp_flip[4]), .Y(n527) );
+  AO22X1_LVT U1278 ( .A1(n877), .A2(hs_deserializer_temp_flip[4]), .A3(n865), 
+        .A4(InRxFlip[4]), .Y(n526) );
+  AO22X1_LVT U1279 ( .A1(n1050), .A2(RxSymbol[2]), .A3(n870), .A4(
+        hs_deserializer_temp_flip[3]), .Y(n525) );
+  AO22X1_LVT U1280 ( .A1(n877), .A2(hs_deserializer_temp_flip[3]), .A3(n865), 
+        .A4(InRxFlip[3]), .Y(n524) );
+  AO22X1_LVT U1281 ( .A1(n872), .A2(RxSymbol[2]), .A3(n871), .A4(
+        hs_deserializer_temp_flip[2]), .Y(n523) );
+  AO22X1_LVT U1282 ( .A1(n877), .A2(hs_deserializer_temp_flip[2]), .A3(n865), 
+        .A4(InRxFlip[2]), .Y(n522) );
+  AO22X1_LVT U1283 ( .A1(n874), .A2(RxSymbol[2]), .A3(n873), .A4(
+        hs_deserializer_temp_flip[1]), .Y(n521) );
+  AO22X1_LVT U1284 ( .A1(n877), .A2(hs_deserializer_temp_flip[1]), .A3(n865), 
+        .A4(InRxFlip[1]), .Y(n520) );
+  AO22X1_LVT U1285 ( .A1(n876), .A2(RxSymbol[2]), .A3(n875), .A4(
+        hs_deserializer_temp_flip[0]), .Y(n519) );
+  AO22X1_LVT U1286 ( .A1(n877), .A2(hs_deserializer_temp_flip[0]), .A3(n865), 
+        .A4(InRxFlip[0]), .Y(n518) );
+  AO22X1_LVT U1287 ( .A1(n877), .A2(RxSymbol[2]), .A3(n865), .A4(InRxFlip[6]), 
+        .Y(n517) );
+  OA221X1_LVT U1288 ( .A1(RxFlip[6]), .A2(demapper_inst_most_five), .A3(n1062), 
+        .A4(RxFlip[4]), .A5(n1080), .Y(n516) );
+  NOR3X0_LVT U1289 ( .A1(DetectedSeq_sync[2]), .A2(DetectedSeq_sync[0]), .A3(
+        n1112), .Y(RxSyncHS) );
+  OR3X1_LVT U1290 ( .A1(sync_TxTriggerEsc_sync_reg1[3]), .A2(
+        sync_TxTriggerEsc_sync_reg1[2]), .A3(sync_TxTriggerEsc_sync_reg1[0]), 
+        .Y(n878) );
+  OR3X1_LVT U1291 ( .A1(sync_TxLpdtEsc_sync_reg1_0_), .A2(
+        sync_TxTriggerEsc_sync_reg1[1]), .A3(n878), .Y(n1141) );
+  OAI21X1_LVT U1292 ( .A1(sync_TxUlpsEsc_sync_reg1_0_), .A2(n1141), .A3(
+        sync_CmdDone_sync_reg1_0_), .Y(n1140) );
+  AO22X1_LVT U1293 ( .A1(n906), .A2(TxLpdtEsc_sync), .A3(
+        slave_fsm_inst_LPDT_Count_Done), .A4(n879), .Y(n913) );
+  NAND3X0_LVT U1294 ( .A1(RxValidHS), .A2(DetectedSeq_sync[2]), .A3(n1112), 
+        .Y(n881) );
+  NAND3X0_LVT U1295 ( .A1(slave_fsm_inst_currentState[1]), .A2(n587), .A3(
+        n1063), .Y(n880) );
+  NAND2X0_LVT U1296 ( .A1(n916), .A2(slave_fsm_inst_TxTimeOut), .Y(n922) );
+  OA22X1_LVT U1297 ( .A1(DetectedSeq_sync[0]), .A2(n881), .A3(n880), .A4(n922), 
+        .Y(n889) );
+  NAND2X0_LVT U1298 ( .A1(CtrlDecoderOut_sync[1]), .A2(n1113), .Y(n955) );
+  OA22X1_LVT U1299 ( .A1(n920), .A2(n955), .A3(n903), .A4(n1113), .Y(n883) );
+  NAND4X0_LVT U1300 ( .A1(n587), .A2(n934), .A3(n1063), .A4(n1057), .Y(n931)
+         );
+  OA22X1_LVT U1301 ( .A1(slave_fsm_inst_TxTimeOut), .A2(n985), .A3(
+        TxReqEsc_sync), .A4(n931), .Y(n882) );
+  AND2X1_LVT U1302 ( .A1(n883), .A2(n882), .Y(n886) );
+  OR2X1_LVT U1303 ( .A1(n884), .A2(slave_fsm_inst_LPDT_Count_Done), .Y(n885)
+         );
+  AND2X1_LVT U1304 ( .A1(n886), .A2(n885), .Y(n888) );
+  AND2X1_LVT U1305 ( .A1(slave_fsm_inst_TxTimeOut), .A2(TxReqEsc_sync), .Y(
+        n950) );
+  NAND2X0_LVT U1306 ( .A1(TurnRequest), .A2(n887), .Y(n982) );
+  NAND4X0_LVT U1307 ( .A1(n916), .A2(n970), .A3(n950), .A4(n982), .Y(n918) );
+  NAND4X0_LVT U1308 ( .A1(n889), .A2(n888), .A3(n964), .A4(n918), .Y(n911) );
+  NAND2X0_LVT U1309 ( .A1(CtrlDecoderOut_sync[0]), .A2(CtrlDecoderOut_sync[1]), 
+        .Y(n1003) );
+  AO21X1_LVT U1310 ( .A1(CtrlDecoderOut_sync[1]), .A2(TurnDisable), .A3(n1113), 
+        .Y(n989) );
+  OA22X1_LVT U1311 ( .A1(n991), .A2(n1004), .A3(n890), .A4(n990), .Y(n930) );
+  NAND3X0_LVT U1312 ( .A1(n970), .A2(n916), .A3(slave_fsm_inst_TxTimeOut), .Y(
+        n891) );
+  OA22X1_LVT U1313 ( .A1(TxUlpsExit_sync), .A2(n921), .A3(n982), .A4(n891), 
+        .Y(n898) );
+  NAND2X0_LVT U1314 ( .A1(n587), .A2(slave_fsm_inst_currentState[0]), .Y(n892)
+         );
+  OR2X1_LVT U1315 ( .A1(n893), .A2(n892), .Y(n894) );
+  AO21X1_LVT U1316 ( .A1(n1113), .A2(n1082), .A3(n894), .Y(n933) );
+  OR2X1_LVT U1317 ( .A1(ErrSotSyncHS), .A2(RxSyncHS), .Y(n923) );
+  OA22X1_LVT U1318 ( .A1(n1057), .A2(n933), .A3(n895), .A4(n923), .Y(n897) );
+  INVX0_LVT U1319 ( .A(n1006), .Y(n927) );
+  NAND2X0_LVT U1320 ( .A1(n927), .A2(RxUlpsEsc), .Y(n896) );
+  AND4X1_LVT U1321 ( .A1(n930), .A2(n898), .A3(n897), .A4(n896), .Y(n977) );
+  OA22X1_LVT U1322 ( .A1(LpFsmStop_sync), .A2(n899), .A3(n997), .A4(n1143), 
+        .Y(n900) );
+  OA221X1_LVT U1323 ( .A1(slave_fsm_inst_RxTimeOut), .A2(n902), .A3(n1083), 
+        .A4(n901), .A5(n900), .Y(n909) );
+  NAND4X0_LVT U1324 ( .A1(slave_fsm_inst_currentState[1]), .A2(n587), .A3(n934), .A4(n1063), .Y(n972) );
+  OA221X1_LVT U1325 ( .A1(CtrlDecoderOut_sync[0]), .A2(n904), .A3(n1113), .A4(
+        n972), .A5(n903), .Y(n905) );
+  OA22X1_LVT U1326 ( .A1(n905), .A2(n1082), .A3(n1006), .A4(n1119), .Y(n908)
+         );
+  NAND2X0_LVT U1327 ( .A1(n906), .A2(n1144), .Y(n984) );
+  AND4X1_LVT U1328 ( .A1(n981), .A2(n984), .A3(n948), .A4(n915), .Y(n907) );
+  NAND4X0_LVT U1329 ( .A1(n977), .A2(n909), .A3(n908), .A4(n907), .Y(n910) );
+  OR2X1_LVT U1330 ( .A1(n911), .A2(n910), .Y(n912) );
+  AO21X1_LVT U1331 ( .A1(n1115), .A2(n913), .A3(n912), .Y(n914) );
+  AO22X1_LVT U1332 ( .A1(Enable), .A2(n914), .A3(n1015), .A4(
+        slave_fsm_inst_currentState[0]), .Y(n515) );
+  AND2X1_LVT U1333 ( .A1(n915), .A2(Enable), .Y(n1002) );
+  INVX0_LVT U1334 ( .A(n990), .Y(n946) );
+  NAND3X0_LVT U1335 ( .A1(n587), .A2(n916), .A3(n1063), .Y(n919) );
+  NAND4X0_LVT U1336 ( .A1(n925), .A2(n991), .A3(n1057), .A4(n1063), .Y(n917)
+         );
+  NAND4X0_LVT U1337 ( .A1(n920), .A2(n919), .A3(n918), .A4(n917), .Y(n944) );
+  OA22X1_LVT U1338 ( .A1(n951), .A2(n922), .A3(n921), .A4(n1117), .Y(n929) );
+  NAND3X0_LVT U1339 ( .A1(n925), .A2(n924), .A3(n923), .Y(n928) );
+  OR3X1_LVT U1340 ( .A1(ErrEsc), .A2(RxTriggerEsc[0]), .A3(RxLpdtEsc), .Y(n926) );
+  NAND2X0_LVT U1341 ( .A1(n1116), .A2(n926), .Y(n1005) );
+  NAND2X0_LVT U1342 ( .A1(n927), .A2(n1005), .Y(n987) );
+  AND4X1_LVT U1343 ( .A1(n930), .A2(n929), .A3(n928), .A4(n987), .Y(n942) );
+  OR2X1_LVT U1344 ( .A1(n1114), .A2(n931), .Y(n932) );
+  AND4X1_LVT U1345 ( .A1(n933), .A2(n972), .A3(n948), .A4(n932), .Y(n1000) );
+  AND2X1_LVT U1346 ( .A1(n984), .A2(n1000), .Y(n938) );
+  NAND2X0_LVT U1347 ( .A1(n970), .A2(n934), .Y(n958) );
+  OA221X1_LVT U1348 ( .A1(n935), .A2(slave_fsm_inst_LPDT_Count_Done), .A3(n935), .A4(n1115), .A5(n958), .Y(n936) );
+  OR2X1_LVT U1349 ( .A1(n936), .A2(TxReqEsc_sync), .Y(n937) );
+  AND2X1_LVT U1350 ( .A1(n938), .A2(n937), .Y(n941) );
+  NAND4X0_LVT U1351 ( .A1(n942), .A2(n941), .A3(n940), .A4(n939), .Y(n943) );
+  OR2X1_LVT U1352 ( .A1(n944), .A2(n943), .Y(n945) );
+  AO21X1_LVT U1353 ( .A1(n946), .A2(n1082), .A3(n945), .Y(n947) );
+  AO22X1_LVT U1354 ( .A1(n587), .A2(n1015), .A3(n1002), .A4(n947), .Y(n514) );
+  AND2X1_LVT U1355 ( .A1(n1002), .A2(n948), .Y(n1014) );
+  OA22X1_LVT U1356 ( .A1(slave_fsm_inst_TxTimeOut), .A2(n951), .A3(n950), .A4(
+        n949), .Y(n954) );
+  NAND2X0_LVT U1357 ( .A1(n1142), .A2(n1063), .Y(n952) );
+  NAND3X0_LVT U1358 ( .A1(slave_fsm_inst_TxTimeOut), .A2(n1057), .A3(n952), 
+        .Y(n953) );
+  OA221X1_LVT U1359 ( .A1(n980), .A2(n954), .A3(n980), .A4(n953), .A5(n984), 
+        .Y(n976) );
+  NAND3X0_LVT U1360 ( .A1(n957), .A2(n956), .A3(n955), .Y(n960) );
+  OA22X1_LVT U1361 ( .A1(RxLpdtEsc), .A2(n1006), .A3(n958), .A4(n1114), .Y(
+        n959) );
+  AND2X1_LVT U1362 ( .A1(n960), .A2(n959), .Y(n962) );
+  OR2X1_LVT U1363 ( .A1(n997), .A2(TxLpdtEsc_sync), .Y(n961) );
+  AND2X1_LVT U1364 ( .A1(n962), .A2(n961), .Y(n975) );
+  OA21X1_LVT U1365 ( .A1(slave_fsm_inst_RxTimeOut), .A2(n964), .A3(n963), .Y(
+        n994) );
+  OA21X1_LVT U1366 ( .A1(n587), .A2(n1113), .A3(n1057), .Y(n967) );
+  OA22X1_LVT U1367 ( .A1(n967), .A2(n966), .A3(n965), .A4(n980), .Y(n968) );
+  OA22X1_LVT U1368 ( .A1(n969), .A2(n1083), .A3(slave_fsm_inst_currentState[0]), .A4(n968), .Y(n973) );
+  NAND4X0_LVT U1369 ( .A1(n970), .A2(n1081), .A3(n1064), .A4(n1118), .Y(n971)
+         );
+  AND4X1_LVT U1370 ( .A1(n994), .A2(n973), .A3(n972), .A4(n971), .Y(n974) );
+  NAND4X0_LVT U1371 ( .A1(n977), .A2(n976), .A3(n975), .A4(n974), .Y(n978) );
+  AO22X1_LVT U1372 ( .A1(slave_fsm_inst_currentState[1]), .A2(n1015), .A3(
+        n1014), .A4(n978), .Y(n513) );
+  OA22X1_LVT U1373 ( .A1(slave_fsm_inst_TxTimeOut), .A2(n996), .A3(n980), .A4(
+        n979), .Y(n986) );
+  AO21X1_LVT U1374 ( .A1(n982), .A2(n1114), .A3(n981), .Y(n983) );
+  AND4X1_LVT U1375 ( .A1(n986), .A2(n985), .A3(n984), .A4(n983), .Y(n1012) );
+  OA21X1_LVT U1376 ( .A1(slave_fsm_inst_currentState[1]), .A2(n988), .A3(n987), 
+        .Y(n993) );
+  OA22X1_LVT U1377 ( .A1(n991), .A2(n1004), .A3(n990), .A4(n989), .Y(n992) );
+  NAND4X0_LVT U1378 ( .A1(n994), .A2(n1012), .A3(n993), .A4(n992), .Y(n995) );
+  AO22X1_LVT U1379 ( .A1(slave_fsm_inst_currentState[3]), .A2(n1015), .A3(
+        n1014), .A4(n995), .Y(n512) );
+  OA22X1_LVT U1380 ( .A1(n997), .A2(n1144), .A3(n1120), .A4(n996), .Y(n999) );
+  NAND3X0_LVT U1381 ( .A1(n1000), .A2(n999), .A3(n998), .Y(n1001) );
+  AO22X1_LVT U1382 ( .A1(slave_fsm_inst_currentState[5]), .A2(n1015), .A3(
+        n1002), .A4(n1001), .Y(n511) );
+  OA22X1_LVT U1383 ( .A1(n1006), .A2(n1005), .A3(n1004), .A4(n1003), .Y(n1011)
+         );
+  NAND2X0_LVT U1384 ( .A1(slave_fsm_inst_currentState[1]), .A2(
+        slave_fsm_inst_currentState[0]), .Y(n1007) );
+  NAND4X0_LVT U1385 ( .A1(n1008), .A2(n1142), .A3(n1007), .A4(n1118), .Y(n1009) );
+  NAND4X0_LVT U1386 ( .A1(n1012), .A2(n1011), .A3(n1010), .A4(n1009), .Y(n1013) );
+  AO22X1_LVT U1387 ( .A1(slave_fsm_inst_currentState[4]), .A2(n1015), .A3(
+        n1014), .A4(n1013), .Y(n510) );
+  NAND3X0_LVT U1388 ( .A1(n1096), .A2(n1068), .A3(n1059), .Y(n1019) );
+  INVX1_LVT U1389 ( .A(n1019), .Y(n1043) );
+  NAND2X0_LVT U1390 ( .A1(n1045), .A2(n1044), .Y(n1016) );
+  OA21X1_LVT U1391 ( .A1(n1018), .A2(n1017), .A3(n1016), .Y(n1034) );
+  NAND2X0_LVT U1392 ( .A1(sequence_detector_state[0]), .A2(n1096), .Y(n1020)
+         );
+  OA22X1_LVT U1393 ( .A1(n1021), .A2(n1020), .A3(n1039), .A4(n1019), .Y(n1024)
+         );
+  NAND2X0_LVT U1394 ( .A1(n1023), .A2(n1022), .Y(n1038) );
+  NAND3X0_LVT U1395 ( .A1(sequence_detector_state[0]), .A2(n1042), .A3(n1059), 
+        .Y(n1037) );
+  NAND4X0_LVT U1396 ( .A1(n1034), .A2(n1024), .A3(n1038), .A4(n1037), .Y(n1029) );
+  AND2X1_LVT U1397 ( .A1(n1094), .A2(n1029), .Y(n1031) );
+  OR2X1_LVT U1398 ( .A1(n1031), .A2(DetectedSeq[0]), .Y(n1025) );
+  AO21X1_LVT U1399 ( .A1(n1043), .A2(n1039), .A3(n1025), .Y(n1026) );
+  AO22X1_LVT U1400 ( .A1(HsSeqDetectorEn_sync), .A2(n1026), .A3(n1101), .A4(
+        sequence_detector_symbol_count[0]), .Y(n509) );
+  AND4X1_LVT U1401 ( .A1(sequence_detector_symbol_count[1]), .A2(
+        sequence_detector_symbol_count[0]), .A3(
+        sequence_detector_symbol_count[2]), .A4(n1029), .Y(n1028) );
+  NAND3X0_LVT U1402 ( .A1(sequence_detector_symbol_count[0]), .A2(
+        sequence_detector_symbol_count[1]), .A3(
+        sequence_detector_symbol_count[2]), .Y(n1027) );
+  AO21X1_LVT U1403 ( .A1(n1029), .A2(n1027), .A3(n1101), .Y(n1032) );
+  OA222X1_LVT U1404 ( .A1(sequence_detector_symbol_count[3]), .A2(
+        HsSeqDetectorEn_sync), .A3(sequence_detector_symbol_count[3]), .A4(
+        n1028), .A5(n1069), .A6(n1032), .Y(n508) );
+  AND3X1_LVT U1405 ( .A1(sequence_detector_symbol_count[0]), .A2(
+        HsSeqDetectorEn_sync), .A3(n1029), .Y(n1030) );
+  AO222X1_LVT U1406 ( .A1(sequence_detector_symbol_count[1]), .A2(n1031), .A3(
+        sequence_detector_symbol_count[1]), .A4(n1101), .A5(n1030), .A6(n1060), 
+        .Y(n507) );
+  AND2X1_LVT U1407 ( .A1(HsSeqDetectorEn_sync), .A2(
+        sequence_detector_symbol_count[0]), .Y(n1033) );
+  OA221X1_LVT U1408 ( .A1(sequence_detector_symbol_count[2]), .A2(
+        sequence_detector_symbol_count[1]), .A3(
+        sequence_detector_symbol_count[2]), .A4(n1033), .A5(n1032), .Y(n506)
+         );
+  NAND3X0_LVT U1409 ( .A1(n1045), .A2(sequence_detector_state[0]), .A3(n1059), 
+        .Y(n1035) );
+  NAND2X0_LVT U1410 ( .A1(n1035), .A2(n1034), .Y(n1036) );
+  AO22X1_LVT U1411 ( .A1(HsSeqDetectorEn_sync), .A2(n1036), .A3(n1101), .A4(
+        sequence_detector_state[2]), .Y(n505) );
+  INVX1_LVT U1412 ( .A(n1037), .Y(n1046) );
+  AO22X1_LVT U1413 ( .A1(n1045), .A2(n1043), .A3(n1040), .A4(n1039), .Y(n1041)
+         );
+  AO222X1_LVT U1414 ( .A1(HsSeqDetectorEn_sync), .A2(n1046), .A3(
+        HsSeqDetectorEn_sync), .A4(n1041), .A5(sequence_detector_state[1]), 
+        .A6(n1101), .Y(n504) );
+  AO22X1_LVT U1415 ( .A1(n1045), .A2(n1044), .A3(n1043), .A4(n1042), .Y(n1047)
+         );
+  AO221X1_LVT U1416 ( .A1(HsSeqDetectorEn_sync), .A2(n1047), .A3(n1101), .A4(
+        sequence_detector_state[0]), .A5(n1046), .Y(n503) );
+  OAI221X1_LVT U1417 ( .A1(hs_deserializer_counter[0]), .A2(
+        hs_deserializer_counter[2]), .A3(hs_deserializer_counter[0]), .A4(
+        hs_deserializer_counter[1]), .A5(HSDeserEn_sync), .Y(n1048) );
+  OA21X1_LVT U1418 ( .A1(hs_deserializer_counter[0]), .A2(HSDeserEn_sync), 
+        .A3(n1048), .Y(n502) );
+  AO22X1_LVT U1419 ( .A1(hs_deserializer_counter[0]), .A2(n1049), .A3(
+        hs_deserializer_counter[1]), .A4(n1048), .Y(n501) );
+  NAND2X0_LVT U1420 ( .A1(HSDeserEn_sync), .A2(hs_deserializer_counter[1]), 
+        .Y(n1051) );
+  AO21X1_LVT U1421 ( .A1(hs_deserializer_counter[2]), .A2(n1051), .A3(n1050), 
+        .Y(n500) );
+  AO21X1_LVT U1422 ( .A1(InRxValidEsc), .A2(n1130), .A3(n1052), .Y(n499) );
+endmodule

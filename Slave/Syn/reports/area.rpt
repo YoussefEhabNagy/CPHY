@@ -1,0 +1,45 @@
+ 
+****************************************
+Report : area
+Design : slave
+Version: V-2023.12-SP5-1
+Date   : Tue Jun  3 02:24:58 2025
+****************************************
+
+Library(s) Used:
+
+    saed32lvt_ff1p16v25c (File: /home/tools/PDK/SAED32_EDK/lib/stdcell_lvt/db_ccs/saed32lvt_ff1p16v25c.db)
+
+Number of ports:                           92
+Number of nets:                          1106
+Number of cells:                          980
+Number of combinational cells:            694
+Number of sequential cells:               280
+Number of macros/black boxes:               0
+Number of buf/inv:                         81
+Number of references:                      34
+
+Combinational area:               1495.129171
+Buf/Inv area:                      104.453185
+Noncombinational area:            1997.571868
+Macro/Black Box area:                0.000000
+Net Interconnect area:             921.071669
+
+Total cell area:                  3492.701039
+Total area:                       4413.772708
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  -----------------
+slave                             3492.7010    100.0  1470.9855  1954.1132  0.0000  slave
+clk_recovery_lp                      4.3204      0.1     4.3204     0.0000  0.0000  Clock_Recovery_LP
+wordclk                             63.2819      1.8    19.8232    43.4586  0.0000  Word_Clock_Gen
+--------------------------------  ---------  -------  ---------  ---------  ------  -----------------
+Total                                                 1495.1292  1997.5719  0.0000
+
+1

@@ -1,0 +1,2087 @@
+Warning: Design 'slave' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 18:52:35 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     27
+    Multiply driven inputs (LINT-6)                                 1
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               13
+    Unloaded nets (LINT-2)                                         12
+    Multiply driven net with constant driver (LINT-54)              1
+
+Tristate                                                            2
+    A tristate bus has a non tri-state driver (LINT-34)             2
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', input port 'RecoveredClk' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'slave', three-state bus 'HsSettleExp' has non three-state driver 'slave_fsm_inst/C1516/Z_0'. (LINT-34)
+Warning: In design 'slave', three-state bus '*Logic0*' has non three-state driver 'U2/**logic_0**'. (LINT-34)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'slave', multiply-driven net '*Logic0*' is driven by constant 0. (LINT-54)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 20:00:42 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 21:37:49 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 21:42:20 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 21:59:57 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 22:12:28 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Sun Jun  1 22:57:35 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 03:09:07 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 03:16:19 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 10:15:12 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 10:18:09 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 10:23:12 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 10:25:47 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 10:52:34 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 10:54:45 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 11:01:55 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 11:06:25 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 11:51:31 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 11:55:21 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+Error: Current design is not defined. (UID-4)
+0
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 12:01:13 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 12:13:41 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 12:19:22 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 12:21:56 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Mon Jun  2 12:28:55 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C217' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2070' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2077' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Tue Jun  3 02:24:51 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     26
+    Feedthrough (LINT-29)                                          15
+    Shorted outputs (LINT-31)                                       6
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              23
+    Cells do not drive (LINT-1)                                    23
+
+Nets                                                               12
+    Unloaded nets (LINT-2)                                         12
+--------------------------------------------------------------------------------
+
+Warning: In design 'Word_Clock_Gen', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'Word_Clock_Gen', cell 'C66' does not drive any nets. (LINT-1)
+Warning: In design 'HS_Deserializer', cell 'C670' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Deserializer', cell 'C192' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C281' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Decoder', cell 'C282' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C408' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C424' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C427' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C444' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C451' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C453' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C454' does not drive any nets. (LINT-1)
+Warning: In design 'Sequence_Detector', cell 'C456' does not drive any nets. (LINT-1)
+Warning: In design 'Esc_Sequencer', cell 'C59' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C122' does not drive any nets. (LINT-1)
+Warning: In design 'ESC_Serializer', cell 'C123' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2065' does not drive any nets. (LINT-1)
+Warning: In design 'SlaveFSM', cell 'C2072' does not drive any nets. (LINT-1)
+Warning: In design 'RxTimer', cell 'C175' does not drive any nets. (LINT-1)
+Warning: In design 'TxTimer', cell 'C113' does not drive any nets. (LINT-1)
+Warning: In design 'slave', net 'RequestDetection_sync' driven by pin 'sync_RequestDetection/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqEn_sync' driven by pin 'sync_EscSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerEn_sync' driven by pin 'sync_EscSerEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSerSeqEn_sync' driven by pin 'sync_EscSerSeqEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderEn_sync' driven by pin 'sync_EscEncoderEn/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscEncoderDataValid_sync' driven by pin 'sync_EscEncoderDataValid/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[0]' driven by pin 'sync_TxCtrlOut/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'TxCtrlOut_sync[1]' driven by pin 'sync_TxCtrlOut/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[0]' driven by pin 'sync_EscSeqCtr/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[1]' driven by pin 'sync_EscSeqCtr/data_out[1]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'EscSeqCtr_sync[2]' driven by pin 'sync_EscSeqCtr/data_out[2]' has no loads. (LINT-2)
+Warning: In design 'slave', net 'HsSettleExp_sync' driven by pin 'sync_HsSettleExp/data_out[0]' has no loads. (LINT-2)
+Warning: In design 'SlaveFSM', input port 'LpCLK' is connected directly to output port 'RxClkEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'HsCLK' is connected directly to output port 'RxWordClkHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxValidEsc' is connected directly to output port 'RxValidEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[3]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[2]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[1]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxTriggerEsc[0]' is connected directly to output port 'RxTriggerEsc[0]'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxUlpsEsc' is connected directly to output port 'RxUlpsEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxLpdtEsc' is connected directly to output port 'RxLpdtEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrEsc' is connected directly to output port 'ErrEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSyncEsc' is connected directly to output port 'ErrSyncEsc'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrControl' is connected directly to output port 'ErrControl'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InRxInvalidCodeHS' is connected directly to output port 'RxInvalidCodeHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotHS' is connected directly to output port 'ErrSotHS'. (LINT-29)
+Warning: In design 'SlaveFSM', input port 'InErrSotSyncHS' is connected directly to output port 'ErrSotSyncHS'. (LINT-29)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[1]'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to output port 'RxTriggerEsc[2]'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'RxActiveHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HsRxEn' is connected directly to output port 'HsDecoderEn'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'HSDeserEn' is connected directly to output port 'RxValidHS'. (LINT-31)
+Warning: In design 'SlaveFSM', output port 'EscEncoderEn' is connected directly to output port 'LpCtrlEscSel'. (LINT-31)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Decoder', output port 'RxTriggerEsc[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Sequence_Detector', output port 'DetectedSeq[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Esc_Encoder', output port 'B' is connected directly to 'logic 0'. (LINT-52)
+1

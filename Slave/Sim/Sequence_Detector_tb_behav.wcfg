@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Sequence_Detector_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Sequence_Detector_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="614059fs"></ZoomStartTime>
+      <ZoomEndTime time="951189fs"></ZoomEndTime>
+      <Cursor1Time time="895000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="205"></NameColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/Sequence_Detector_tb/RxSymClkHs" type="logic">
+      <obj_property name="ElementShortName">RxSymClkHs</obj_property>
+      <obj_property name="ObjectShortName">RxSymClkHs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/RstN" type="logic">
+      <obj_property name="ElementShortName">RstN</obj_property>
+      <obj_property name="ObjectShortName">RstN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/RxSymbol" type="array">
+      <obj_property name="ElementShortName">RxSymbol[2:0]</obj_property>
+      <obj_property name="ObjectShortName">RxSymbol[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/DetectedSeq" type="array">
+      <obj_property name="ElementShortName">DetectedSeq[3:0]</obj_property>
+      <obj_property name="ObjectShortName">DetectedSeq[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/dut/symbol_count" type="array">
+      <obj_property name="ElementShortName">symbol_count[2:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol_count[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/dut/syncErr" type="logic">
+      <obj_property name="ElementShortName">syncErr</obj_property>
+      <obj_property name="ObjectShortName">syncErr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/dut/sotErr" type="logic">
+      <obj_property name="ElementShortName">sotErr</obj_property>
+      <obj_property name="ObjectShortName">sotErr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/dut/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/dut/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sequence_Detector_tb/dut/symbol_count" type="array">
+      <obj_property name="ElementShortName">symbol_count[2:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol_count[2:0]</obj_property>
+   </wvobject>
+</wave_config>
